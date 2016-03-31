@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SampleDatabase", "SampleDatabase\SampleDatabase.sqlproj", "{119436B8-A9C9-4DC7-9E39-A13F4412413A}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AppDatabase", "SampleDatabase\AppDatabase.sqlproj", "{119436B8-A9C9-4DC7-9E39-A13F4412413A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

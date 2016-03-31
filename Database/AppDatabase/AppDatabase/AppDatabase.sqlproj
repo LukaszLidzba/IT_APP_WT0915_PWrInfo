@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>SampleDatabase</Name>
+    <Name>AppDatabase</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{119436b8-a9c9-4dc7-9e39-a13f4412413a}</ProjectGuid>
@@ -63,10 +63,17 @@
     <Folder Include="deployment\1.0" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\User.sql" />
+    <Build Include="dbo\Users.sql" />
     <Build Include="init\init.sql" />
     <Build Include="init\initDb.sql" />
-    <Build Include="init\initUser.sql" />
+    <Build Include="init\initUsers.sql" />
+    <Build Include="dbo\Units.sql" />
+    <Build Include="dbo\Events.sql" />
+    <Build Include="dbo\Departments.sql" />
+    <Build Include="dbo\DeansOffices.sql" />
+    <Build Include="dbo\Libraries.sql" />
+    <Build Include="dbo\Messages.sql" />
+    <Build Include="init\initUnits.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="deployment\1.0\1.0.sql" />
