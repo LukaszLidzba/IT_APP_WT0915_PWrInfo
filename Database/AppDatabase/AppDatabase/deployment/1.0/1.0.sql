@@ -223,6 +223,31 @@ IF @@TRANCOUNT = 0
         BEGIN TRANSACTION;
     END
 
+GO
+PRINT N'Creating [dbo].[Tickets]...';
+
+
+GO
+
+CREATE TABLE [dbo].[Tickets]
+(
+	[TicketId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [Created] DATETIME2 NOT NULL
+);
+
+GO
+IF @@ERROR <> 0
+   AND @@TRANCOUNT > 0
+    BEGIN
+        ROLLBACK;
+    END
+
+IF @@TRANCOUNT = 0
+    BEGIN
+        INSERT  INTO #tmpErrors (Error)
+        VALUES                 (1);
+        BEGIN TRANSACTION;
+    END
 
 GO
 PRINT N'Creating [dbo].[Users]...';
@@ -233,6 +258,7 @@ CREATE TABLE [dbo].[Users] (
     [Id]      INT           IDENTITY (1, 1) NOT NULL,
     [Name]    VARCHAR (255) NOT NULL,
     [Surname] VARCHAR (255) NOT NULL,
+	[Login]	  VARCHAR(255) NOT NULL,
     [Pass]    VARCHAR (255) NOT NULL,
     [UnitId]  INT           NOT NULL,
     [IsAdmin] BIT           NOT NULL,
@@ -435,17 +461,18 @@ MERGE
 [Users] AS target
 USING
 ( VALUES
-	('admin','admin', 'qwer','1',1)
-) AS source ([name],[surname],[pass],[unitId],[isAdmin])
+	('admin','admin','admin', 'qwer','1',1)
+) AS source ([name],[surname],[login],[pass],[unitId],[isAdmin])
 ON
 	(target.[name] = source.[name] AND target.[surname] = source.[surname])
 WHEN MATCHED AND (source.pass != target.pass OR source.unitId != target.unitId OR source.isAdmin != target.isAdmin) THEN
 	UPDATE
 	SET [pass] = source.[pass],
+	[login] = source.[login],
 	 [unitId] = source.[unitId],
 	 [isAdmin] = source.[isAdmin]
 WHEN NOT MATCHED THEN
-	INSERT ([name], [surname], [pass], [unitId], [isAdmin]) values (source.[name],source.[surname], source.[pass],source.[unitId],source.[isAdmin]);
+	INSERT ([name], [surname], [login], [pass], [unitId], [isAdmin]) values (source.[name],source.[surname], source.[login], source.[pass],source.[unitId],source.[isAdmin]);
 GO
 IF @@ERROR <> 0
    AND @@TRANCOUNT > 0

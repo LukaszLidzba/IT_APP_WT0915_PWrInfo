@@ -3,6 +3,7 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [Name] VARCHAR(255) NOT NULL, 
     [Surname] VARCHAR(255) NOT NULL, 
+	[Login] VARCHAR(255) NOT NULL,
     [Pass] VARCHAR(255) NOT NULL, 
     [UnitId] INT NOT NULL, 
     [IsAdmin] BIT NOT NULL, 
