@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[DeansOffices]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
     [DepartmentId] INT NOT NULL, 
     [OpeningHours] VARCHAR(255) NULL, 
     [AdditionalInfo] VARCHAR(255) NULL, 

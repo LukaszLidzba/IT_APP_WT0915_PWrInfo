@@ -44,7 +44,7 @@ PRINT N'Creating [dbo].[DeansOffices]...';
 
 GO
 CREATE TABLE [dbo].[DeansOffices] (
-    [Id]             INT           NOT NULL,
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
     [DepartmentId]   INT           NOT NULL,
     [OpeningHours]   VARCHAR (255) NULL,
     [AdditionalInfo] VARCHAR (255) NULL,
