@@ -1,24 +1,25 @@
 ﻿using System.Runtime.Serialization;
+using Zedd.DataAccess;
 
 namespace Zedd.Dto
 {
   [DataContract]
-  public class DeansOfficeInfo
+  public class MessageInfo
   {
     [DataMember]
     public int Id { get; set; }
 
     [DataMember]
-    public Department Department { get; set; }
+    public string Title { get; set; }
 
     [DataMember]
-    public string OpeningHours { get; set; }
+    public string Content { get; set; }
 
     [DataMember]
-    public string AdditionalInfo { get; set; }
+    public Departments Department { get; set; }
 
     [DataMember]
-    public string Address { get; set; }
+    public bool Important { get; set; }
 
     [DataMember]
     public int UserId { get; set; }

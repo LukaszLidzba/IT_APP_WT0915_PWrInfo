@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 
 namespace Zedd
 {
@@ -13,5 +14,8 @@ namespace Zedd
     /// <returns>Ticket to authorize further actions</returns>
     [OperationContract]
     string Login(string loginName, string password);
+
+    [OperationContract]
+    void ProlongSession(Guid ticketId);
   }
 }

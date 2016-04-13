@@ -1,35 +1,74 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Security;
+using System.ServiceModel;
+using System.Web.Configuration;
+using Zedd.Commands;
 using Zedd.Dto;
 using Zedd.Queries;
 
 namespace Zedd
 {
-  // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "DataQueryService" in code, svc and config file together.
-  // NOTE: In order to launch WCF Test Client for testing this service, please select DataQueryService.svc or DataQueryService.svc.cs at the Solution Explorer and start debugging.
   public class DataQueryService : IDataQueryService
   {
     private readonly IDeansOfficeQuery _deansOfficeQuery;
+    private readonly ILoginQueryDao _loginQuery;
+    private readonly ISessionGenerator _sessionGenerator;
 
     public DataQueryService()
-      : this(null)
+      : this(null, null, null)
     {
     }
 
-    public DataQueryService(IDeansOfficeQuery deansOfficeQuery)
+    public DataQueryService(IDeansOfficeQuery deansOfficeQuery, ILoginQueryDao loginQuery, ISessionGenerator sessionGenerator)
     {
       _deansOfficeQuery = deansOfficeQuery ?? new DeansOfficeQuery();
+      _loginQuery = loginQuery ?? new LoginQueryDao();
+      _sessionGenerator = sessionGenerator ?? new SessionGenerator();
     }
 
-    public DeansOfficeInfo GetDeansOfficeInfo(int id)
+    public DeansOfficeInfo GetDeansOfficeInfo(int id, Guid ticket)
     {
-      DeansOfficeInfo deansOfficeInfo = _deansOfficeQuery.GetDeansOfficeById(id);
+      DeansOfficeInfo deansOfficeInfo;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        deansOfficeInfo = _deansOfficeQuery.GetDeansOfficeById(id);
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException(e.Message);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
 
       return deansOfficeInfo;
     }
 
-    public IList<DeansOfficeInfo> GetAllDeansOffices()
+    public IList<DeansOfficeInfo> GetAllDeansOffices(Guid ticket)
     {
-      IList<DeansOfficeInfo> deansOfficeInfo = _deansOfficeQuery.GetAllDeansOffices();
+      IList<DeansOfficeInfo> deansOfficeInfo;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        deansOfficeInfo = _deansOfficeQuery.GetAllDeansOffices();
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException<SecurityException>(e);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
 
       return deansOfficeInfo;
     }

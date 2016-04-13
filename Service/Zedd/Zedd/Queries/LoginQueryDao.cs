@@ -1,6 +1,7 @@
 using NHibernate.Linq;
 using System;
 using System.Linq;
+using System.Security;
 using Zedd.Commands;
 using Zedd.DataAccess;
 using Zedd.NHibernate;
@@ -29,6 +30,23 @@ namespace Zedd.Queries
       }
 
       return authenticationUser != null ? _sessionGenerator.GenerateSession() : Guid.Empty;
+    }
+
+    public void IsAuthenticated(Guid ticket)
+    {
+      Tickets record;
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (session.BeginTransaction())
+        {
+          record = session.Query<Tickets>().SingleOrDefault(x => x.TicketId == ticket && x.Created < DateTime.Now.AddMinutes(20));
+        }
+      }
+
+      if (record == null)
+      {
+        throw new SecurityException("Active ticket not found!");
+      }
     }
   }
 }

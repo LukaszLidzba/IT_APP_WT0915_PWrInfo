@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LoginService.svc" />
+    <Content Include="RestDataService.svc" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="DataQueryService.svc" />
@@ -107,9 +108,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\DeansOffices.cs" />
+    <Compile Include="DataAccess\Events.cs" />
+    <Compile Include="DataAccess\Libraries.cs" />
     <Compile Include="DataAccess\Mappings\DeansOfficesMap.cs" />
     <Compile Include="DataAccess\Departments.cs" />
     <Compile Include="DataAccess\Mappings\DepartmentsMap.cs" />
+    <Compile Include="DataAccess\Mappings\EventsMap.cs" />
+    <Compile Include="DataAccess\Mappings\LibrariesMap.cs" />
+    <Compile Include="DataAccess\Mappings\MessagesMap.cs" />
+    <Compile Include="DataAccess\Messages.cs" />
     <Compile Include="DataAccess\Tickets.cs" />
     <Compile Include="DataAccess\Mappings\TicketsMap.cs" />
     <Compile Include="DataAccess\Unit.cs" />
@@ -121,14 +128,24 @@
     </Compile>
     <Compile Include="Dto\DeansOfficeInfo.cs" />
     <Compile Include="Dto\Department.cs" />
+    <Compile Include="Dto\EventInfo.cs" />
+    <Compile Include="Dto\LibraryInfo.cs" />
+    <Compile Include="Dto\MessageInfo.cs" />
+    <Compile Include="Dto\UnitInfo.cs" />
+    <Compile Include="Dto\UserInfo.cs" />
     <Compile Include="IDataQueryService.cs" />
     <Compile Include="Commands\ILoginHandler.cs" />
+    <Compile Include="IRestDataService.cs" />
     <Compile Include="Queries\DeansOfficeQuery.cs" />
+    <Compile Include="Queries\EventsQueryDao.cs" />
     <Compile Include="Queries\IDeansOfficeQuery.cs" />
+    <Compile Include="Queries\IEventsQuery.cs" />
     <Compile Include="Queries\ILoginQueryDao.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="Commands\ISessionGenerator.cs" />
     <Compile Include="Commands\LoginHandler.cs" />
+    <Compile Include="Queries\ILibraryQuery.cs" />
+    <Compile Include="Queries\LibraryQueryDao.cs" />
     <Compile Include="Queries\LoginQueryDao.cs" />
     <Compile Include="LoginService.svc.cs">
       <DependentUpon>LoginService.svc</DependentUpon>
@@ -138,6 +155,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\SessionGenerator.cs" />
     <Compile Include="Exceptions\WrongPasswordException.cs" />
+    <Compile Include="Queries\IMessageQuery.cs" />
+    <Compile Include="Queries\IUnitQuery.cs" />
+    <Compile Include="Queries\MessageQueryDao.cs" />
+    <Compile Include="Queries\UnitQueryDao.cs" />
+    <Compile Include="RestDataService.svc.cs">
+      <DependentUpon>RestDataService.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

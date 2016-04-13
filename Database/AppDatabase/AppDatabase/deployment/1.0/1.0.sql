@@ -138,11 +138,11 @@ PRINT N'Creating [dbo].[Libraries]...';
 GO
 CREATE TABLE [dbo].[Libraries] (
     [Id]             INT           IDENTITY (1, 1) NOT NULL,
-    [Name]           NCHAR (10)    NULL,
-    [Address]        NCHAR (10)    NULL,
-    [OpeningHours]   NCHAR (10)    NULL,
-    [AdditionalInfo] NCHAR (10)    NULL,
-    [UserId]         NCHAR (10)    NOT NULL,
+    [Name]           varchar(255)    NULL,
+    [Address]        varchar(255)    NULL,
+    [OpeningHours]   varchar(255)   NULL,
+    [AdditionalInfo] varchar(4000)   NULL,
+    [UserId]         INT    NOT NULL,
     [Created]        DATETIME2 (7) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
@@ -170,10 +170,10 @@ PRINT N'Creating [dbo].[Messages]...';
 GO
 CREATE TABLE [dbo].[Messages] (
     [Id]           INT           IDENTITY (1, 1) NOT NULL,
-    [Title]        NCHAR (10)    NOT NULL,
-    [Content]      NCHAR (10)    NULL,
-    [DepartmentId] NCHAR (10)    NOT NULL,
-    [UserId]       NCHAR (10)    NOT NULL,
+    [Title]        varchar(255)    NOT NULL,
+    [Content]      varchar(4000)    NULL,
+    [DepartmentId] varchar(255)    NOT NULL,
+    [UserId]       INT    NOT NULL,
     [Important]    BIT           NULL,
     [Created]      DATETIME2 (7) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)

@@ -1,9 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace Zedd.Dto
 {
   [DataContract]
-  public class DeansOfficeInfo
+  public class EventInfo
   {
     [DataMember]
     public int Id { get; set; }
@@ -12,13 +13,16 @@ namespace Zedd.Dto
     public Department Department { get; set; }
 
     [DataMember]
-    public string OpeningHours { get; set; }
+    public string Title { get; set; }
 
     [DataMember]
-    public string AdditionalInfo { get; set; }
+    public string Content { get; set; }
 
     [DataMember]
-    public string Address { get; set; }
+    public string Date { get; set; }
+
+    [DataMember]
+    public string NotificationDate { get; set; }
 
     [DataMember]
     public int UserId { get; set; }

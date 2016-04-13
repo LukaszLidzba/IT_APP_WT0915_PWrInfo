@@ -40,5 +40,17 @@ namespace Zedd
 
       return token.ToString();
     }
+
+    public void ProlongSession(Guid ticketId)
+    {
+      try
+      {
+        _loginHandler.HandleProlongSession(ticketId);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(new FaultReason("Error during prolong session") + e.Message);
+      }
+    }
   }
 }

@@ -8,7 +8,7 @@ namespace Zedd.DataAccess.Mappings
     {
       Table("Tickets");
 
-      Id(x => x.TicketId);
+      Id(x => x.TicketId).GeneratedBy.Assigned();
       Map(x => x.Created).Not.Nullable();
     }
   }
