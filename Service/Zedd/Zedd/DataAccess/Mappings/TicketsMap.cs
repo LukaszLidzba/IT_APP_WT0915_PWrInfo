@@ -10,6 +10,7 @@ namespace Zedd.DataAccess.Mappings
 
       Id(x => x.TicketId).GeneratedBy.Assigned();
       Map(x => x.Created).Not.Nullable();
+      Map(x => x.UserId).Not.Nullable();
     }
   }
 }

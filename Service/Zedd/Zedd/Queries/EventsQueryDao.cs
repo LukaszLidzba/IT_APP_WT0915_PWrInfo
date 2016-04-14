@@ -11,14 +11,14 @@ namespace Zedd.Queries
 {
   public class EventsQueryDao : IEventsQuery
   {
-    public IList<EventInfo> GetEvents(int departmentId)
+    public IList<EventInfo> GetEventsInternal(int departmentId, bool all)
     {
       IList<EventInfo> result = null;
       using (var session = NHibernateHelper.OpenSession())
       {
         using (session.BeginTransaction())
         {
-          var eventsList = session.Query<Events>().Where(events => events.Department.Id == departmentId).ToList();
+          var eventsList = session.Query<Events>().Where(events => (events.Department.Id == departmentId) || all).ToList();
 
           if (!eventsList.IsEmpty())
           {
@@ -43,6 +43,16 @@ namespace Zedd.Queries
       }
 
       return result ?? new List<EventInfo>();
+    }
+
+    public IList<EventInfo> GetEvents(int departmentId)
+    {
+      return GetEventsInternal(departmentId, false);
+    }
+
+    public IList<EventInfo> GetAllEvents()
+    {
+      return GetEventsInternal(0, true);
     }
   }
 }

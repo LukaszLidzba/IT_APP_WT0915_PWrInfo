@@ -10,5 +10,7 @@ namespace Zedd.Queries
   public interface IMessageQuery
   {
     IList<MessageInfo> GetMessages(int departmentId);
+
+    IList<MessageInfo> GetAllMessages();
   }
 }

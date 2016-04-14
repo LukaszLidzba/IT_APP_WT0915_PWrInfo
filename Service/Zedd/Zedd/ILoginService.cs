@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using Zedd.Dto;
 
 namespace Zedd
 {
@@ -17,5 +18,8 @@ namespace Zedd
 
     [OperationContract]
     void ProlongSession(Guid ticketId);
+
+    [OperationContract]
+    UserInfo GetUser(Guid ticketId);
   }
 }

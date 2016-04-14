@@ -6,5 +6,6 @@ namespace Zedd.DataAccess
   {
     public virtual DateTime Created { get; set; }
     public virtual Guid TicketId { get; set; }
+    public virtual int UserId { get; set; }
   }
 }

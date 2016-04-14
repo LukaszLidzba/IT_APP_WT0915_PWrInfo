@@ -9,7 +9,7 @@ namespace Zedd.Commands
 {
   public class SessionGenerator : ISessionGenerator
   {
-    public Guid GenerateSession()
+    public Guid GenerateSession(int userId)
     {
       var newTicket = Guid.NewGuid();
 
@@ -20,7 +20,8 @@ namespace Zedd.Commands
           var tickets = new Tickets
           {
             TicketId = newTicket,
-            Created = DateTime.Now
+            Created = DateTime.Now,
+            UserId = userId
           };
 
           session.Save(tickets);

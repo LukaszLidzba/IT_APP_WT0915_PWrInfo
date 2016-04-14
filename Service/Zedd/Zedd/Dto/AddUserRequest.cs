@@ -1,13 +1,13 @@
-﻿using System.Runtime.Serialization;
-using Zedd.DataAccess;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace Zedd.Dto
 {
   [DataContract]
-  public class UserInfo
+  public class AddUserRequest
   {
     [DataMember]
-    public int Id { get; set; }
+    public Guid Ticket { get; set; }
 
     [DataMember]
     public string Name { get; set; }
@@ -16,7 +16,7 @@ namespace Zedd.Dto
     public string Surname { get; set; }
 
     [DataMember]
-    public Unit Unit { get; set; }
+    public int UnitId { get; set; }
 
     [DataMember]
     public bool IsAdmin { get; set; }

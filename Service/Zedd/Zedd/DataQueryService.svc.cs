@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Security;
 using System.ServiceModel;
-using System.Web.Configuration;
 using Zedd.Commands;
 using Zedd.Dto;
 using Zedd.Queries;
@@ -14,17 +13,27 @@ namespace Zedd
     private readonly IDeansOfficeQuery _deansOfficeQuery;
     private readonly ILoginQueryDao _loginQuery;
     private readonly ISessionGenerator _sessionGenerator;
+    private readonly IEventsQuery _eventsQuery;
+    private readonly IMessageQuery _messageQuery;
+    private readonly ILibraryQuery _libraryQuery;
+    private readonly IUnitQuery _unitQuery;
+    private readonly IUserQuery _userQuery;
 
     public DataQueryService()
-      : this(null, null, null)
+      : this(null, null, null, null, null, null, null, null)
     {
     }
 
-    public DataQueryService(IDeansOfficeQuery deansOfficeQuery, ILoginQueryDao loginQuery, ISessionGenerator sessionGenerator)
+    public DataQueryService(IDeansOfficeQuery deansOfficeQuery, ILoginQueryDao loginQuery, ISessionGenerator sessionGenerator, IEventsQuery eventsQuery, IMessageQuery messageQuery, ILibraryQuery libraryQuery, IUnitQuery unitQuery, IUserQuery userQuery)
     {
       _deansOfficeQuery = deansOfficeQuery ?? new DeansOfficeQuery();
       _loginQuery = loginQuery ?? new LoginQueryDao();
       _sessionGenerator = sessionGenerator ?? new SessionGenerator();
+      _eventsQuery = eventsQuery ?? new EventsQueryDao();
+      _messageQuery = messageQuery ?? new MessageQueryDao();
+      _libraryQuery = libraryQuery ?? new LibraryQueryDao();
+      _unitQuery = unitQuery ?? new UnitQueryDao();
+      _userQuery = userQuery ?? new UserQueryDao();
     }
 
     public DeansOfficeInfo GetDeansOfficeInfo(int id, Guid ticket)
@@ -71,6 +80,117 @@ namespace Zedd
       }
 
       return deansOfficeInfo;
+    }
+
+    public IList<LibraryInfo> GetLibraries(Guid ticket)
+    {
+      IList<LibraryInfo> libraries;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        libraries = _libraryQuery.GetLibraries();
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException<SecurityException>(e);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+      return libraries;
+    }
+
+    public IList<MessageInfo> GetMessages(Guid ticket)
+    {
+      IList<MessageInfo> messages;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        messages = _messageQuery.GetAllMessages();
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException<SecurityException>(e);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+      return messages;
+    }
+
+    public IList<EventInfo> GetEvents(Guid ticket)
+    {
+      IList<EventInfo> events;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        events = _eventsQuery.GetAllEvents();
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException<SecurityException>(e);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+      return events;
+    }
+
+    public IList<UnitInfo> GetUnits(Guid ticket)
+    {
+      IList<UnitInfo> units;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        units = _unitQuery.GetUnits();
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException<SecurityException>(e);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+
+      return units;
+    }
+
+    public IList<UserInfo> GetUsers(Guid ticket)
+    {
+      IList<UserInfo> users;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        users = _userQuery.GetUsers();
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException<SecurityException>(e);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+      return users;
     }
   }
 }

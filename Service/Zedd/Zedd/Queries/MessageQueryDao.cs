@@ -10,14 +10,14 @@ namespace Zedd.Queries
 {
   public class MessageQueryDao : IMessageQuery
   {
-    public IList<MessageInfo> GetMessages(int departmentId)
+    private IList<MessageInfo> GetMessagesInternal(int departmentId, bool all)
     {
       IList<MessageInfo> result = null;
       using (var session = NHibernateHelper.OpenSession())
       {
         using (session.BeginTransaction())
         {
-          var messages = session.Query<Messages>().Where(x => x.Department.Id == departmentId).ToList();
+          var messages = session.Query<Messages>().Where(x => (x.Department.Id == departmentId) || all).ToList();
 
           if (!messages.IsEmpty())
           {
@@ -41,6 +41,16 @@ namespace Zedd.Queries
       }
 
       return result ?? new List<MessageInfo>();
+    }
+
+    public IList<MessageInfo> GetMessages(int departmentId)
+    {
+      return GetMessagesInternal(departmentId, false);
+    }
+
+    public IList<MessageInfo> GetAllMessages()
+    {
+      return GetMessagesInternal(0, true);
     }
   }
 }

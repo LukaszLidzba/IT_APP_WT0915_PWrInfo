@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ServiceModel;
 using Zedd.Commands;
+using Zedd.Dto;
 using Zedd.Exceptions;
+using Zedd.Queries;
 
 namespace Zedd
 {
@@ -10,15 +12,17 @@ namespace Zedd
   public class LoginService : ILoginService
   {
     private readonly ILoginHandler _loginHandler;
+    private readonly ILoginQueryDao _loginQueryDao;
 
     public LoginService()
-      : this(null)
+      : this(null, null)
     {
     }
 
-    public LoginService(ILoginHandler loginHandler = null)
+    public LoginService(ILoginHandler loginHandler, ILoginQueryDao loginQueryDao)
     {
       _loginHandler = loginHandler ?? new LoginHandler();
+      _loginQueryDao = loginQueryDao ?? new LoginQueryDao();
     }
 
     public string Login(string loginName, string password)
@@ -35,7 +39,7 @@ namespace Zedd
       }
       catch (Exception e)
       {
-        throw new FaultException(new FaultReason("Error during login") + e.Message);
+        throw new FaultException(new FaultReason("Error during login") + e.Message + e.InnerException + e.StackTrace + e.Data);
       }
 
       return token.ToString();
@@ -49,8 +53,24 @@ namespace Zedd
       }
       catch (Exception e)
       {
-        throw new FaultException(new FaultReason("Error during prolong session") + e.Message);
+        throw new FaultException(new FaultReason("Error during prolong session") + e.Message + e.InnerException + e.StackTrace + e.Data);
       }
+    }
+
+    public UserInfo GetUser(Guid ticketId)
+    {
+      UserInfo result;
+
+      try
+      {
+        result = _loginQueryDao.GetUser(ticketId);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(new FaultReason("Error during get User") + e.Message + e.InnerException + e.StackTrace + e.Data);
+      }
+
+      return result;
     }
   }
 }
