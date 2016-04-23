@@ -1,0 +1,137 @@
+﻿@import "../Bootstrap/bootstrap.less";
+
+/* Variables */
+
+@asideWidth: 150px;
+
+/*# COLORS #*/
+@LightBeige: #FFF9C9;
+@Beige: #FFCF69;
+@LightBlue: #8DC7FF;
+@Blue: #3694B0;
+@DarkerBlue: #013457;
+@DarkBlue: darken(@DarkerBlue, 5%);
+@White: #FFF;
+
+/* Mixins */
+
+.mk-reset-padding() {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.mk-transition(@transition: all) {
+    -moz-transition: @transition 0.2s ease-in-out;
+    -o-transition: @transition 0.2s ease-in-out;
+    -webkit-transition: @transition 0.2s ease-in-out;
+    transition: @transition 0.2s ease-in-out;
+}
+
+/* Classes */
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 503px;
+}
+
+body {
+    background-color: @White;
+    color: @DarkerBlue;
+}
+
+.document-body {
+    .container-fluid();
+    .mk-reset-padding();
+    max-width: 1920px;
+}
+
+aside {
+    position: relative;
+    float: left;
+    width: @asideWidth;
+    height: 100vh;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: @DarkerBlue;
+
+    ul {
+        padding: 0;
+
+        li {
+            display: block;
+            width: 100px;
+            margin: 20px auto;
+            padding: 10px 0;
+            border: 1px @LightBlue solid;
+            border-radius: 5px;
+            .mk-transition(background);
+
+            &:hover {
+                background-color: @DarkBlue;
+            }
+
+            a {
+                color: @LightBlue;
+                text-decoration: none;
+                .mk-transition();
+
+                &:hover {
+                    color: @White;
+                }
+
+                .icon {
+                    display: block;
+                    margin: 0 auto;
+
+                    &-data {
+                        width: 41.15px;
+                    }
+
+                    &-messages {
+                        width: 48px;
+                    }
+
+                    &-exclamation {
+                        width: 42px;
+                    }
+
+                    &-events {
+                        width: 55px;
+                    }
+
+                    &-users {
+                        width: 51.5px;
+                    }
+                }
+
+                .description {
+                    text-align: center;
+                    font-size: 12px;
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+}
+
+main {
+    //position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    padding-left: 165px;
+
+    footer{
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+}
