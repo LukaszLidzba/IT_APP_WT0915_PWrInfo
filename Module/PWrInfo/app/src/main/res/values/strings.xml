@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">PWrInfo</string>
+    <string name="action_settings">Ustawienia</string>
+    <string-array name="list_of_departments">
+        <item>W1 - Wydział Architektury</item>
+        <item>W2 - Wydział Budownictwa Lądowego i Wodnego</item>
+        <item>W3 - Wydział Chemiczny</item>
+        <item>W4 - Wydział Elektroniki</item>
+        <item>W5 - Wydział Elektryczny</item>
+        <item>W6 - Wydział Geoinżynierii, Górnictwa i Geologii</item>
+        <item>W7 - Wydział Inżynierii Środowiska</item>
+        <item>W8 - Wydział Informatyki i Zarządzania</item>
+        <item>W9 - Wydział Mechaniczno-Energetyczny</item>
+        <item>W10 - Wydział Mechaniczny</item>
+        <item>W11 - Wydział Podstawowych Problemów Techniki</item>
+        <item>W12 - Wydział Elektroniki Mikrosystemów i Fotoniki</item>
+        <item>W13 - Wydział Matematyki</item>
+        <item>W14 - Wydział Techniczno-Informatyczny</item>
+        <item>W15 - Wydział Techniczno-Inżynieryjny</item>
+        <item>W16 - Wydział Techniczno-Przyrodniczy</item>
+    </string-array>
 </resources>
