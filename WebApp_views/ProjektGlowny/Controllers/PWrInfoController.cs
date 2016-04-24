@@ -9,6 +9,7 @@ namespace ProjektGlowny.Controllers
     public class PWrInfoController : Controller
     {
         // GET: PWrInfo
+
         public ActionResult Data()
         {
             return View();

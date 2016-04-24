@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ProjektGlowny.Models;
 using ProjektGlowny.LoginService1;
+using ProjektGlowny.DataQueryService;
 
 namespace ProjektGlowny.Controllers
 {
@@ -19,7 +20,6 @@ namespace ProjektGlowny.Controllers
 
         //
         // POST: /Account/Login
-
         [HttpPost]
         public ActionResult Login(UserModels model, string returnUrl)
         {
@@ -29,7 +29,13 @@ namespace ProjektGlowny.Controllers
             {
                 var result = loginService.Login(model.UserName.Trim(), model.Password.Trim());
 
-                Session["UserTicket"] = result; 
+                var user = loginService.GetUser(new Guid(result));
+
+                Session["UserTicket"] = result;
+                Session["UserName"] = user.Name;
+                Session["UserSurname"] = user.Surname;
+                Session["UserId"] = user.Id;
+                Session["UserIsAdmin"] = user.IsAdmin;
 
                 return Redirect("~/PWrInfo/Index");
             }
@@ -48,9 +54,9 @@ namespace ProjektGlowny.Controllers
         [HttpPost]
         public ActionResult LogOff()
         {
-            // HERE CLEAN SESSION - GET RID OFF TAKEN!!!  //PZJ 
+            Session.Abandon();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("~/Login/Login", "LoginController");
         }
 
 
