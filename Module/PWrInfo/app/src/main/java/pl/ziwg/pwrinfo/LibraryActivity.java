@@ -52,7 +52,8 @@ public class LibraryActivity extends OwnActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             SimpleAdapter adapter = new SimpleAdapter(LibraryActivity.this, data,
-                    android.R.layout.simple_list_item_2, new String[]{TAG_NAME, TAG_ADDRESS, TAG_OPENING_HOURS, TAG_ADDITIONAL_INFO},
+                    R.layout.library_list,
+                    new String[]{TAG_NAME, TAG_ADDRESS, TAG_OPENING_HOURS, TAG_ADDITIONAL_INFO},
                     new int[]{R.id.library_name,
                             R.id.library_address, R.id.library_openingHours, R.id.library_additionalInfo});
             listView.setAdapter(adapter);
