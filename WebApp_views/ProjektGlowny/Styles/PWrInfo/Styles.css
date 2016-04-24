@@ -5472,6 +5472,17 @@ body {
   background-color: #FFF;
   color: #013457;
 }
+body a {
+  color: #013457;
+  text-decoration: none;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+body a:hover {
+  opacity: 0.5;
+}
 .document-body {
   margin-right: auto;
   margin-left: auto;
@@ -5568,4 +5579,46 @@ main footer {
   bottom: 0;
   padding-bottom: 15px;
   text-align: center;
+}
+.login {
+  display: block;
+  margin: 0 auto;
+  top: 25vh;
+  position: relative;
+  border: 1px #CCC solid;
+  border-radius: 5px;
+}
+.login.xs {
+  width: 70%;
+}
+.login.sm {
+  width: 60%;
+}
+.login.md,
+.login.lg {
+  width: 600px;
+}
+.login-caption {
+  height: 100px;
+  line-height: 100px;
+  background-color: #01253e;
+  color: #8DC7FF;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 5px 5px 0 0;
+}
+.login-caption h1 {
+  margin: 0;
+}
+.login-wrapper {
+  margin: 15px;
+}
+.login-wrapper-restorePassword {
+  display: block;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.login-wrapper-buttons {
+  margin-top: 20px;
 }

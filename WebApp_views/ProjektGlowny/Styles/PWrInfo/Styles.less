@@ -42,6 +42,16 @@ html {
 body {
     background-color: @White;
     color: @DarkerBlue;
+
+    a {
+        color: @DarkerBlue;
+        text-decoration: none;
+        .mk-transition();
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
 }
 
 .document-body {
@@ -128,10 +138,58 @@ main {
     width: 100%;
     padding-left: 165px;
 
-    footer{
+    footer {
         position: absolute;
         bottom: 0;
         padding-bottom: 15px;
         text-align: center;
+    }
+}
+
+.login {
+    display: block;
+    margin: 0 auto;
+    top: 25vh;
+    position: relative;
+    border: 1px #CCC solid;
+    border-radius: 5px;
+
+    &.xs{
+        width: 70%;
+    }
+    &.sm{
+        width: 60%;
+    }
+    &.md, &.lg{
+        width: 600px;
+    }
+
+    &-caption {
+        height: 100px;
+        line-height: 100px;
+        background-color: @DarkBlue;
+        color: @LightBlue;
+        padding-left: 25px;
+        padding-right: 25px;
+        border-radius: 5px 5px 0 0;
+
+        h1{
+            margin: 0;
+        }
+    }
+
+    &-wrapper {
+        margin: 15px;
+
+        &-restorePassword {
+            display: block;
+            position: relative;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        &-buttons {
+            margin-top: 20px;
+        }
     }
 }

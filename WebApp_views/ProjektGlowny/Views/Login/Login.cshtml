@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1">*@
+    <title>@ViewBag.Title - PWr Info</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Styles/PWrInfo/Styles.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/classAdder.js"></script>
+    <script>
+        var quantity = 12;
+
+        function prepareCols(quantity) {
+            for (var i = 0; i < quantity; i++) {
+                $("body").prepend("<div class='kolumna' style='width: 1px; height: 100%; position: fixed; background-color: red; z-index: 999999'></div>");
+            }
+        }
+
+        function drawCols(quantity) {
+            var screenWidth = window.outerWidth,
+                step = screenWidth / quantity,
+                left = 0;
+
+            $(".kolumna").each(function () {
+                $(this).css("left", left);
+                left += step - 1;
+            });
+        }
+
+        function initColumn() {
+            $(document).ready(function () {
+                prepareCols(quantity);
+                drawCols(quantity);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div class="login">
+            <div class="login-caption">
+                <h1>Logowanie</h1>
+            </div>
+            <div class="login-wrapper">
+                <form>
+                    <div class="form-group">
+                        <label for="login">Login</label>
+                        <input type="email" class="form-control" id="login" placeholder="Login">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Hasło</label>
+                        <input type="password" class="form-control" id="password" placeholder="Hasło">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Zapamiętaj mnie
+                        </label>
+                    </div>
+                    <div class="login-wrapper-restorePassword">
+                        <a href="#">Nie pamiętam hasła</a>
+                    </div>
+                    <div class="login-wrapper-buttons">
+                        <button type="submit" class="btn btn-primary">Zaloguj</button>
+                        <button type="reset" class="btn btn-default">Wyczyść</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+    classAdder(480, 768, 1024, 1440);
+</script>
+</body>
+</html>
