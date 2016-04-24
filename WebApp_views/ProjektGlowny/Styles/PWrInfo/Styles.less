@@ -12,6 +12,7 @@
 @DarkerBlue: #013457;
 @DarkBlue: darken(@DarkerBlue, 5%);
 @White: #FFF;
+@BackgroundGrey: #CCC;
 
 /* Mixins */
 
@@ -58,13 +59,14 @@ body {
     .container-fluid();
     .mk-reset-padding();
     max-width: 1920px;
+    height: 100%;
 }
 
 aside {
     position: relative;
     float: left;
     width: @asideWidth;
-    height: 100vh;
+    height: 100%;
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
@@ -93,6 +95,7 @@ aside {
 
                 &:hover {
                     color: @White;
+                    opacity: 1;
                 }
 
                 .icon {
@@ -151,7 +154,7 @@ main {
     margin: 0 auto;
     top: 25vh;
     position: relative;
-    border: 1px #CCC solid;
+    border: 1px @BackgroundGrey solid;
     border-radius: 5px;
 
     &.xs{
@@ -162,6 +165,12 @@ main {
     }
     &.md, &.lg{
         width: 600px;
+    }
+
+    &-background{
+        width: 100%;
+        height: 100%;
+        background-color: #EEE;
     }
 
     &-caption {
@@ -179,7 +188,8 @@ main {
     }
 
     &-wrapper {
-        margin: 15px;
+        padding: 15px;
+        background-color: @White;
 
         &-restorePassword {
             display: block;

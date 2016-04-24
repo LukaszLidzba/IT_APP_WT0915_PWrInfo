@@ -5491,6 +5491,7 @@ body a:hover {
   padding-left: 0;
   padding-right: 0;
   max-width: 1920px;
+  height: 100%;
 }
 .document-body > .navbar-header,
 .document-body > .navbar-collapse {
@@ -5508,7 +5509,7 @@ aside {
   position: relative;
   float: left;
   width: 150px;
-  height: 100vh;
+  height: 100%;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
@@ -5542,6 +5543,7 @@ aside ul li a {
 }
 aside ul li a:hover {
   color: #FFF;
+  opacity: 1;
 }
 aside ul li a .icon {
   display: block;
@@ -5598,6 +5600,11 @@ main footer {
 .login.lg {
   width: 600px;
 }
+.login-background {
+  width: 100%;
+  height: 100%;
+  background-color: #EEE;
+}
 .login-caption {
   height: 100px;
   line-height: 100px;
@@ -5611,7 +5618,8 @@ main footer {
   margin: 0;
 }
 .login-wrapper {
-  margin: 15px;
+  padding: 15px;
+  background-color: #FFF;
 }
 .login-wrapper-restorePassword {
   display: block;
