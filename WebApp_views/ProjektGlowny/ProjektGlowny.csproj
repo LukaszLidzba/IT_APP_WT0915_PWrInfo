@@ -14,7 +14,7 @@
     <RootNamespace>ProjektGlowny</RootNamespace>
     <AssemblyName>ProjektGlowny</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -52,6 +52,8 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -148,6 +150,15 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JScripts.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <None Include="Service References\LoginService\configuration91.svcinfo" />
+    <None Include="Service References\LoginService\configuration.svcinfo" />
+    <Content Include="Service References\LoginService\ProjektGlowny.LoginService.UserInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\LoginService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Styles\PWrInfo\Styles.css">
       <DependentUpon>Styles.less</DependentUpon>
     </Content>
@@ -168,6 +179,11 @@
     </Compile>
     <Compile Include="Models\UserModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\LoginService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Error.cshtml" />
@@ -255,6 +271,19 @@
     <Content Include="Styles\Bootstrap\wells.less" />
     <Content Include="Styles\PWrInfo\Styles.less" />
     <Content Include="Views\Login\Login.cshtml" />
+    <None Include="Service References\LoginService\LoginService.wsdl" />
+    <None Include="Service References\LoginService\LoginService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LoginService\LoginService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LoginService\LoginService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LoginService\LoginService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -264,6 +293,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\LoginService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -280,7 +315,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>13443</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:13443/</IISUrl>
+          <IISUrl>http://localhost/ProjektGlowny</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

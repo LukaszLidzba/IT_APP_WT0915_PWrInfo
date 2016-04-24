@@ -1,4 +1,6 @@
-﻿
+﻿@using ProjektGlowny.Models
+@model UserModels
+
 @{
     Layout = null;
 }
@@ -49,14 +51,16 @@
                 <h1>Logowanie</h1>
             </div>
             <div class="login-wrapper">
-                <form>
+                @using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+                {
+
                     <div class="form-group">
-                        <label for="login">Login</label>
-                        <input type="email" class="form-control" id="login" placeholder="Login">
+                        @Html.LabelFor(m => m.UserName)
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
                     </div>
                     <div class="form-group">
-                        <label for="password">Hasło</label>
-                        <input type="password" class="form-control" id="password" placeholder="Hasło">
+                        @Html.LabelFor(m => m.Password)
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
                     </div>
                     <div class="checkbox">
                         <label>
@@ -70,13 +74,13 @@
                         <button type="submit" class="btn btn-primary">Zaloguj</button>
                         <button type="reset" class="btn btn-default">Wyczyść</button>
                     </div>
-                </form>
+                }
             </div>
         </div>
     </div>
 
-<script>
-    classAdder(480, 768, 1024, 1440);
-</script>
+    <script>
+        classAdder(480, 768, 1024, 1440);
+    </script>
 </body>
 </html>

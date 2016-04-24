@@ -232,7 +232,8 @@ GO
 CREATE TABLE [dbo].[Tickets]
 (
 	[TicketId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
-    [Created] DATETIME2 NOT NULL
+    [Created] DATETIME2 NOT NULL,
+    [UserId] INT NOT NULL
 );
 
 GO
