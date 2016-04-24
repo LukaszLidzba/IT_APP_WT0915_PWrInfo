@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ProjektGlowny.Models;
+using ProjektGlowny.LoginService1;
 
 namespace ProjektGlowny.Controllers
 {
@@ -20,17 +21,23 @@ namespace ProjektGlowny.Controllers
         // POST: /Account/Login
 
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public ActionResult Login(UserModels model, string returnUrl)
         {
-            //if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password))
-            //{
-            //    return RedirectToLocal(returnUrl);
-            //}
+            ILoginService loginService = new LoginServiceClient();
 
-            //// If we got this far, something failed, redisplay form
-            //ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            try
+            {
+                var result = loginService.Login(model.UserName.Trim(), model.Password.Trim());
+
+                Session["UserTicket"] = result; 
+
+                return Redirect("~/PWrInfo/Index");
+            }
+            catch (Exception ex)
+            {
+            }
+
+            ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
         }
 
@@ -39,7 +46,6 @@ namespace ProjektGlowny.Controllers
         // POST: /Account/LogOff
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             // HERE CLEAN SESSION - GET RID OFF TAKEN!!!  //PZJ 

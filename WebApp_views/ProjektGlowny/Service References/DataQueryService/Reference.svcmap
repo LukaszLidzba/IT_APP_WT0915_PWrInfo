@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bc8b7604-980a-41ce-947e-ac4014b12760" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://zedd.azurewebsites.net/DataQueryService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DataQueryService.xsd" MetadataType="Schema" ID="4487ef29-dbb1-4953-8154-89a5742099df" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataQueryService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DataQueryService1.xsd" MetadataType="Schema" ID="6435172c-8b93-4bb9-95e5-f2e2efb592db" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataQueryService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DataQueryService2.xsd" MetadataType="Schema" ID="36d0a9de-549b-48e9-ae77-4710b69de525" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataQueryService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DataQueryService3.xsd" MetadataType="Schema" ID="9cc598ed-0752-4ec7-b35a-67706795f63f" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataQueryService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DataQueryService.wsdl" MetadataType="Wsdl" ID="db408c34-b010-4143-9300-ac0d07b4136c" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataQueryService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

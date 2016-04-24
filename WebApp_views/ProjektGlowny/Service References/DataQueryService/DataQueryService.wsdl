@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataQueryService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://zedd.azurewebsites.net/DataQueryService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://zedd.azurewebsites.net/DataQueryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://zedd.azurewebsites.net/DataQueryService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto" />
+      <xsd:import schemaLocation="http://zedd.azurewebsites.net/DataQueryService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Zedd.DataAccess" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataQueryService_GetDeansOfficeInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeansOfficeInfo" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetDeansOfficeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeansOfficeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetAllDeansOffices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeansOffices" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetAllDeansOffices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeansOfficesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetLibraries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLibraries" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetLibraries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLibrariesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessages" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvents" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnits" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDataQueryService">
+    <wsdl:operation name="GetDeansOfficeInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetDeansOfficeInfo" message="tns:IDataQueryService_GetDeansOfficeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetDeansOfficeInfoResponse" message="tns:IDataQueryService_GetDeansOfficeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDeansOffices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetAllDeansOffices" message="tns:IDataQueryService_GetAllDeansOffices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetAllDeansOfficesResponse" message="tns:IDataQueryService_GetAllDeansOffices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLibraries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetLibraries" message="tns:IDataQueryService_GetLibraries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetLibrariesResponse" message="tns:IDataQueryService_GetLibraries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetMessages" message="tns:IDataQueryService_GetMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetMessagesResponse" message="tns:IDataQueryService_GetMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetEvents" message="tns:IDataQueryService_GetEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetEventsResponse" message="tns:IDataQueryService_GetEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetUnits" message="tns:IDataQueryService_GetUnits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetUnitsResponse" message="tns:IDataQueryService_GetUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetUsers" message="tns:IDataQueryService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetUsersResponse" message="tns:IDataQueryService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDataQueryService" type="tns:IDataQueryService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDeansOfficeInfo">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetDeansOfficeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDeansOffices">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetAllDeansOffices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLibraries">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetLibraries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnits">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataQueryService">
+    <wsdl:port name="BasicHttpBinding_IDataQueryService" binding="tns:BasicHttpBinding_IDataQueryService">
+      <soap:address location="http://zedd.azurewebsites.net/DataQueryService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

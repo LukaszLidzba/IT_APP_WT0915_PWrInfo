@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Zedd.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Zedd.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="AddDeansOfficeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentId" type="xs:int" />
+      <xs:element minOccurs="0" name="OpeningHours" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ticket" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddDeansOfficeRequest" nillable="true" type="tns:AddDeansOfficeRequest" />
+  <xs:complexType name="AddLibraryRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpeningHours" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ticket" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddLibraryRequest" nillable="true" type="tns:AddLibraryRequest" />
+  <xs:complexType name="AddMessageRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentId" type="xs:int" />
+      <xs:element minOccurs="0" name="Important" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Ticket" type="ser:guid" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddMessageRequest" nillable="true" type="tns:AddMessageRequest" />
+  <xs:complexType name="AddEventRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DepartmentId" type="xs:int" />
+      <xs:element minOccurs="0" name="NotificationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Ticket" type="ser:guid" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddEventRequest" nillable="true" type="tns:AddEventRequest" />
+  <xs:complexType name="AddUnitRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ticket" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddUnitRequest" nillable="true" type="tns:AddUnitRequest" />
+  <xs:complexType name="AddUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ticket" type="ser:guid" />
+      <xs:element minOccurs="0" name="UnitId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddUserRequest" nillable="true" type="tns:AddUserRequest" />
+</xs:schema>

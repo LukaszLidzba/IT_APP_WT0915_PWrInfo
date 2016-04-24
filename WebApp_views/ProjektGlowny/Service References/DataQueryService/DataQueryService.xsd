@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Zedd.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Zedd.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zedd.azurewebsites.net/DataQueryService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Zedd.DataAccess" />
+  <xs:complexType name="DeansOfficeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="tns:Department" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="OpeningHours" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeansOfficeInfo" nillable="true" type="tns:DeansOfficeInfo" />
+  <xs:complexType name="Department">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Department" nillable="true" type="tns:Department" />
+  <xs:complexType name="ArrayOfDeansOfficeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeansOfficeInfo" nillable="true" type="tns:DeansOfficeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeansOfficeInfo" nillable="true" type="tns:ArrayOfDeansOfficeInfo" />
+  <xs:complexType name="ArrayOfLibraryInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LibraryInfo" nillable="true" type="tns:LibraryInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLibraryInfo" nillable="true" type="tns:ArrayOfLibraryInfo" />
+  <xs:complexType name="LibraryInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpeningHours" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LibraryInfo" nillable="true" type="tns:LibraryInfo" />
+  <xs:complexType name="ArrayOfMessageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" nillable="true" type="tns:MessageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageInfo" nillable="true" type="tns:ArrayOfMessageInfo" />
+  <xs:complexType name="MessageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Zedd.DataAccess" minOccurs="0" name="Department" nillable="true" type="q1:Departments" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Important" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageInfo" nillable="true" type="tns:MessageInfo" />
+  <xs:complexType name="ArrayOfEventInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventInfo" nillable="true" type="tns:EventInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEventInfo" nillable="true" type="tns:ArrayOfEventInfo" />
+  <xs:complexType name="EventInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="tns:Department" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="NotificationDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventInfo" nillable="true" type="tns:EventInfo" />
+  <xs:complexType name="ArrayOfUnitInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UnitInfo" nillable="true" type="tns:UnitInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUnitInfo" nillable="true" type="tns:ArrayOfUnitInfo" />
+  <xs:complexType name="UnitInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UnitInfo" nillable="true" type="tns:UnitInfo" />
+  <xs:complexType name="ArrayOfUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserInfo" nillable="true" type="tns:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserInfo" nillable="true" type="tns:ArrayOfUserInfo" />
+  <xs:complexType name="UserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Zedd.DataAccess" minOccurs="0" name="Unit" nillable="true" type="q2:Unit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+</xs:schema>
