@@ -10,6 +10,10 @@ namespace ProjektGlowny.Controllers
     {
         // GET: PWrInfo
 
+        public ActionResult Libraries()
+        {
+            return View();
+        }
         public ActionResult Data()
         {
             return View();

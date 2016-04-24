@@ -5471,6 +5471,8 @@ html {
 body {
   background-color: #FFF;
   color: #013457;
+  background-image: url('/Images/gray-hexagons.jpg');
+  background-size: cover;
 }
 body a {
   color: #013457;
@@ -5549,8 +5551,11 @@ aside ul li a .icon {
   display: block;
   margin: 0 auto;
 }
-aside ul li a .icon-data {
-  width: 41.15px;
+aside ul li a .icon-main {
+  width: 52px;
+}
+aside ul li a .icon-libraries {
+  width: 52px;
 }
 aside ul li a .icon-messages {
   width: 48px;
@@ -5563,6 +5568,9 @@ aside ul li a .icon-events {
 }
 aside ul li a .icon-users {
   width: 51.5px;
+}
+aside ul li a .icon-profile {
+  width: 44px;
 }
 aside ul li a .description {
   text-align: center;
@@ -5581,6 +5589,22 @@ main footer {
   bottom: 0;
   padding-bottom: 15px;
   text-align: center;
+}
+main .title-description {
+  display: block;
+  width: 100%;
+  margin-right: 10%;
+  margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+  main .button-text {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  main .button-text {
+    display: none !important;
+  }
 }
 .login {
   display: block;
@@ -5629,4 +5653,7 @@ main footer {
 }
 .login-wrapper-buttons {
   margin-top: 20px;
+}
+.form-control {
+  width: 320px;
 }

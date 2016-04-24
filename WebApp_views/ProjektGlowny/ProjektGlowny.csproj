@@ -108,28 +108,7 @@
     <Content Include="Content\Wojtex\styles.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Images\Wojtex\agri.gif" />
-    <Content Include="Images\Wojtex\agri.jpg" />
-    <Content Include="Images\Wojtex\agri.png" />
-    <Content Include="Images\Wojtex\banner.jpg" />
-    <Content Include="Images\Wojtex\bg.jpg" />
-    <Content Include="Images\Wojtex\bg1.jpg" />
-    <Content Include="Images\Wojtex\call.png" />
-    <Content Include="Images\Wojtex\laur.png" />
-    <Content Include="Images\Wojtex\logo.png" />
-    <Content Include="Images\Wojtex\partners\1.jpg" />
-    <Content Include="Images\Wojtex\partners\2.jpg" />
-    <Content Include="Images\Wojtex\partners\3.jpg" />
-    <Content Include="Images\Wojtex\partners\4.jpg" />
-    <Content Include="Images\Wojtex\partners\5.jpg" />
-    <Content Include="Images\Wojtex\partners\6.jpg" />
-    <Content Include="Images\Wojtex\partners\7.jpg" />
-    <Content Include="Images\Wojtex\phone-3-.png" />
-    <Content Include="Images\Wojtex\piec.png" />
-    <Content Include="Images\Wojtex\slide2.png" />
-    <Content Include="Images\Wojtex\slide22.png" />
-    <Content Include="Images\Wojtex\slide3.jpg" />
-    <Content Include="Images\Wojtex\slide33.jpg" />
+    <Content Include="Images\gray-hexagons.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="compilerconfig.json" />
@@ -353,6 +332,7 @@
     <None Include="Service References\LoginService1\LoginService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\PWrInfo\Libraries.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
