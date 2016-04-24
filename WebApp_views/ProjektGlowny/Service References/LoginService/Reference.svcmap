@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7c3afbd2-49e4-4a9a-8559-d97e410eb844" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://zedd.azurewebsites.net/LoginService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LoginService.xsd" MetadataType="Schema" ID="785118ea-701d-4bbf-ad24-bbe4afed8deb" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/LoginService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LoginService1.xsd" MetadataType="Schema" ID="3d42177c-59e4-47f2-a44e-a62adc9ed567" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/LoginService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LoginService2.xsd" MetadataType="Schema" ID="cf395225-0411-4a88-9eb5-3c4a2fad4f66" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/LoginService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LoginService.wsdl" MetadataType="Wsdl" ID="60d25b71-66bd-44dc-8f93-e26b4af57370" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/LoginService.svc?wsdl" />
+    <MetadataFile FileName="LoginService3.xsd" MetadataType="Schema" ID="b6cf8b78-89a3-4f8c-85f6-5f91192ae600" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/LoginService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
