@@ -11,14 +11,21 @@ import java.util.Map;
 
 public class JsonParser {
 
+    final static private String TAG_TITLE = "title";
+    final static private String TAG_NAME = "name";
+    final static private String TAG_ADDRESS = "address";
+    final static private String TAG_OPENING_HOURS = "openingHours";
+    final static private String TAG_ADDITIONAL_INFO = "additionalInfo";
+    final static private String TAG_DATA = "data";
+
     public void MessagesJson (String data, List<Map<String,String>> dataList) throws JSONException {
         JSONArray jsonArray = new JSONArray(data);
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             Map<String,String> datum = new HashMap<String, String>(2);
-            datum.put("title", jsonObject.getString("Title"));
-            datum.put("data",jsonObject.getString("Content"));
+            datum.put(TAG_TITLE, jsonObject.getString("Title"));
+            datum.put(TAG_DATA, jsonObject.getString("Content"));
             dataList.add(datum);
         }
     }
@@ -35,14 +42,21 @@ public class JsonParser {
         }
     }
 
-    public void LibrariesJson (String data, ArrayList<LibraryClass> arrayList) throws JSONException {
+    public void LibrariesJson (String data, List<Map<String, String>> dataList) throws JSONException {
         JSONArray jsonArray = new JSONArray(data);
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
-            arrayList.add(new LibraryClass(jsonObject.getInt("Id"),
+            Map<String, String> datum = new HashMap<String, String>(2);
+            datum.put(TAG_NAME, jsonObject.getString("Name"));
+            datum.put(TAG_ADDRESS, jsonObject.getString("Address"));
+            datum.put(TAG_OPENING_HOURS, jsonObject.getString("OpeningHours"));
+            datum.put(TAG_ADDITIONAL_INFO, jsonObject.getString("AdditionalInfo"));
+            System.out.print("JSON: " + datum.get(TAG_NAME));
+            dataList.add(datum);
+            /*dataList.add(new LibraryClass(jsonObject.getInt("Id"),
                     jsonObject.getString("Name"), jsonObject.getString("Address"),
-                    jsonObject.getString("AdditionalInfo"), jsonObject.getString("OpeningHours")));
+                    jsonObject.getString("AdditionalInfo"), jsonObject.getString("OpeningHours")));*/
 
         }
     }

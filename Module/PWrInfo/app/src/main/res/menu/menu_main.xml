@@ -1,10 +1,53 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
-tools:context="com.adefault.testowe2.MainActivity">
-<item
+tools:context="pl.ziwg.pwrinfo.MainActivity">
+
+    <item
+        android:id="@+id/action_messages"
+        android:orderInCategory="100"
+        android:title="@string/title_activity_message"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_events"
+        android:orderInCategory="100"
+        android:title="@string/title_activity_event"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_libraries"
+        android:orderInCategory="100"
+        android:title="@string/title_activity_library"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_deansOffice"
+        android:orderInCategory="100"
+        android:title="@string/title_activity_deansOffice"
+        app:showAsAction="never" />
+
+    <item
     android:id="@+id/action_settings"
     android:orderInCategory="100"
     android:title="@string/action_settings"
     app:showAsAction="never" />
+
+    <item android:id="@+id/action_guide"
+        android:orderInCategory="100"
+        android:title="@string/title_activity_guide"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_info"
+        android:orderInCategory="100"
+        android:title="@string/title_activity_info"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/exit_the_app"
+        android:title="@string/title_exit"
+        app:showAsAction="never"
+        android:orderInCategory="100"
+        />
+
+
 </menu>

@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">PWrInfo</string>
     <string name="action_settings">Ustawienia</string>
+    <string name="title_activity_message">Wiadomości</string>
+    <string name="title_activity_info">Informacje</string>
+    <string name="title_activity_event">Wydarzenia</string>
+    <string name="title_activity_library">Biblioteki</string>
+    <string name="title_activity_deansOffice">Dziekanaty</string>
+    <string name="title_exit">Wyjście</string>
+    <string name="description_info">Aplikacja stworzona w ramach projektu:\nZastosowanie Informatyki w Gospodarce\n\nZespół pracujący nad tym projektem:\nMichał Chłoń\nKrystian Kaliciak\nŁukasz Lidzba\nMariusz Różański\nPiotr Sekieta\nPiotr Zalfresso-Jundziłło\n\n Prowadzący: Dr inż. Marek Woda</string>
+    <string name="title_activity_guide">Przewodnik</string>
     <string-array name="list_of_departments">
         <item>W1 - Wydział Architektury</item>
         <item>W2 - Wydział Budownictwa Lądowego i Wodnego</item>
