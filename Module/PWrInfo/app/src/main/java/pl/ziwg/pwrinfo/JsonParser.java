@@ -4,7 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,14 +57,12 @@ public class JsonParser {
         }
     }
 
-    public void DeansOfficeJson (String data, ArrayList<DeansOfficeClass> arrayList) throws JSONException {
-        JSONArray jsonArray = new JSONArray(data);
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject jsonObject = jsonArray.getJSONObject(i);
-            arrayList.add(new DeansOfficeClass(jsonObject.getInt("Id"),
-                    jsonArray.getString(1), jsonObject.getString("Address"),
-                    jsonObject.getString("AdditionalInfo"), jsonObject.getString("OpeningHours")));
-        }
+    public void DeansOfficeJson (String data, List<Map<String, String>> dataList) throws JSONException {
+        JSONObject jsonObject = new JSONObject(data);
+        Map<String, String> datum = new HashMap<String, String>(2);
+        datum.put(TAG_ADDRESS, jsonObject.getString("Address"));
+        datum.put(TAG_OPENING_HOURS, jsonObject.getString("OpeningHours"));
+        datum.put(TAG_ADDITIONAL_INFO, jsonObject.getString("AdditionalInfo"));
+        dataList.add(datum);
     }
 }

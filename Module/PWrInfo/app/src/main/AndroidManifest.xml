@@ -24,6 +24,10 @@
             android:label="@string/title_activity_event"/>
         <activity android:name=".LibraryActivity"
             android:label="@string/title_activity_library"/>
+        <activity android:name=".MapActivity"
+            android:label="@string/title_activity_map"/>
+        <activity android:name=".DeansOfficeActivity"
+            android:label="@string/title_activity_deansOffice"/>
     </application>
 
 </manifest>

@@ -29,23 +29,27 @@ public class OwnActivity extends AppCompatActivity {
             startActivity(getEventScreenIntent);
             return true;
         } else if (id == R.id.action_deansOffice) {
+            Intent getDeansOfficeScreenIntent = new Intent(this, DeansOfficeActivity.class);
+            startActivity(getDeansOfficeScreenIntent);
             return true;
         } else if (id == R.id.action_libraries) {
             Intent getLibraryScreenIntent = new Intent(this, LibraryActivity.class);
             startActivity(getLibraryScreenIntent);
             return true;
-        } else if (id == R.id.action_settings){
+        } /*else if (id == R.id.action_settings){
             return true;
-        } else if (id == R.id.action_guide) {
+        }*/ else if (id == R.id.action_map) {
+            Intent getMapScreenIntent = new Intent(this, MapActivity.class);
+            startActivity(getMapScreenIntent);
             return true;
         } else if (id == R.id.action_info) {
             Intent getInfoScreenIntent = new Intent(this, InfoActivity.class);
             startActivity(getInfoScreenIntent);
             return true;
-        } else if (id == R.id.exit_the_app) {
+        } /*else if (id == R.id.exit_the_app) {
             finish();
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
