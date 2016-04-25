@@ -23,9 +23,7 @@ public class LibraryActivity extends OwnActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.library_activity);
-        System.out.print("Poczatek EXECUTE");
         new RetrieveLibrary().execute(urlLibrary);
-        System.out.print("Koniec EXECUTE");
     }
 
     private class RetrieveLibrary extends AsyncTask<String, Void, Void> {
@@ -37,14 +35,14 @@ public class LibraryActivity extends OwnActivity {
             data = new ArrayList<Map<String, String>>();
             WebRequest webRequest = new WebRequest();
             String download = webRequest.makeWebServiceCall(params[0], null);
-            System.out.print("PO REQUEST");
             JsonParser jsonParser = new JsonParser();
+
             try {
                 jsonParser.LibrariesJson(download, data);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            System.out.print("PO PARSERZE");
+
             return null;
         }
 
