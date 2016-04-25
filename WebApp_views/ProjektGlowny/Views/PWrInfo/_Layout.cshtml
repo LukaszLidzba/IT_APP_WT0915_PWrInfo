@@ -47,9 +47,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/PWrInfo/Libraries">
-                        <i class="icon icon-libraries fa fa-university fa-3x" aria-hidden="true"></i>
-                        <div class="description">Biblioteki</div>
+                    <a href="/PWrInfo/UserProfile">
+                        <i class="icon icon-profile fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                        <div class="description">Mój profil</div>
                     </a>
                 </li>
                 <li>
@@ -59,15 +59,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/PWrInfo/Announcements">
-                        <i class="icon icon-exclamation fa fa-exclamation-circle fa-3x" aria-hidden="true"></i>
-                        <div class="description">Komunikaty</div>
-                    </a>
-                </li>
-                <li>
                     <a href="/PWrInfo/Events">
                         <i class="icon icon-events fa fa-newspaper-o fa-3x" aria-hidden="true"></i>
                         <div class="description">Wydarzenia</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/PWrInfo/Libraries">
+                        <i class="icon icon-libraries fa fa-university fa-3x" aria-hidden="true"></i>
+                        <div class="description">Biblioteki</div>
                     </a>
                 </li>
                 <li>
@@ -76,22 +76,16 @@
                         <div class="description">Użytkownicy</div>
                     </a>
                 </li>
-                <li>
-                    <a href="/PWrInfo/UserProfile">
-                        <i class="icon icon-profile fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
-                        <div class="description">Mój profil</div>
-                    </a>
-                </li>
             </ul>
         </aside>
         <main>
             @RenderBody()
-            <footer>
+            @*<footer>
                 <div class="footer-copy">
                     &copy; PWr Info <span id="demo"></span>
                 </div>
                 <div class="footer-rightText"> @DateTime.Now.ToLongDateString() - My ASP.NET Application</div>
-            </footer>
+            </footer>*@
         </main>
     </div>
 

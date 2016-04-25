@@ -5560,9 +5560,6 @@ aside ul li a .icon-libraries {
 aside ul li a .icon-messages {
   width: 48px;
 }
-aside ul li a .icon-exclamation {
-  width: 42px;
-}
 aside ul li a .icon-events {
   width: 55px;
 }
@@ -5579,7 +5576,6 @@ aside ul li a .description {
 }
 main {
   min-height: 1px;
-  padding-left: 15px;
   padding-right: 15px;
   width: 100%;
   padding-left: 165px;
@@ -5605,6 +5601,9 @@ main .title-description {
   main .button-text {
     display: none !important;
   }
+}
+main .form-control {
+  width: 320px;
 }
 .login {
   display: block;
@@ -5653,7 +5652,4 @@ main .title-description {
 }
 .login-wrapper-buttons {
   margin-top: 20px;
-}
-.form-control {
-  width: 320px;
 }

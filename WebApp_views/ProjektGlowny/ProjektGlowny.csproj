@@ -291,7 +291,6 @@
     <Content Include="Styles\PWrInfo\Styles.less" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\PWrInfo\Messages.cshtml" />
-    <Content Include="Views\PWrInfo\Announcements.cshtml" />
     <Content Include="Views\PWrInfo\Events.cshtml" />
     <Content Include="Views\PWrInfo\UserProfile.cshtml" />
     <Content Include="Views\PWrInfo\Users.cshtml" />

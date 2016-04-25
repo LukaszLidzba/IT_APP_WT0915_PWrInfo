@@ -18,10 +18,6 @@ namespace ProjektGlowny.Controllers
         {
             return View();
         }
-        public ActionResult Announcements()
-        {
-            return View();
-        }
         public ActionResult Events()
         {
             return View();
