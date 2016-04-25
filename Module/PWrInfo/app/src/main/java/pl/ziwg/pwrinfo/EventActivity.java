@@ -28,6 +28,7 @@ public class EventActivity extends OwnActivity implements AdapterView.OnItemSele
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(this, "Wczytywanie danych", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

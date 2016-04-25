@@ -24,6 +24,7 @@
         android:id="@+id/library_openingHours"
         android:textSize="15sp"
         android:text="Godziny otwarcia: "
+        android:autoLink="web"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"/>
 
