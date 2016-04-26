@@ -52,31 +52,38 @@ namespace Zedd.Queries
 
     public UserInfo GetUser(Guid ticket)
     {
-      Users record;
+      UserInfo userInfo;
       using (var session = NHibernateHelper.OpenSession())
       {
         using (session.BeginTransaction())
         {
           var userId = session.Query<Tickets>().SingleOrDefault(x => x.TicketId == ticket && x.Created < DateTime.Now.AddMinutes(20));
 
-          record = session.Query<Users>().SingleOrDefault(x => x.Id == userId.UserId);
+          var record = session.Query<Users>().SingleOrDefault(x => x.Id == userId.UserId);
+
+          userInfo = new UserInfo
+          {
+            Id = record.Id,
+            Name = record.Name,
+            Unit = new UnitInfo
+            {
+              Id = record.Unit.Id,
+              Name = record.Unit.Name,
+              Description = record.Unit.Description
+            },
+            IsAdmin = record.IsAdmin,
+            Login = record.Login,
+            Surname = record.Surname
+          };
         }
       }
 
-      if (record == null)
+      if (userInfo == null)
       {
         throw new SecurityException("Active ticket not found!");
       }
 
-      return new UserInfo
-      {
-        Id = record.Id,
-        Name = record.Name,
-        Unit = record.Unit,
-        IsAdmin = record.IsAdmin,
-        Login = record.Login,
-        Surname = record.Surname
-      };
+      return userInfo;
     }
   }
 }

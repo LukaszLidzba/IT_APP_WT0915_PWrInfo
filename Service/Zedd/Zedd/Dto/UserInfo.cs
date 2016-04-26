@@ -16,7 +16,7 @@ namespace Zedd.Dto
     public string Surname { get; set; }
 
     [DataMember]
-    public Unit Unit { get; set; }
+    public UnitInfo Unit { get; set; }
 
     [DataMember]
     public bool IsAdmin { get; set; }

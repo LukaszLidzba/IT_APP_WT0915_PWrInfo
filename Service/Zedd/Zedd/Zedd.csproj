@@ -105,7 +105,9 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="DataQueryService.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dto\AddUserRequest.cs" />
@@ -173,6 +175,7 @@
     <Compile Include="Queries\IUnitQuery.cs" />
     <Compile Include="Queries\MessageQueryDao.cs" />
     <Compile Include="Queries\UnitQueryDao.cs" />
+    <Compile Include="Queries\UserQueryDao.cs" />
     <Compile Include="RestDataService.svc.cs">
       <DependentUpon>RestDataService.svc</DependentUpon>
     </Compile>
@@ -187,6 +190,7 @@
     </Content>
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Properties\PublishProfiles\Zedd %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Zedd %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\Zedd.pubxml" />
     <None Include="Properties\PublishProfiles\ZIWG.pubxml" />
     <None Include="Web.Debug.config">
