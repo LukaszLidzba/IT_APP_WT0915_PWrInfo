@@ -50,7 +50,7 @@ namespace ProjektGlowny.Controllers
 
         //
         // POST: /Account/LogOff
-
+        
         [HttpPost]
         public ActionResult LogOff()
         {

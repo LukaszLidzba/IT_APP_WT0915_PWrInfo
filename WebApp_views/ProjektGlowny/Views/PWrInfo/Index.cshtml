@@ -1,4 +1,6 @@
-﻿
+﻿@using ProjektGlowny.Models
+@model IList<MessagesModel>
+
 @{
     ViewBag.Title = "Strona główna";
     Layout = "_Layout.cshtml";
@@ -8,4 +10,28 @@
 <div class="title-description">
     Witaj na stronie głownej systemu PWr Info&reg;. Z poziomu systemu możesz w łatwy sposób nim zarządzać.
 </div>
+<div>
+    Wiadomości
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Treść</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < 5; i++)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => x[i].Id)</td>
+                <td>@Html.DisplayFor(x => x[i].content)</td>
+                <td>@Html.DisplayFor(x => x[i].UserId)</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
+ <div>
+    Wydarzenia
+</div>
