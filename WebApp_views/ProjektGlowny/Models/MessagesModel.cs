@@ -15,6 +15,7 @@ namespace ProjektGlowny.Models
         public string content { get; set; }
         public string title { get; set; }
         public bool important { get; set; }
+        public string filtred { get; set; }
 
         public IEnumerable<MessagesModel> GetMessages(Guid ticket)
         {

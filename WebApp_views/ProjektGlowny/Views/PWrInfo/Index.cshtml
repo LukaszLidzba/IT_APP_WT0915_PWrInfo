@@ -1,5 +1,5 @@
 ﻿@using ProjektGlowny.Models
-@model IList<MessagesModel>
+@model Tuple<List<MessagesModel>,List<EventsModel>>  
 
 @{
     ViewBag.Title = "Strona główna";
@@ -11,27 +11,41 @@
     Witaj na stronie głownej systemu PWr Info&reg;. Z poziomu systemu możesz w łatwy sposób nim zarządzać.
 </div>
 <div>
-    Wiadomości
+   Najnowsze wiadomości
 </div>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Treść</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (var i = 0; i < 5; i++)
-        {
-            <tr>
-                <td>@Html.DisplayFor(x => x[i].Id)</td>
-                <td>@Html.DisplayFor(x => x[i].content)</td>
-                <td>@Html.DisplayFor(x => x[i].UserId)</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<table class="table table-striped">
+    <tr>
+        <td>ID </td>
+        <td>Treść</td>
+        <td>Wydział</td>
 
+    </tr>
+    @for (var i = 0; i < 3; i++)
+    {
+        <tr>
+            <td>@Html.DisplayFor(turple => turple.Item1[i].Id)</td>
+            <td>@Html.DisplayFor(turple => turple.Item1[i].content)</td>
+            <td>@Html.DisplayFor(turple => turple.Item1[i].departments.Name)</td>
+        </tr>
+    }
+</table>
  <div>
-    Wydarzenia
+   Najnowsze wydarzenia
 </div>
+
+<table class="table table-striped">
+    <tr>
+        <td>ID </td>
+        <td>Treść</td>
+        <td>Wydział</td>
+
+    </tr>
+    @for (var i = 0; i < 3; i++)
+    {
+        <tr>
+            <td>@Html.DisplayFor(turple => turple.Item2[i].Id)</td>
+            <td>@Html.DisplayFor(turple => turple.Item2[i].content)</td>
+            <td>@Html.DisplayFor(turple => turple.Item2[i].departments.Name)</td>
+        </tr>
+    }
+</table>

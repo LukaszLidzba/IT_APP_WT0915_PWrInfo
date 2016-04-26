@@ -40,10 +40,20 @@ namespace ProjektGlowny.Controllers
         {
             if(Session["UserTicket"] != null)
             {
-                MessagesModel x = new MessagesModel();
-                IList<MessagesModel> Messages = x.GetMessages(new Guid(Session["UserTicket"].ToString())).ToList();
- 
-                return View(Messages);
+               
+
+                MessagesModel m = new MessagesModel();
+                EventsModel e = new EventsModel();
+            
+
+                var tuple = new Tuple<List<MessagesModel>, List<EventsModel>>
+                    (m.GetMessages(new Guid(Session["UserTicket"].ToString())).ToList(), e.GetEvents(new Guid(Session["UserTicket"].ToString())).ToList());
+               
+
+               
+                return View(tuple);
+
+              //  return View(Messages);
 
             }
             return Redirect("~/Login/Login");
