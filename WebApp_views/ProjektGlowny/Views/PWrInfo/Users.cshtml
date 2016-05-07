@@ -1,5 +1,5 @@
 ﻿@using ProjektGlowny.Models
-@model UserModels  
+@model IList<UserModels>  
 @{
     ViewBag.Title = "Użytkownicy";
     Layout = "_Layout.cshtml";
@@ -26,14 +26,14 @@
         <td>Jednostka</td>
 
     </tr>
-  @for (var i = 0; i < 3; i++)
+  @for  (var i = 0; i < 4; i++)
     {
         <tr>
-            <td>@Html.DisplayFor(m => m.name )</td>
-            <td>@Html.DisplayFor(m => m.surname )</td>
-            <td>@Html.DisplayFor(m => m.Login)</td>
-            <td>@Html.DisplayFor(m => m.isAdmin)</td>
-            <td>@Html.DisplayFor(m => m.unit)</td>
+            <td>@Html.DisplayFor(m => m[i].name )</td>
+            <td>@Html.DisplayFor(m => m[i].surname)</td>
+            <td>@Html.DisplayFor(m => m[i].Login)</td>
+            <td>@Html.DisplayFor(m => m[i].isAdmin)</td>
+            <td>@Html.DisplayFor(m => m[i].unit)</td>
         </tr>
   }
 </table>
