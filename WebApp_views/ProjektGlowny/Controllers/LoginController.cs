@@ -27,7 +27,7 @@ namespace ProjektGlowny.Controllers
 
             try
             {
-                var result = loginService.Login(model.UserName.Trim(), model.Password.Trim());
+                var result = loginService.Login(model.Login.Trim(), model.Password.Trim());
 
                 var user = loginService.GetUser(new Guid(result));
 

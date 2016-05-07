@@ -1,4 +1,5 @@
-﻿
+﻿@using ProjektGlowny.Models
+@model UserModels  
 @{
     ViewBag.Title = "Użytkownicy";
     Layout = "_Layout.cshtml";
@@ -18,123 +19,23 @@
 
 <table class="table table-striped">
     <tr>
-        <td>ID użytkownika</td>
-        <td>Imię</td>
+        <td>Imię </td>
         <td>Nazwisko</td>
-        <td>Hasło</td>
-        <td>ID jednostki</td>
-        <td>Czy admin?</td>
-        <td>Działania</td>
+        <td>Login</td>
+        <td>Administrator</td>
+        <td>Jednostka</td>
+
     </tr>
-    <!--(tr>td{$}+td{Biblioteka $$}+td{Łopinki Łuzyckie 4$$}+td{$$:00-1$:00}+td{brak})*5-->
-    <tr>
-        <td>1</td>
-        <td>Karol</td>
-        <td>Iksiński</td>
-        <td>43310409e24094b8b00c02ac790da086</td>
-        <td>4</td>
-        <td>nie</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Karol</td>
-        <td>Iksiński</td>
-        <td>43310409e24094b8b00c02ac790da086</td>
-        <td>4</td>
-        <td>nie</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Karol</td>
-        <td>Iksiński</td>
-        <td>43310409e24094b8b00c02ac790da086</td>
-        <td>4</td>
-        <td>nie</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Karol</td>
-        <td>Iksiński</td>
-        <td>43310409e24094b8b00c02ac790da086</td>
-        <td>4</td>
-        <td>nie</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Karol</td>
-        <td>Iksiński</td>
-        <td>43310409e24094b8b00c02ac790da086</td>
-        <td>4</td>
-        <td>nie</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Karol</td>
-        <td>Iksiński</td>
-        <td>43310409e24094b8b00c02ac790da086</td>
-        <td>4</td>
-        <td>nie</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
+  @for (var i = 0; i < 3; i++)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => m.name )</td>
+            <td>@Html.DisplayFor(m => m.surname )</td>
+            <td>@Html.DisplayFor(m => m.Login)</td>
+            <td>@Html.DisplayFor(m => m.isAdmin)</td>
+            <td>@Html.DisplayFor(m => m.unit)</td>
+        </tr>
+  }
 </table>
 
 <button type="button" class="btn btn-success btn-lg">

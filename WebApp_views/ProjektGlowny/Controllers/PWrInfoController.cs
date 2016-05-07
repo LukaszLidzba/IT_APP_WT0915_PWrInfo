@@ -30,7 +30,16 @@ namespace ProjektGlowny.Controllers
         }
         public ActionResult Users()
         {
-            return View();
+            if (Session["UserTicket"] != null)
+            {
+                UserModels u = new UserModels();
+             
+                IList<UserModels> users = u.GetUsers(new Guid(Session["UserTicket"].ToString())).ToList();
+
+                return View(users);
+
+            }
+            return Redirect("~/Login/Login");
         }
         public ActionResult UserProfile()
         {
@@ -40,20 +49,13 @@ namespace ProjektGlowny.Controllers
         {
             if(Session["UserTicket"] != null)
             {
-               
-
                 MessagesModel m = new MessagesModel();
                 EventsModel e = new EventsModel();
-            
-
+  
                 var tuple = new Tuple<List<MessagesModel>, List<EventsModel>>
                     (m.GetMessages(new Guid(Session["UserTicket"].ToString())).ToList(), e.GetEvents(new Guid(Session["UserTicket"].ToString())).ToList());
                
-
-               
                 return View(tuple);
-
-              //  return View(Messages);
 
             }
             return Redirect("~/Login/Login");
