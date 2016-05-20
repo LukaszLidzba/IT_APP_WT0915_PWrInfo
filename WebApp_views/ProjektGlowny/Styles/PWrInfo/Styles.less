@@ -81,7 +81,6 @@ aside {
             display: block;
             width: 100px;
             margin: 20px auto;
-            padding: 10px 0;
             border: 1px @LightBlue solid;
             border-radius: 5px;
             .mk-transition(background);
@@ -93,6 +92,8 @@ aside {
             a {
                 color: @LightBlue;
                 text-decoration: none;
+                display: block;
+                padding: 10px 0;
                 .mk-transition();
 
                 &:hover {
@@ -119,11 +120,11 @@ aside {
                     &-events {
                         width: 55px;
                     }
-                    
+
                     &-users {
                         width: 51.5px;
                     }
-                    
+
                     &-profile {
                         width: 44px;
                     }
@@ -144,7 +145,6 @@ main {
     padding-right: 15px;
     width: 100%;
     padding-left: 165px;
-    
 
     footer {
         position: absolute;
@@ -153,21 +153,21 @@ main {
         text-align: center;
     }
 
-    .title-description{
+    .title-description {
         display: block;
         width: 100%;
         margin-right: 10%;
         margin-bottom: 30px;
     }
 
-    .button-text{
+    .button-text {
         .hidden-xs;
         .hidden-sm;
     }
 
-    .form-control{
-    width: 320px;
-}
+    .form-control {
+        width: 320px;
+    }
 }
 
 .login {
@@ -178,17 +178,19 @@ main {
     border: 1px @BackgroundGrey solid;
     border-radius: 5px;
 
-    &.xs{
+    &.xs {
         width: 70%;
     }
-    &.sm{
+
+    &.sm {
         width: 60%;
     }
-    &.md, &.lg{
+
+    &.md, &.lg {
         width: 600px;
     }
 
-    &-background{
+    &-background {
         width: 100%;
         height: 100%;
         background-color: #EEE;
@@ -203,7 +205,7 @@ main {
         padding-right: 25px;
         border-radius: 5px 5px 0 0;
 
-        h1{
+        h1 {
             margin: 0;
         }
     }
@@ -225,3 +227,28 @@ main {
     }
 }
 
+.loginbar{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px 15px 8px 23px;
+    background-color: @DarkerBlue;
+    /*border-left: 1px @LightBlue solid;
+    border-bottom: 1px @LightBlue solid;*/
+    border-bottom-left-radius: 30px;
+    color: @LightBlue;
+
+    &-description{
+        display: inline-block;
+    }
+
+    &-user{
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    &-button{
+        display: inline-block;
+        margin-left:30px;
+    }
+}

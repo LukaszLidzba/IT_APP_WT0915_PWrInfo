@@ -5524,7 +5524,6 @@ aside ul li {
   display: block;
   width: 100px;
   margin: 20px auto;
-  padding: 10px 0;
   border: 1px #8DC7FF solid;
   border-radius: 5px;
   -moz-transition: background 0.2s ease-in-out;
@@ -5538,6 +5537,8 @@ aside ul li:hover {
 aside ul li a {
   color: #8DC7FF;
   text-decoration: none;
+  display: block;
+  padding: 10px 0;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
@@ -5652,4 +5653,26 @@ main .form-control {
 }
 .login-wrapper-buttons {
   margin-top: 20px;
+}
+.loginbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px 15px 8px 23px;
+  background-color: #013457;
+  /*border-left: 1px @LightBlue solid;
+    border-bottom: 1px @LightBlue solid;*/
+  border-bottom-left-radius: 30px;
+  color: #8DC7FF;
+}
+.loginbar-description {
+  display: inline-block;
+}
+.loginbar-user {
+  display: inline-block;
+  font-weight: bold;
+}
+.loginbar-button {
+  display: inline-block;
+  margin-left: 30px;
 }

@@ -81,12 +81,17 @@
         <main>
             @RenderBody()
             @*<footer>
-                <div class="footer-copy">
-                    &copy; PWr Info <span id="demo"></span>
-                </div>
-                <div class="footer-rightText"> @DateTime.Now.ToLongDateString() - My ASP.NET Application</div>
-            </footer>*@
+                    <div class="footer-copy">
+                        &copy; PWr Info <span id="demo"></span>
+                    </div>
+                    <div class="footer-rightText"> @DateTime.Now.ToLongDateString() - My ASP.NET Application</div>
+                </footer>*@
         </main>
+        <div class="loginbar">
+            <div class="loginbar-description">Zalogowany jako: </div>
+            <div class="loginbar-user">Username</div>
+            <button type="button" class="btn btn-default loginbar-button">Wyloguj</button>
+        </div>
     </div>
 
 
