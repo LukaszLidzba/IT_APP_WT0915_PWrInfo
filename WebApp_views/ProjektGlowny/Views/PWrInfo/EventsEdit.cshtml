@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Edycja wydarzenia";
+    Layout = "_Layout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+<div class="title-description">
+    Tutaj możesz zmienić informacje o wydarzeniu.
+</div>
+
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Wydarzenia</a></li>
+    <li class="active">Edycja</li>
+</ol>
+
+<form>
+    <div class="form-group">
+        <label for="id-wydarzenia">ID wydarzenia</label>
+        <input type="text" class="form-control" id="id-wydarzenia" placeholder="ID wydarzenia" value="123456">
+    </div>
+    <div class="form-group">
+        <label for="wydzial">Wydział</label>
+        <input type="text" class="form-control" id="wydzial" placeholder="Wydział" value="W4 - Elektroniki">
+    </div>
+    <div class="form-group">
+        <label for="tytul">Tytuł</label>
+        <input type="text" class="form-control" id="tytul" placeholder="Tytuł" value="Jakiś ciekawy tytuł typu 'Lorem Ipsum'">
+    </div>
+    <div class="form-group">
+        <label for="tresc">Treść</label>
+        <input type="text" class="form-control" id="tresc" placeholder="Treść" value="Treść wydarzenia, które jeszcze nie wiadomo czy się odbędzie.">
+    </div>
+    <div class="form-group">
+        <label for="data">Data</label>
+        <input type="text" class="form-control" id="data" placeholder="Data" value="20.06.2016">
+    </div>
+    <div class="form-group">
+        <label for="data-przypomnienia">Data przypomnienia</label>
+        <input type="text" class="form-control" id="data-przypomnienia" placeholder="Data przypomnienia" value="20.06.2016">
+    </div>
+    <div class="form-group">
+        <label for="id-usera">ID użytkownika</label>
+        <input type="text" class="form-control" id="id-usera" placeholder="ID użytkownika" value="200855">
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
+    <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
+</form>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Edycja jednostki";
+    Layout = "_Layout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+<div class="title-description">
+    Tutaj możesz zmienić dane jednostki.
+</div>
+
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Jednostki</a></li>
+    <li class="active">Edycja</li>
+</ol>
+
+<form>
+    <div class="form-group">
+        <label for="id-jednostki">ID jednostki</label>
+        <input type="text" class="form-control" id="id-jednostki" placeholder="ID jednostki" value="123456">
+    </div>
+    <div class="form-group">
+        <label for="nazwa">Nazwa</label>
+        <input type="text" class="form-control" id="nazwa" placeholder="Nazwa" value="Biblioteka Główna (A1)">
+    </div>
+    <div class="form-group">
+        <label for="opis">Opis</label>
+        <input type="text" class="form-control" id="opis" placeholder="Opis" value="Interesujący opis jednostki">
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
+    <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
+</form>

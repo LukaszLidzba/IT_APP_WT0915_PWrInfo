@@ -337,6 +337,12 @@
     <Content Include="Views\PWrInfo\Libraries.cshtml" />
     <Content Include="Views\PWrInfo\Units.cshtml" />
     <Content Include="Views\PWrInfo\DeansOffices.cshtml" />
+    <Content Include="Views\PWrInfo\DeansOfficesEdit.cshtml" />
+    <Content Include="Views\PWrInfo\EventsEdit.cshtml" />
+    <Content Include="Views\PWrInfo\LibrariesEdit.cshtml" />
+    <Content Include="Views\PWrInfo\MessagesEdit.cshtml" />
+    <Content Include="Views\PWrInfo\UnitsEdit.cshtml" />
+    <Content Include="Views\PWrInfo\UsersEdit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Edycja biblioteki";
+    Layout = "_Layout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+<div class="title-description">
+    Tutaj możesz zmienić dane biblioteki.
+</div>
+
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Blblioteki</a></li>
+    <li class="active">Edycja</li>
+</ol>
+
+<form>
+    <div class="form-group">
+        <label for="id-biblioteki">ID biblioteki</label>
+        <input type="text" class="form-control" id="id-biblioteki" placeholder="ID biblioteki" value="123456">
+    </div>
+    <div class="form-group">
+        <label for="nazwa">Nazwa</label>
+        <input type="text" class="form-control" id="nazwa" placeholder="nazwa" value="Biblioteka Główna (A1)">
+    </div>
+    <div class="form-group">
+        <label for="adres">Adres</label>
+        <input type="text" class="form-control" id="adres" placeholder="Adres" value="Łopinki Łuzyckie 4, 48-513 Łużyce">
+    </div>
+    <div class="form-group">
+        <label for="godz-otwarcia">Godziny otwarcia</label>
+        <input type="text" class="form-control" id="godz-otwarcia" placeholder="Godziny otwarcia" value="11:00 - 13:00">
+    </div>
+    <div class="form-group">
+        <label for="dod-info">Dodatkowe informacje</label>
+        <input type="text" class="form-control" id="dod-info" placeholder="Dodatkowe informacje" value="Brak">
+    </div>
+    <div class="form-group">
+        <label for="id-usera">ID użytkownika</label>
+        <input type="text" class="form-control" id="id-usera" placeholder="ID użytkownika" value="200855">
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
+    <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
+</form>

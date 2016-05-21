@@ -12,11 +12,23 @@ namespace ProjektGlowny.Controllers
     {
         // GET: PWrInfo
 
+        public ActionResult DeansOfficesEdit()
+        {
+            return View();
+        }
         public ActionResult DeansOffices()
         {
             return View();
         }
+        public ActionResult UnitsEdit()
+        {
+            return View();
+        }
         public ActionResult Units()
+        {
+            return View();
+        }
+        public ActionResult LibrariesEdit()
         {
             return View();
         }
@@ -28,11 +40,23 @@ namespace ProjektGlowny.Controllers
         {
             return View();
         }
+        public ActionResult EventsEdit()
+        {
+            return View();
+        }
         public ActionResult Events()
         {
             return View();
         }
+        public ActionResult MessagesEdit()
+        {
+            return View();
+        }
         public ActionResult Messages()
+        {
+            return View();
+        }
+        public ActionResult UsersEdit()
         {
             return View();
         }
