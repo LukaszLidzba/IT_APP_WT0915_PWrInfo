@@ -5564,8 +5564,14 @@ aside ul li a .icon-messages {
 aside ul li a .icon-events {
   width: 55px;
 }
+aside ul li a .icon-deansOffices {
+  width: 62px;
+}
 aside ul li a .icon-users {
   width: 51.5px;
+}
+aside ul li a .icon-units {
+  width: 48px;
 }
 aside ul li a .icon-profile {
   width: 44px;
@@ -5675,4 +5681,9 @@ main .form-control {
 .loginbar-button {
   display: inline-block;
   margin-left: 30px;
+}
+/* Bootstrap styles modifications */
+.navbar-form {
+  margin-bottom: 15px;
+  padding: 0;
 }

@@ -6,18 +6,30 @@
 
 <h1>@ViewBag.Title</h1>
 <div class="title-description">
-    Lista wiadomości
+    Lista komunikatów
 </div>
 
 <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
-    <li><a href="#">Wiadomości</a></li>
+    <li><a href="#">Komunikaty</a></li>
     <li class="active">Lista</li>
 </ol>
 
+<form class="navbar-form navbar-left">
+    <button type="button" class="btn btn-success">
+        <i class="icon icon-data fa fa-plus" aria-hidden="true"></i> Dodaj
+    </button>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Szukaj...">
+    </div>
+    <button type="submit" class="btn btn-default">
+        <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
+    </button>
+</form>
+
 <table class="table table-striped">
     <tr>
-        <td>ID ogłoszenia</td>
+        <td>ID komunikatu</td>
         <td>Tytuł</td>
         <td>Treść</td>
         <td>ID wydziału</td>
@@ -65,6 +77,3 @@
 
 </table>
 
-<button type="button" class="btn btn-success btn-lg">
-    <i class="icon icon-data fa fa-plus" aria-hidden="true"></i> Dodaj
-</button>

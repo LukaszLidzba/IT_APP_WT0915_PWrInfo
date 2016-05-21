@@ -335,6 +335,8 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\PWrInfo\Libraries.cshtml" />
+    <Content Include="Views\PWrInfo\Units.cshtml" />
+    <Content Include="Views\PWrInfo\DeansOffices.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

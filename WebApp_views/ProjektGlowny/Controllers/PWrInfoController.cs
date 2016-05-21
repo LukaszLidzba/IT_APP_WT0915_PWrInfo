@@ -12,6 +12,14 @@ namespace ProjektGlowny.Controllers
     {
         // GET: PWrInfo
 
+        public ActionResult DeansOffices()
+        {
+            return View();
+        }
+        public ActionResult Units()
+        {
+            return View();
+        }
         public ActionResult Libraries()
         {
             return View();
