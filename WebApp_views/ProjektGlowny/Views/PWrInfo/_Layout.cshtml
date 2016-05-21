@@ -6,35 +6,11 @@
     <title>@ViewBag.Title - PWr Info</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/Styles/PWrInfo/Styles.min.css" rel="stylesheet" />
+    <link href="~/Scripts/jquery-ui/jquery-ui.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Scripts/PWrInfo.js"></script>
     <script src="~/Scripts/classAdder.js"></script>
-    <script>
-        var quantity = 12;
-
-        function prepareCols(quantity) {
-            for (var i = 0; i < quantity; i++) {
-                $("body").prepend("<div class='kolumna' style='width: 1px; height: 100%; position: fixed; background-color: red; z-index: 999999'></div>");
-            }
-        }
-
-        function drawCols(quantity) {
-            var screenWidth = window.outerWidth,
-                step = screenWidth / quantity,
-                left = 0;
-
-            $(".kolumna").each(function () {
-                $(this).css("left", left);
-                left += step - 1;
-            });
-        }
-
-        function initColumn() {
-            $(document).ready(function () {
-                prepareCols(quantity);
-                drawCols(quantity);
-            });
-        }
-    </script>
 </head>
 <body>
     <div class="document-body">
@@ -107,10 +83,10 @@
     </div>
 
 
-    <script>
-        //initColumn();
-        classAdder(480, 768, 1024, 1440);
-        //$(window).resize(function () { drawCols(12); });
-    </script>
+<script>
+    classAdder(480, 768, 1024, 1440);
+    AddDatePicker();
+    
+</script>
 </body>
 </html>
