@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ProjektGlowny.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -77,8 +78,9 @@
         </main>
         <div class="loginbar">
             <div class="loginbar-description">Zalogowany jako: </div>
-            <div class="loginbar-user">Username</div>
-            <button type="button" class="btn btn-default loginbar-button">Wyloguj</button>
+            <div class="loginbar-user">@Session["UserName"] @Session["UserSurname"] </div>
+            <button type="submit" class="btn btn-default loginbar-button">@Html.ActionLink("Wyloguj", "LogOff", "LoginController", null, new { @class = "actnclass" })
+            </button>
         </div>
     </div>
 

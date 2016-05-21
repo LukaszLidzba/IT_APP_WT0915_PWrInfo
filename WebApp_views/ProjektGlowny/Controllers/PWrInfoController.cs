@@ -92,5 +92,13 @@ namespace ProjektGlowny.Controllers
             }
             return Redirect("~/Login/Login");
         }
+
+         
+        public ActionResult LogOff()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("~/Login/Login");
+        }
     }
 }
