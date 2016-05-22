@@ -10,22 +10,52 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
         android:layout_marginBottom="10dp"
-        android:gravity="left"
+        android:layout_gravity="center"
         android:textStyle="bold"
         android:textSize="25sp"
-        android:text="@string/title_activity_message"/>
+        android:text="@string/title_menu"/>
 
-    <Spinner
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner_main"/>
+        android:id="@+id/button_message"
+        android:text="@string/title_activity_message"
+        android:layout_gravity="center"/>
 
-    <ListView
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/listView_main"
-        android:layout_marginTop="5dp"/>
+        android:id="@+id/button_event"
+        android:text="@string/title_activity_event"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_library"
+        android:text="@string/title_activity_library"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_deansOffice"
+        android:text="@string/title_activity_deansOffice"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_map"
+        android:text="@string/title_activity_map"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_info"
+        android:text="@string/title_activity_info"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

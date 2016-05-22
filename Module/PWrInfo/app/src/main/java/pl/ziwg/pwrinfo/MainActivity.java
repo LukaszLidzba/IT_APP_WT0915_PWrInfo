@@ -1,79 +1,66 @@
 package pl.ziwg.pwrinfo;
 
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.Button;
 
-import org.json.JSONException;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-public class MainActivity extends OwnActivity implements AdapterView.OnItemSelectedListener {
-
-    final private static String urlMessages = "http://zedd.azurewebsites.net/RestDataService.svc/messages";
+public class MainActivity extends OwnActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_main);
-        spinner.setOnItemSelectedListener(this);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.list_of_departments, android.R.layout.simple_spinner_item);
+        Button button_message =  (Button) findViewById(R.id.button_message);
+        button_message.setOnClickListener(this);
 
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        Button button_event =  (Button) findViewById(R.id.button_event);
+        button_event.setOnClickListener(this);
+
+        Button button_library =  (Button) findViewById(R.id.button_library);
+        button_library.setOnClickListener(this);
+
+        Button button_deansOffice =  (Button) findViewById(R.id.button_deansOffice);
+        button_deansOffice.setOnClickListener(this);
+
+        Button button_map_ =  (Button) findViewById(R.id.button_map);
+        button_map_.setOnClickListener(this);
+
+        Button button_info =  (Button) findViewById(R.id.button_info);
+        button_info.setOnClickListener(this);
+
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this, "Wczytywanie danych", Toast.LENGTH_SHORT).show();
-        new RetrieveMessage().execute(urlMessages, Integer.toString(position + 1));
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-
-    private class RetrieveMessage extends AsyncTask<String, Void, Void> {
-        List<Map<String, String>> data;
-        ListView listView = (ListView) findViewById(R.id.listView_main);
-
-        protected Void doInBackground(String... params) {
-            data = new ArrayList<Map<String,String>>();
-            WebRequest webRequest = new WebRequest();
-            String download = webRequest.makeWebServiceCall(params[0], params[1]);
-            JsonParser jsonParser = new JsonParser();
-            try {
-                jsonParser.MessagesJson(download, data);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            SimpleAdapter adapter = new SimpleAdapter(MainActivity.this, data,
-                    android.R.layout.simple_list_item_2, new String[]{"title", "data"},
-                    new int[]{android.R.id.text1,
-                            android.R.id.text2});
-            listView.setAdapter(adapter);
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button_message:
+                Intent getMessageScreenIntent = new Intent(this, MessageActivity.class);
+                startActivity(getMessageScreenIntent);
+                break;
+            case R.id.button_event:
+                Intent getEventScreenIntent = new Intent(this, EventActivity.class);
+                startActivity(getEventScreenIntent);
+                break;
+            case R.id.button_library:
+                Intent getLibraryScreenIntent = new Intent(this, LibraryActivity.class);
+                startActivity(getLibraryScreenIntent);
+                break;
+            case R.id.button_deansOffice:
+                Intent getDeansOfficeScreenIntent = new Intent(this, DeansOfficeActivity.class);
+                startActivity(getDeansOfficeScreenIntent);
+                break;
+            case R.id.button_map:
+                Intent getMapScreenIntent = new Intent(this, MapActivity.class);
+                startActivity(getMapScreenIntent);
+                break;
+            case R.id.button_info:
+                Intent getInfoScreenIntent = new Intent(this, InfoActivity.class);
+                startActivity(getInfoScreenIntent);
+                break;
+            default:
+                break;
         }
     }
 }

@@ -4,6 +4,12 @@ xmlns:tools="http://schemas.android.com/tools"
 tools:context="pl.ziwg.pwrinfo.MainActivity">
 
     <item
+        android:id="@+id/action_menu"
+        android:orderInCategory="100"
+        android:title="@string/title_menu"
+        app:showAsAction="never"/>
+
+    <item
         android:id="@+id/action_messages"
         android:orderInCategory="100"
         android:title="@string/title_activity_message"
