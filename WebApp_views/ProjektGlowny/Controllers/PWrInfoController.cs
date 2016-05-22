@@ -58,8 +58,39 @@ namespace ProjektGlowny.Controllers
         }
         public ActionResult UsersEdit()
         {
-            return View();
+            UserModels model = new UserModels();
+            return View(model);
         }
+
+
+        [HttpPost]
+        public ActionResult UsersEdit(UserModels model)
+        {
+            if (model.Password == model.repeatPassword)
+            {
+                model.addUser(new Guid(Session["UserTicket"].ToString()), model.name, model.surname, model.Password, model.Login, 0, true);
+
+                return Redirect("~/PWrInfo/Users");
+            }
+
+            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            return View(model);
+        }
+
+        public ActionResult UserProfile()
+        {
+            if (Session["UserTicket"] != null)
+            {
+                UserModels u = new UserModels();
+
+                UserModels user = u.GetUser(new Guid(Session["UserTicket"].ToString()));
+
+                return View(user);
+
+            }
+            return Redirect("~/Login/Login");
+        }
+
         public ActionResult Users()
         {
             if (Session["UserTicket"] != null)
@@ -73,10 +104,7 @@ namespace ProjektGlowny.Controllers
             }
             return Redirect("~/Login/Login");
         }
-        public ActionResult UserProfile()
-        {
-            return View();
-        }
+      
         public ActionResult Index()
         {
             if(Session["UserTicket"] != null)
@@ -93,12 +121,6 @@ namespace ProjektGlowny.Controllers
             return Redirect("~/Login/Login");
         }
 
-         
-        public ActionResult LogOff()
-        {
-            Session.Clear();
-            Session.Abandon();
-            return RedirectToAction("~/Login/Login");
-        }
+      
     }
 }

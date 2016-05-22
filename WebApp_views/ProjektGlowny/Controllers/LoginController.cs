@@ -21,7 +21,7 @@ namespace ProjektGlowny.Controllers
         //
         // POST: /Account/Login
         [HttpPost]
-        public ActionResult Login(UserModels model, string returnUrl)
+        public ActionResult Login(UserModels model)
         {
             ILoginService loginService = new LoginServiceClient();
 
@@ -35,7 +35,7 @@ namespace ProjektGlowny.Controllers
                 Session["UserName"] = user.Name;
                 Session["UserSurname"] = user.Surname;
                 Session["UserId"] = user.Id;
-                Session["UserIsAdmin"] = user.IsAdmin;
+                Session["UserIsAdmin"] = user.IsAdmin.ToString();
 
                 return Redirect("~/PWrInfo/Index");
             }
@@ -50,13 +50,10 @@ namespace ProjektGlowny.Controllers
 
         //
         // POST: /Account/LogOff
-        
-         
         public ActionResult LogOff()
         {
             Session.Abandon();
-
-            return RedirectToAction("~/Login/Login", "LoginController");
+            return Redirect("~/Login/Login");
         }
 
 

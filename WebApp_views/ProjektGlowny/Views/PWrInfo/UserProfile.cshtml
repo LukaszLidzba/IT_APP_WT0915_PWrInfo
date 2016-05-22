@@ -1,4 +1,5 @@
-﻿
+﻿@using ProjektGlowny.Models
+@model UserModels
 @{
     ViewBag.Title = "Mój profil";
     Layout = "_Layout.cshtml";
@@ -13,7 +14,8 @@
 <form>
     <div class="form-group">
         <label for="imie">Imię</label>
-        <input type="text" class="form-control" id="imie" placeholder="Imię" value="Karol">
+        <input type="text" class="form-control" id="imie" placeholder="Imię" readonly>
+
     </div>
     <div class="form-group">
         <label for="nazwisko">Nazwisko</label>
@@ -49,5 +51,4 @@
         </select>
     </div>
     <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
-    <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
 </form>

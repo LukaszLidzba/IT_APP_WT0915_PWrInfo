@@ -24,12 +24,12 @@
         <td>Treść</td>
         <td>Wydział</td>
     </tr>
-    @for (var i = 0; i < 3; i++)
-    {
+   @foreach(var item in Model.Item1.Take(3))
+   {
         <tr>
-            <td>@Html.DisplayFor(turple => turple.Item1[i].Id)</td>
-            <td>@Html.DisplayFor(turple => turple.Item1[i].content)</td>
-            <td>@Html.DisplayFor(turple => turple.Item1[i].departments.Name)</td>
+            <td>@Html.DisplayFor(turple => item.Id)</td>
+            <td>@Html.DisplayFor(turple => item.content)</td>
+            <td>@Html.DisplayFor(turple => item.departments.Name)</td>
         </tr>
     }
 </table>
@@ -43,12 +43,12 @@
         <td>Treść</td>
         <td>Wydział</td>
     </tr>
-    @for (var i = 0; i < 3; i++)
-    {
+   @foreach (var item in Model.Item2.Take(3))
+   {
         <tr>
-            <td>@Html.DisplayFor(turple => turple.Item2[i].Id)</td>
-            <td>@Html.DisplayFor(turple => turple.Item2[i].content)</td>
-            <td>@Html.DisplayFor(turple => turple.Item2[i].departments.Name)</td>
+            <td>@Html.DisplayFor(turple => item.Id)</td>
+            <td>@Html.DisplayFor(turple => item.content)</td>
+            <td>@Html.DisplayFor(turple => item.departments.Name)</td>
         </tr>
     }
 </table>

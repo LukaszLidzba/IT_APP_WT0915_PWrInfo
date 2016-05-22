@@ -1,4 +1,5 @@
-﻿
+﻿@using ProjektGlowny.Models
+@model UserModels
 @{
     ViewBag.Title = "Edycja użytkownika";
     Layout = "_Layout.cshtml";
@@ -16,43 +17,63 @@
 </ol>
 
 <form>
-    <div class="form-group">
-        <label for="imie">Imię</label>
-        <input type="text" class="form-control" id="imie" placeholder="Imię" value="Karol">
+
+    @using (Html.BeginForm("UsersEdit", "PWrInfoController", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.name)
+            @Html.TextBoxFor(m => m.name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.surname)
+            @Html.TextBoxFor(m => m.surname, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Login)
+            @Html.TextBoxFor(m => m.Login, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.repeatPassword)
+            @Html.PasswordFor(m => m.repeatPassword, new { @class = "form-control" })  
+        </div>  
+        <div class="form-group">
+                @Html.LabelFor(m => m.isAdmin)
+            @Html.
+                <select id="ifadmin" class="form-control">
+                    <option value="yes">Tak</option>
+                    <option value="no">Nie</option>
+                </select>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.unit)
+                <select id="departament" class="form-control">
+                    <option value="W1">W1 - Wydział Architektury</option>
+                    <option value="W2">W2 - Wydział Budownictwa Lądowego i Wodnego</option>
+                    <option value="W3">W3 - Wydział Chemiczny</option>
+                    <option value="W4">W4 - Wydział Elektroniki</option>
+                    <option value="W5">W5 - Wydział Elektryczny</option>
+                    <option value="W6">W6 - Wydział Geoinżynierii, Górnictwa i Geologii</option>
+                    <option value="W7">W7 - Wydział Inżynierii Środowiska</option>
+                    <option value="W8">W8 - Wydział Informatyki i Zarządzania</option>
+                    <option value="W9">W9 - Wydział Mechaniczno-Energetyczny</option>
+                    <option value="W10">W10 - Wydział Wydział Mechaniczny</option>
+                    <option value="W11">W11 - Wydział Podstawowych Problemów Techniki</option>
+                    <option value="W12">W12 - Wydział Elektroniki Mikrosystemów i Fotoniki</option>
+                    <option value="W13">W13 - Wydział Matematyki</option>
+                </select>
+            </div>
+    <div class="login-wrapper-buttons">
+        <button type="submit" class="btn btn-primary btn-lg">Dodaj</button>
+        <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
     </div>
-    <div class="form-group">
-        <label for="nazwisko">Nazwisko</label>
-        <input type="text" class="form-control" id="nazwisko" placeholder="Nazwisko" value="Iksiński">
-    </div>
-    <div class="form-group">
-        <label for="login">Login</label>
-        <input type="text" class="form-control" id="login" placeholder="Login" value="carOL">
-    </div>
-    <div class="form-group">
-        <label for="ifadmin">Administrator</label>
-        <select id="ifadmin" class="form-control">
-            <option value="yes">Tak</option>
-            <option value="no">Nie</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="departament">Jednostka</label>
-        <select id="departament" class="form-control">
-            <option value="W1">W1 - Wydział Architektury</option>
-            <option value="W2">W2 - Wydział Budownictwa Lądowego i Wodnego</option>
-            <option value="W3">W3 - Wydział Chemiczny</option>
-            <option value="W4">W4 - Wydział Elektroniki</option>
-            <option value="W5">W5 - Wydział Elektryczny</option>
-            <option value="W6">W6 - Wydział Geoinżynierii, Górnictwa i Geologii</option>
-            <option value="W7">W7 - Wydział Inżynierii Środowiska</option>
-            <option value="W8">W8 - Wydział Informatyki i Zarządzania</option>
-            <option value="W9">W9 - Wydział Mechaniczno-Energetyczny</option>
-            <option value="W10">W10 - Wydział Wydział Mechaniczny</option>
-            <option value="W11">W11 - Wydział Podstawowych Problemów Techniki</option>
-            <option value="W12">W12 - Wydział Elektroniki Mikrosystemów i Fotoniki</option>
-            <option value="W13">W13 - Wydział Matematyki</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
-    <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
+    }
+
+
 </form>
+
+
+ 
