@@ -7,31 +7,61 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/library_name"
-        android:textSize="15sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:text="Nazwa: "/> <!-- Tymczasowo! Do Usunięcia! -->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/library_address"
-        android:textSize="15sp"
-        android:text="Adres: "/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/library_openingHours"
-        android:textSize="15sp"
-        android:text="Godziny otwarcia: "
-        android:autoLink="web"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="Adres: "
+        android:textStyle="italic"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/library_address"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="#000000"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="Godziny otwarcia: "
+        android:textStyle="italic" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/library_openingHours"
+        android:textSize="15sp"
+        android:autoLink="web"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="#000000"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="Dodatkowe informacje: "
+        android:textStyle="italic"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/library_additionalInfo"
         android:textSize="15sp"
-        android:text="Dodatkowe informacje: "/>
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"/>
 </LinearLayout>
