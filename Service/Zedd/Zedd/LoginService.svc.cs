@@ -63,6 +63,8 @@ namespace Zedd
 
       try
       {
+        _loginHandler.HandleProlongSession(ticketId);
+
         result = _loginQueryDao.GetUser(ticketId);
       }
       catch (Exception e)

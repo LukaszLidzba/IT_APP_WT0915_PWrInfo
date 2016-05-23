@@ -1,5 +1,8 @@
-﻿using System;
+﻿using NHibernate.Util;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Security;
 using System.ServiceModel;
 using Zedd.Commands;
@@ -104,7 +107,7 @@ namespace Zedd
       return libraries;
     }
 
-    public IList<MessageInfo> GetMessages(Guid ticket)
+    public IList<MessageInfo> GetMessages(Guid ticket, DateTime? startDate = null)
     {
       IList<MessageInfo> messages;
 
@@ -126,16 +129,21 @@ namespace Zedd
       return messages;
     }
 
-    public IList<EventInfo> GetEvents(Guid ticket)
+    public IList<EventInfo> GetEvents(Guid ticket, DateTime? startDate = null, DateTime? endDate = null)
     {
-      IList<EventInfo> events;
-
       try
       {
         _loginQuery.IsAuthenticated(ticket);
         _sessionGenerator.ProlongSession(ticket);
 
-        events = _eventsQuery.GetAllEvents();
+        var events = _eventsQuery.GetAllEvents();
+
+        if (startDate == null || endDate == null)
+        {
+          return events.Where(info => DateTime.Parse(info.Date) > DateTime.Now.AddDays(-30)).ToList();
+        }
+
+        return events.Where(info => DateTime.Parse(info.Date) >= startDate && DateTime.Parse(info.Date) <= endDate).ToList();
       }
       catch (SecurityException e)
       {
@@ -145,7 +153,6 @@ namespace Zedd
       {
         throw new FaultException(e.Message);
       }
-      return events;
     }
 
     public IList<UnitInfo> GetUnits(Guid ticket)

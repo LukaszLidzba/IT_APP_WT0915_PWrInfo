@@ -1,3 +1,4 @@
+using NHibernate.Criterion;
 using System;
 using System.Linq;
 using System.Threading;
@@ -173,6 +174,158 @@ namespace Zedd.Commands
           };
 
           session.Save(entity);
+          transaction.Commit();
+        }
+      }
+    }
+
+    public void Delete<T>(int id)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (var transaction = session.BeginTransaction())
+        {
+          var entity = session.CreateCriteria(typeof(T)).Add(Restrictions.Eq("Id", id)).UniqueResult();
+
+          if (entity != null)
+          {
+            session.Delete(entity);
+            transaction.Commit();
+          }
+        }
+      }
+    }
+
+    public void Edit(UserInfo userInfo)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (var transaction = session.BeginTransaction())
+        {
+          var entity = session.QueryOver<Users>().Where(users => users.Id == userInfo.Id).SingleOrDefault();
+
+          entity.IsAdmin = userInfo.IsAdmin;
+          entity.Login = userInfo.Login;
+          entity.Name = userInfo.Name;
+          entity.Password = userInfo.Password;
+          entity.Surname = userInfo.Surname;
+          entity.Unit = new Unit { Id = userInfo.Unit.Id };
+
+          session.Update(entity);
+          transaction.Commit();
+        }
+      }
+    }
+
+    public void Edit(LibraryInfo libraryInfo)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (var transaction = session.BeginTransaction())
+        {
+          var entity = session.QueryOver<Libraries>().Where(users => users.Id == libraryInfo.Id).SingleOrDefault();
+
+          entity.AdditionalInfo = libraryInfo.AdditionalInfo;
+          entity.Address = libraryInfo.Address;
+          entity.Name = libraryInfo.Name;
+          entity.OpeningHours = libraryInfo.OpeningHours;
+          entity.UserId = libraryInfo.UserId;
+
+          session.Update(entity);
+          transaction.Commit();
+        }
+      }
+    }
+
+    public void Edit(EventInfo eventInfo)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (var transaction = session.BeginTransaction())
+        {
+          var entity = session.QueryOver<Events>().Where(users => users.Id == eventInfo.Id).SingleOrDefault();
+
+          entity.Content = eventInfo.Content;
+          entity.Date = DateTime.Parse(eventInfo.Date);
+          entity.Department = new Departments { Id = eventInfo.Department.Id };
+          entity.NotificationDate = DateTime.Parse(eventInfo.NotificationDate);
+          entity.Title = eventInfo.Title;
+          entity.UserId = eventInfo.UserId;
+
+          session.Update(entity);
+          transaction.Commit();
+        }
+      }
+    }
+
+    public void Edit(Department departmentInfo)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (var transaction = session.BeginTransaction())
+        {
+          var entity = session.QueryOver<Departments>().Where(users => users.Id == departmentInfo.Id).SingleOrDefault();
+
+          entity.Name = departmentInfo.Name;
+
+          session.Update(entity);
+          transaction.Commit();
+        }
+      }
+    }
+
+    public void Edit(DeansOfficeInfo deansOfficeInfo)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (var transaction = session.BeginTransaction())
+        {
+          var entity = session.QueryOver<DeansOffices>().Where(users => users.Id == deansOfficeInfo.Id).SingleOrDefault();
+
+          entity.AdditionalInfo = deansOfficeInfo.AdditionalInfo;
+          entity.Address = deansOfficeInfo.Address;
+          entity.Department = new Departments { Id = deansOfficeInfo.Department.Id };
+          entity.OpeningHours = deansOfficeInfo.OpeningHours;
+          entity.UserId = deansOfficeInfo.UserId;
+
+          session.Update(entity);
+          transaction.Commit();
+        }
+      }
+    }
+
+    public void Edit(UnitInfo unitInfo)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (var transaction = session.BeginTransaction())
+        {
+          var entity = session.QueryOver<Unit>().Where(users => users.Id == unitInfo.Id).SingleOrDefault();
+
+          entity.Description = unitInfo.Description;
+          entity.Name = unitInfo.Name;
+
+          session.Update(entity);
+          transaction.Commit();
+        }
+      }
+    }
+
+    public void Edit(MessageInfo messageInfo)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (var transaction = session.BeginTransaction())
+        {
+          var entity = session.QueryOver<Messages>().Where(users => users.Id == messageInfo.Id).SingleOrDefault();
+
+          entity.Content = messageInfo.Content;
+          entity.Department = messageInfo.Department;
+          entity.Important = messageInfo.Important;
+          entity.Title = messageInfo.Title;
+          entity.UserId = messageInfo.UserId;
+
+          session.Update(entity);
           transaction.Commit();
         }
       }

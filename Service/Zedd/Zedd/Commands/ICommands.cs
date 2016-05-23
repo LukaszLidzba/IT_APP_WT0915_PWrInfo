@@ -15,5 +15,21 @@ namespace Zedd.Commands
     void AddUnit(AddUnitRequest request);
 
     void AddUser(AddUserRequest request);
+
+    void Delete<T>(int id);
+
+    void Edit(UserInfo userInfo);
+
+    void Edit(LibraryInfo libraryInfo);
+
+    void Edit(EventInfo eventInfo);
+
+    void Edit(Department departmentInfo);
+
+    void Edit(DeansOfficeInfo deansOfficeInfo);
+
+    void Edit(UnitInfo unitInfo);
+
+    void Edit(MessageInfo messageInfo);
   }
 }

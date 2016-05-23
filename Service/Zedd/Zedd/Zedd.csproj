@@ -110,6 +110,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeleteRequest.cs" />
     <Compile Include="Dto\AddUserRequest.cs" />
     <Compile Include="Commands\Commands.cs" />
     <Compile Include="Commands\ICommands.cs" />
@@ -191,6 +192,8 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Properties\PublishProfiles\Zedd %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Zedd %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Zedd %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Zedd %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\Zedd.pubxml" />
     <None Include="Properties\PublishProfiles\ZIWG.pubxml" />
     <None Include="Web.Debug.config">

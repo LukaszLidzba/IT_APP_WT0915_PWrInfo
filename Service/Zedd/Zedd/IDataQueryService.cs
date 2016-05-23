@@ -18,10 +18,10 @@ namespace Zedd
     IList<LibraryInfo> GetLibraries(Guid ticket);
 
     [OperationContract]
-    IList<MessageInfo> GetMessages(Guid ticket);
+    IList<MessageInfo> GetMessages(Guid ticket, DateTime? startDate);
 
     [OperationContract]
-    IList<EventInfo> GetEvents(Guid ticket);
+    IList<EventInfo> GetEvents(Guid ticket, DateTime? startDate, DateTime? endDate);
 
     [OperationContract]
     IList<UnitInfo> GetUnits(Guid ticket);

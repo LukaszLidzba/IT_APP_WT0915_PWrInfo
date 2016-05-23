@@ -59,7 +59,7 @@ namespace Zedd
     {
       int id = int.Parse(departmentId.Trim());
 
-      var messages = _messageQuery.GetMessages(id);
+      var messages = _messageQuery.GetMessages(id).OrderByDescending(info => info.Id).ToList();
 
       return messages;
     }
@@ -68,7 +68,7 @@ namespace Zedd
     {
       int id = int.Parse(departmentId.Trim());
 
-      var events = _eventsQuery.GetEvents(id);
+      var events = _eventsQuery.GetEvents(id).OrderByDescending(info => info.Id).ToList();
 
       return events;
     }
