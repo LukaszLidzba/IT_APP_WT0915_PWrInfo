@@ -11,44 +11,41 @@
 </div>
 
 
-<form>
+
+@using (Html.BeginForm("ChangePassword", "PWrInfo", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+{
     <div class="form-group">
-        <label for="imie">Imię</label>
-        <input type="text" class="form-control" id="imie" placeholder="Imię" readonly>
+        @Html.LabelFor(m => m.name)<br/>
+        @Html.TextBoxFor(m => m.name, new { @readonly = true })
 
     </div>
     <div class="form-group">
-        <label for="nazwisko">Nazwisko</label>
-        <input type="text" class="form-control" id="nazwisko" placeholder="Nazwisko" value="Iksiński">
+        @Html.LabelFor(m => m.surname)<br />
+        @Html.TextBoxFor(m => m.surname, new { @readonly = true })
     </div>
     <div class="form-group">
-        <label for="haslo">Hasło</label>
-        <input type="password" class="form-control" id="haslo" placeholder="Hasło" value="iksinski">
+        @Html.LabelFor(m => m.Login)<br />
+        @Html.TextBoxFor(m => m.Login, new { @readonly = true })
     </div>
     <div class="form-group">
-        <label for="departament">Jednostka</label>
-        <select id="departament" class="form-control">
-            <option value="W1">W1 - Wydział Architektury</option>
-            <option value="W2">W2 - Wydział Budownictwa Lądowego i Wodnego</option>
-            <option value="W3">W3 - Wydział Chemiczny</option>
-            <option value="W4">W4 - Wydział Elektroniki</option>
-            <option value="W5">W5 - Wydział Elektryczny</option>
-            <option value="W6">W6 - Wydział Geoinżynierii, Górnictwa i Geologii</option>
-            <option value="W7">W7 - Wydział Inżynierii Środowiska</option>
-            <option value="W8">W8 - Wydział Informatyki i Zarządzania</option>
-            <option value="W9">W9 - Wydział Mechaniczno-Energetyczny</option>
-            <option value="W10">W10 - Wydział Wydział Mechaniczny</option>
-            <option value="W11">W11 - Wydział Podstawowych Problemów Techniki</option>
-            <option value="W12">W12 - Wydział Elektroniki Mikrosystemów i Fotoniki</option>
-            <option value="W13">W13 - Wydział Matematyki</option>
-        </select>
+        @Html.LabelFor(m => m.unitName)<br />
+        @Html.TextBoxFor(m => m.unitName, new { @readonly = true })
     </div>
     <div class="form-group">
-        <label for="ifadmin">Administrator</label>
-        <select id="ifadmin" class="form-control">
-            <option value="yes">Tak</option>
-            <option value="no">Nie</option>
-        </select>
+        @Html.LabelFor(m => m.isAdmin)<br />
+        @Html.TextBoxFor(m => m.isAdmin, new { @readonly = true })
+     </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.oldPassword)
+        @Html.PasswordFor(m => m.oldPassword, new { @class = "form-control" })
     </div>
-    <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
-</form>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.repeatPassword)
+        @Html.PasswordFor(m => m.repeatPassword, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Zmień hasło</button>
+}

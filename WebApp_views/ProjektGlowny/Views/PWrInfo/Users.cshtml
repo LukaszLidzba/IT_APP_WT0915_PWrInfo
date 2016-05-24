@@ -18,7 +18,7 @@
 </ol>
 
 <form class="navbar-form navbar-left">
-    <button type="button" class="btn btn-success" onclick="location.href='/PWrInfo/UsersEdit'">
+    <button type="button" class="btn btn-success" onclick="location.href='/PWrInfo/UsersAdd'">
         <i class="icon icon-data fa fa-plus" aria-hidden="true"></i> Dodaj
 
     </button>
@@ -46,7 +46,7 @@
             <td>@Html.DisplayFor(m => item.surname)</td>
             <td>@Html.DisplayFor(m => item.Login)</td>
             <td>@Html.DisplayFor(m => item.isAdmin)</td>
-            <td>@Html.DisplayFor(m => item.unit.Name)</td>
+            <td>@Html.DisplayFor(m => item.unitName)</td>
         </tr>
   }
 </table>

@@ -67,14 +67,14 @@ namespace ProjektGlowny.Controllers
       return View();
     }
 
-    public ActionResult UsersEdit()
+    public ActionResult UsersAdd()
     {
       UserModels model = new UserModels();
       return View(model);
     }
 
     [HttpPost]
-    public ActionResult UsersEdit(UserModels model)
+    public ActionResult UsersAdd(UserModels model)
     {
       if (model.Password == model.repeatPassword)
       {
@@ -98,6 +98,16 @@ namespace ProjektGlowny.Controllers
         return View(user);
       }
       return Redirect("~/Login/Login");
+    }
+
+    [HttpPost]
+    public ActionResult ChangePassword(UserModels model)
+    {
+        if (model.Password == model.repeatPassword )//to do
+        {
+            return Redirect("~/PWrInfo/Index");
+        }
+        return Redirect("~/Login/Login");
     }
 
     public ActionResult Users()

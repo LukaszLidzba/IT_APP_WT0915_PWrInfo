@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Security;
+using System.Web.Mvc;
 using ProjektGlowny.DataQueryService;
 using ProjektGlowny.DataCommandService;
 
@@ -24,6 +25,11 @@ namespace ProjektGlowny.Models
         [DataType(DataType.Password)]
         [Display(Name = "Powtórz hasło")]
         public string repeatPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Stare hasło")]
+        public string oldPassword { get; set; }
         
         [Display(Name = "Imię")]
         public string name { get; set; }
@@ -35,8 +41,9 @@ namespace ProjektGlowny.Models
         public bool isAdmin { get; set; }
 
         [Display(Name = "Jednostka")]
-        public Unit unit { get; set; }
-
+        public string unitName { get; set; }
+        
+       
 
         public void addUser(Guid ticket, string name, string surname, string password, string login, int unitId,  bool isAdmin)
         {
@@ -73,7 +80,7 @@ namespace ProjektGlowny.Models
                     name = user.Name,
                     surname = user.Surname,
                     isAdmin = user.IsAdmin,
-                    unit = user.Unit,
+                    unitName = user.Unit.Name,
                     Login = user.Login,
 
                 });
@@ -94,9 +101,7 @@ namespace ProjektGlowny.Models
             user.name = result.Name;
             user.surname = result.Surname;
             user.isAdmin =  result.IsAdmin; 
-          //  user.unit.Id =  result.Unit.Id;
-          //  user.unit.Name = result.Unit.Name;
-          //  user.unit.Description = result.Unit.Description;
+            user.unitName = result.Unit.Name;
             user.Login = result.Login;
 
             return user;

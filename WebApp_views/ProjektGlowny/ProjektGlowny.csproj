@@ -203,8 +203,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DeansOfficesModel.cs" />
     <Compile Include="Models\EventsModel.cs" />
+    <Compile Include="Models\LibrariesModel.cs" />
     <Compile Include="Models\MessagesModel.cs" />
+    <Compile Include="Models\UnitsModel.cs" />
     <Compile Include="Models\UserModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\DataCommandService\Reference.cs">
@@ -358,7 +361,7 @@
     <Content Include="Views\PWrInfo\LibrariesEdit.cshtml" />
     <Content Include="Views\PWrInfo\MessagesEdit.cshtml" />
     <Content Include="Views\PWrInfo\UnitsEdit.cshtml" />
-    <Content Include="Views\PWrInfo\UsersEdit.cshtml" />
+    <Content Include="Views\PWrInfo\UsersAdd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

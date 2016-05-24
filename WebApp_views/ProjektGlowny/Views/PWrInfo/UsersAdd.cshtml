@@ -1,22 +1,22 @@
 ﻿@using ProjektGlowny.Models
 @model UserModels
 @{
-    ViewBag.Title = "Edycja użytkownika";
+    ViewBag.Title = "Dodaj użytkownika";
     Layout = "_Layout.cshtml";
 }
 
 <h1>@ViewBag.Title</h1>
 <div class="title-description">
-    Tutaj możesz zmienić dane użytkownika.
+    Tutaj możesz dodać użytkownika.
 </div>
 
 <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
     <li><a href="#">Użytkownicy</a></li>
-    <li class="active">Edycja</li>
+    <li class="active">Dodaj</li>
 </ol>
 
-@using (Html.BeginForm("UsersEdit", "PWrInfo", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+@using (Html.BeginForm("UsersAdd", "PWrInfo", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.name)
@@ -40,14 +40,15 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.isAdmin)
-        @Html.
-        <select id="ifadmin" class="form-control">
-            <option value="yes">Tak</option>
-            <option value="no">Nie</option>
-        </select>
+        @Html.DropDownListFor(m => m.isAdmin, new List<SelectListItem>()
+        {
+           new SelectListItem() { Text = "Tak", Value = "True" },
+           new SelectListItem() { Text = "Nie", Value = "False"}
+        }, new { @class = "form-control" })
+        
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.unit)
+        @Html.LabelFor(m => m.unitName)
         <select id="departament" class="form-control">
             <option value="W1">W1 - Wydział Architektury</option>
             <option value="W2">W2 - Wydział Budownictwa Lądowego i Wodnego</option>
