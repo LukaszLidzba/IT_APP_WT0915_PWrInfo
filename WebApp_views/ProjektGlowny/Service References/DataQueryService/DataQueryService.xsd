@@ -105,7 +105,7 @@
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Zedd.DataAccess" minOccurs="0" name="Unit" nillable="true" type="q2:Unit" />
+      <xs:element minOccurs="0" name="Unit" nillable="true" type="tns:UnitInfo" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />

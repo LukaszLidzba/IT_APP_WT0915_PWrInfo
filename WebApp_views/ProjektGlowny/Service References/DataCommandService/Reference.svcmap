@@ -22,10 +22,12 @@
     <MetadataSource Address="http://zedd.azurewebsites.net/DataCommandService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DataCommandService.wsdl" MetadataType="Wsdl" ID="9a8144cd-ace8-4101-a156-e2e591d56203" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataCommandService.svc?wsdl" />
+    <MetadataFile FileName="DataCommandService3.xsd" MetadataType="Schema" ID="634566f5-6bdd-4a1c-9343-eab7089fd07c" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd3" />
     <MetadataFile FileName="DataCommandService.xsd" MetadataType="Schema" ID="1ed5a668-b7f2-4011-a03f-262f7b263f61" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd2" />
     <MetadataFile FileName="DataCommandService1.xsd" MetadataType="Schema" ID="2358a6c2-fea4-46cd-a76c-57db0d4eb468" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd1" />
     <MetadataFile FileName="DataCommandService2.xsd" MetadataType="Schema" ID="a0e4350f-124f-46f5-97ef-8871265463e8" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DataCommandService.wsdl" MetadataType="Wsdl" ID="9a8144cd-ace8-4101-a156-e2e591d56203" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataCommandService.svc?wsdl" />
+    <MetadataFile FileName="DataCommandService31.xsd" MetadataType="Schema" ID="e722bd88-ee1e-4178-9d7d-3112f35c63cb" SourceId="1" SourceUrl="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd4" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

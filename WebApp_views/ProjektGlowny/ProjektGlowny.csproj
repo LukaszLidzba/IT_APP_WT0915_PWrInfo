@@ -147,6 +147,12 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <None Include="Service References\DataCommandService\configuration91.svcinfo" />
     <None Include="Service References\DataCommandService\configuration.svcinfo" />
+    <None Include="Service References\DataCommandService\DataCommandService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataCommandService\DataCommandService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\DataCommandService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -342,9 +348,6 @@
     </None>
     <None Include="Service References\LoginService1\LoginService.wsdl" />
     <None Include="Service References\LoginService1\LoginService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\LoginService1\LoginService1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\LoginService1\LoginService2.xsd">

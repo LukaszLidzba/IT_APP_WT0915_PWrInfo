@@ -41,7 +41,7 @@ namespace ProjektGlowny.LoginService1 {
         private string SurnameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProjektGlowny.LoginService1.Unit UnitField;
+        private ProjektGlowny.LoginService1.UnitInfo UnitField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -132,7 +132,7 @@ namespace ProjektGlowny.LoginService1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProjektGlowny.LoginService1.Unit Unit {
+        public ProjektGlowny.LoginService1.UnitInfo Unit {
             get {
                 return this.UnitField;
             }
@@ -156,9 +156,9 @@ namespace ProjektGlowny.LoginService1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Unit", Namespace="http://schemas.datacontract.org/2004/07/Zedd.DataAccess")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitInfo", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
     [System.SerializableAttribute()]
-    public partial class Unit : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class UnitInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -171,9 +171,6 @@ namespace ProjektGlowny.LoginService1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProjektGlowny.LoginService1.Users[] UsersField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -220,160 +217,6 @@ namespace ProjektGlowny.LoginService1 {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProjektGlowny.LoginService1.Users[] Users {
-            get {
-                return this.UsersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
-                    this.UsersField = value;
-                    this.RaisePropertyChanged("Users");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Users", Namespace="http://schemas.datacontract.org/2004/07/Zedd.DataAccess")]
-    [System.SerializableAttribute()]
-    public partial class Users : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsAdminField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LoginField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SurnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProjektGlowny.LoginService1.Unit UnitField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsAdmin {
-            get {
-                return this.IsAdminField;
-            }
-            set {
-                if ((this.IsAdminField.Equals(value) != true)) {
-                    this.IsAdminField = value;
-                    this.RaisePropertyChanged("IsAdmin");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Login {
-            get {
-                return this.LoginField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
-                    this.LoginField = value;
-                    this.RaisePropertyChanged("Login");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Password {
-            get {
-                return this.PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
-                    this.PasswordField = value;
-                    this.RaisePropertyChanged("Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Surname {
-            get {
-                return this.SurnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SurnameField, value) != true)) {
-                    this.SurnameField = value;
-                    this.RaisePropertyChanged("Surname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProjektGlowny.LoginService1.Unit Unit {
-            get {
-                return this.UnitField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
-                    this.UnitField = value;
-                    this.RaisePropertyChanged("Unit");
                 }
             }
         }

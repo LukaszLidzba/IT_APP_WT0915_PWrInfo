@@ -73,7 +73,7 @@ namespace ProjektGlowny.Models
 
             var result = dataQueryService.GetUsers(ticket);
 
-            foreach (UserInfo user in result)
+            foreach (DataQueryService.UserInfo user in result)
             {
                 users.Add(new UserModels()
                 {
@@ -93,8 +93,9 @@ namespace ProjektGlowny.Models
         {
 
             ProjektGlowny.LoginService1.ILoginService loginService = new ProjektGlowny.LoginService1.LoginServiceClient();
+            ProjektGlowny.LoginService1.UserInfo result = new ProjektGlowny.LoginService1.UserInfo();
 
-            var result = loginService.GetUser(ticket);
+            result = loginService.GetUser(ticket);
 
             UserModels user = new UserModels();
 

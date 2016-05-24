@@ -897,7 +897,7 @@ namespace ProjektGlowny.DataQueryService {
         private string SurnameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProjektGlowny.DataQueryService.Unit UnitField;
+        private ProjektGlowny.DataQueryService.UnitInfo UnitField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -988,241 +988,7 @@ namespace ProjektGlowny.DataQueryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProjektGlowny.DataQueryService.Unit Unit {
-            get {
-                return this.UnitField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
-                    this.UnitField = value;
-                    this.RaisePropertyChanged("Unit");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Unit", Namespace="http://schemas.datacontract.org/2004/07/Zedd.DataAccess")]
-    [System.SerializableAttribute()]
-    public partial class Unit : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProjektGlowny.DataQueryService.Users[] UsersField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProjektGlowny.DataQueryService.Users[] Users {
-            get {
-                return this.UsersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
-                    this.UsersField = value;
-                    this.RaisePropertyChanged("Users");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Users", Namespace="http://schemas.datacontract.org/2004/07/Zedd.DataAccess")]
-    [System.SerializableAttribute()]
-    public partial class Users : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsAdminField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LoginField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SurnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProjektGlowny.DataQueryService.Unit UnitField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsAdmin {
-            get {
-                return this.IsAdminField;
-            }
-            set {
-                if ((this.IsAdminField.Equals(value) != true)) {
-                    this.IsAdminField = value;
-                    this.RaisePropertyChanged("IsAdmin");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Login {
-            get {
-                return this.LoginField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
-                    this.LoginField = value;
-                    this.RaisePropertyChanged("Login");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Password {
-            get {
-                return this.PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
-                    this.PasswordField = value;
-                    this.RaisePropertyChanged("Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Surname {
-            get {
-                return this.SurnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SurnameField, value) != true)) {
-                    this.SurnameField = value;
-                    this.RaisePropertyChanged("Surname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProjektGlowny.DataQueryService.Unit Unit {
+        public ProjektGlowny.DataQueryService.UnitInfo Unit {
             get {
                 return this.UnitField;
             }
@@ -1267,16 +1033,16 @@ namespace ProjektGlowny.DataQueryService {
         System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.LibraryInfo[]> GetLibrariesAsync(System.Guid ticket);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetMessages", ReplyAction="http://tempuri.org/IDataQueryService/GetMessagesResponse")]
-        ProjektGlowny.DataQueryService.MessageInfo[] GetMessages(System.Guid ticket);
+        ProjektGlowny.DataQueryService.MessageInfo[] GetMessages(System.Guid ticket, System.Nullable<System.DateTime> startDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetMessages", ReplyAction="http://tempuri.org/IDataQueryService/GetMessagesResponse")]
-        System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.MessageInfo[]> GetMessagesAsync(System.Guid ticket);
+        System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.MessageInfo[]> GetMessagesAsync(System.Guid ticket, System.Nullable<System.DateTime> startDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetEvents", ReplyAction="http://tempuri.org/IDataQueryService/GetEventsResponse")]
-        ProjektGlowny.DataQueryService.EventInfo[] GetEvents(System.Guid ticket);
+        ProjektGlowny.DataQueryService.EventInfo[] GetEvents(System.Guid ticket, System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetEvents", ReplyAction="http://tempuri.org/IDataQueryService/GetEventsResponse")]
-        System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.EventInfo[]> GetEventsAsync(System.Guid ticket);
+        System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.EventInfo[]> GetEventsAsync(System.Guid ticket, System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetUnits", ReplyAction="http://tempuri.org/IDataQueryService/GetUnitsResponse")]
         ProjektGlowny.DataQueryService.UnitInfo[] GetUnits(System.Guid ticket);
@@ -1342,20 +1108,20 @@ namespace ProjektGlowny.DataQueryService {
             return base.Channel.GetLibrariesAsync(ticket);
         }
         
-        public ProjektGlowny.DataQueryService.MessageInfo[] GetMessages(System.Guid ticket) {
-            return base.Channel.GetMessages(ticket);
+        public ProjektGlowny.DataQueryService.MessageInfo[] GetMessages(System.Guid ticket, System.Nullable<System.DateTime> startDate) {
+            return base.Channel.GetMessages(ticket, startDate);
         }
         
-        public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.MessageInfo[]> GetMessagesAsync(System.Guid ticket) {
-            return base.Channel.GetMessagesAsync(ticket);
+        public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.MessageInfo[]> GetMessagesAsync(System.Guid ticket, System.Nullable<System.DateTime> startDate) {
+            return base.Channel.GetMessagesAsync(ticket, startDate);
         }
         
-        public ProjektGlowny.DataQueryService.EventInfo[] GetEvents(System.Guid ticket) {
-            return base.Channel.GetEvents(ticket);
+        public ProjektGlowny.DataQueryService.EventInfo[] GetEvents(System.Guid ticket, System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate) {
+            return base.Channel.GetEvents(ticket, startDate, endDate);
         }
         
-        public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.EventInfo[]> GetEventsAsync(System.Guid ticket) {
-            return base.Channel.GetEventsAsync(ticket);
+        public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.EventInfo[]> GetEventsAsync(System.Guid ticket, System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate) {
+            return base.Channel.GetEventsAsync(ticket, startDate, endDate);
         }
         
         public ProjektGlowny.DataQueryService.UnitInfo[] GetUnits(System.Guid ticket) {

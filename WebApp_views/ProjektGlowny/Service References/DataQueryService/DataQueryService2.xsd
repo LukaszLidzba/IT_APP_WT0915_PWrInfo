@@ -49,6 +49,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q7:guid" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -63,6 +64,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q9:guid" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

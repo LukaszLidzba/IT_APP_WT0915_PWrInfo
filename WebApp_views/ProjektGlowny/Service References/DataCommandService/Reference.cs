@@ -683,6 +683,1062 @@ namespace ProjektGlowny.DataCommandService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeleteRequest", Namespace="http://schemas.datacontract.org/2004/07/Zedd")]
+    [System.SerializableAttribute()]
+    public partial class DeleteRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IdField;
+        
+        private System.Guid TicketField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Guid Ticket {
+            get {
+                return this.TicketField;
+            }
+            set {
+                if ((this.TicketField.Equals(value) != true)) {
+                    this.TicketField = value;
+                    this.RaisePropertyChanged("Ticket");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitInfo", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
+    [System.SerializableAttribute()]
+    public partial class UnitInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeansOfficeInfo", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
+    [System.SerializableAttribute()]
+    public partial class DeansOfficeInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdditionalInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProjektGlowny.DataCommandService.Department DepartmentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OpeningHoursField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdditionalInfo {
+            get {
+                return this.AdditionalInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdditionalInfoField, value) != true)) {
+                    this.AdditionalInfoField = value;
+                    this.RaisePropertyChanged("AdditionalInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProjektGlowny.DataCommandService.Department Department {
+            get {
+                return this.DepartmentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentField, value) != true)) {
+                    this.DepartmentField = value;
+                    this.RaisePropertyChanged("Department");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OpeningHours {
+            get {
+                return this.OpeningHoursField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OpeningHoursField, value) != true)) {
+                    this.OpeningHoursField = value;
+                    this.RaisePropertyChanged("OpeningHours");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Department", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
+    [System.SerializableAttribute()]
+    public partial class Department : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventInfo", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
+    [System.SerializableAttribute()]
+    public partial class EventInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProjektGlowny.DataCommandService.Department DepartmentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotificationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Content {
+            get {
+                return this.ContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
+                    this.ContentField = value;
+                    this.RaisePropertyChanged("Content");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DateField, value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProjektGlowny.DataCommandService.Department Department {
+            get {
+                return this.DepartmentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentField, value) != true)) {
+                    this.DepartmentField = value;
+                    this.RaisePropertyChanged("Department");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NotificationDate {
+            get {
+                return this.NotificationDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotificationDateField, value) != true)) {
+                    this.NotificationDateField = value;
+                    this.RaisePropertyChanged("NotificationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MessageInfo", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
+    [System.SerializableAttribute()]
+    public partial class MessageInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProjektGlowny.DataCommandService.Departments DepartmentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ImportantField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Content {
+            get {
+                return this.ContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
+                    this.ContentField = value;
+                    this.RaisePropertyChanged("Content");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProjektGlowny.DataCommandService.Departments Department {
+            get {
+                return this.DepartmentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentField, value) != true)) {
+                    this.DepartmentField = value;
+                    this.RaisePropertyChanged("Department");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Important {
+            get {
+                return this.ImportantField;
+            }
+            set {
+                if ((this.ImportantField.Equals(value) != true)) {
+                    this.ImportantField = value;
+                    this.RaisePropertyChanged("Important");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Departments", Namespace="http://schemas.datacontract.org/2004/07/Zedd.DataAccess")]
+    [System.SerializableAttribute()]
+    public partial class Departments : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProjektGlowny.DataCommandService.DeansOffices[] DeansOfficesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProjektGlowny.DataCommandService.DeansOffices[] DeansOffices {
+            get {
+                return this.DeansOfficesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeansOfficesField, value) != true)) {
+                    this.DeansOfficesField = value;
+                    this.RaisePropertyChanged("DeansOffices");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeansOffices", Namespace="http://schemas.datacontract.org/2004/07/Zedd.DataAccess")]
+    [System.SerializableAttribute()]
+    public partial class DeansOffices : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdditionalInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProjektGlowny.DataCommandService.Departments DepartmentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OpeningHoursField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdditionalInfo {
+            get {
+                return this.AdditionalInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdditionalInfoField, value) != true)) {
+                    this.AdditionalInfoField = value;
+                    this.RaisePropertyChanged("AdditionalInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProjektGlowny.DataCommandService.Departments Department {
+            get {
+                return this.DepartmentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentField, value) != true)) {
+                    this.DepartmentField = value;
+                    this.RaisePropertyChanged("Department");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OpeningHours {
+            get {
+                return this.OpeningHoursField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OpeningHoursField, value) != true)) {
+                    this.OpeningHoursField = value;
+                    this.RaisePropertyChanged("OpeningHours");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LibraryInfo", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
+    [System.SerializableAttribute()]
+    public partial class LibraryInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdditionalInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OpeningHoursField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdditionalInfo {
+            get {
+                return this.AdditionalInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdditionalInfoField, value) != true)) {
+                    this.AdditionalInfoField = value;
+                    this.RaisePropertyChanged("AdditionalInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OpeningHours {
+            get {
+                return this.OpeningHoursField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OpeningHoursField, value) != true)) {
+                    this.OpeningHoursField = value;
+                    this.RaisePropertyChanged("OpeningHours");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
+    [System.SerializableAttribute()]
+    public partial class UserInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsAdminField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LoginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SurnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProjektGlowny.DataCommandService.UnitInfo UnitField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsAdmin {
+            get {
+                return this.IsAdminField;
+            }
+            set {
+                if ((this.IsAdminField.Equals(value) != true)) {
+                    this.IsAdminField = value;
+                    this.RaisePropertyChanged("IsAdmin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Login {
+            get {
+                return this.LoginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
+                    this.LoginField = value;
+                    this.RaisePropertyChanged("Login");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Surname {
+            get {
+                return this.SurnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SurnameField, value) != true)) {
+                    this.SurnameField = value;
+                    this.RaisePropertyChanged("Surname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProjektGlowny.DataCommandService.UnitInfo Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DataCommandService.IDataCommandService")]
     public interface IDataCommandService {
@@ -722,6 +1778,90 @@ namespace ProjektGlowny.DataCommandService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/AddUser", ReplyAction="http://tempuri.org/IDataCommandService/AddUserResponse")]
         System.Threading.Tasks.Task AddUserAsync(ProjektGlowny.DataCommandService.AddUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteUnits", ReplyAction="http://tempuri.org/IDataCommandService/DeleteUnitsResponse")]
+        void DeleteUnits(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteUnits", ReplyAction="http://tempuri.org/IDataCommandService/DeleteUnitsResponse")]
+        System.Threading.Tasks.Task DeleteUnitsAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteDeansOffices", ReplyAction="http://tempuri.org/IDataCommandService/DeleteDeansOfficesResponse")]
+        void DeleteDeansOffices(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteDeansOffices", ReplyAction="http://tempuri.org/IDataCommandService/DeleteDeansOfficesResponse")]
+        System.Threading.Tasks.Task DeleteDeansOfficesAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteEvents", ReplyAction="http://tempuri.org/IDataCommandService/DeleteEventsResponse")]
+        void DeleteEvents(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteEvents", ReplyAction="http://tempuri.org/IDataCommandService/DeleteEventsResponse")]
+        System.Threading.Tasks.Task DeleteEventsAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteMessages", ReplyAction="http://tempuri.org/IDataCommandService/DeleteMessagesResponse")]
+        void DeleteMessages(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteMessages", ReplyAction="http://tempuri.org/IDataCommandService/DeleteMessagesResponse")]
+        System.Threading.Tasks.Task DeleteMessagesAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteLibraries", ReplyAction="http://tempuri.org/IDataCommandService/DeleteLibrariesResponse")]
+        void DeleteLibraries(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteLibraries", ReplyAction="http://tempuri.org/IDataCommandService/DeleteLibrariesResponse")]
+        System.Threading.Tasks.Task DeleteLibrariesAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteUsers", ReplyAction="http://tempuri.org/IDataCommandService/DeleteUsersResponse")]
+        void DeleteUsers(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteUsers", ReplyAction="http://tempuri.org/IDataCommandService/DeleteUsersResponse")]
+        System.Threading.Tasks.Task DeleteUsersAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteDepartments", ReplyAction="http://tempuri.org/IDataCommandService/DeleteDepartmentsResponse")]
+        void DeleteDepartments(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/DeleteDepartments", ReplyAction="http://tempuri.org/IDataCommandService/DeleteDepartmentsResponse")]
+        System.Threading.Tasks.Task DeleteDepartmentsAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditUnits", ReplyAction="http://tempuri.org/IDataCommandService/EditUnitsResponse")]
+        void EditUnits(ProjektGlowny.DataCommandService.UnitInfo unitInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditUnits", ReplyAction="http://tempuri.org/IDataCommandService/EditUnitsResponse")]
+        System.Threading.Tasks.Task EditUnitsAsync(ProjektGlowny.DataCommandService.UnitInfo unitInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditDeansOffices", ReplyAction="http://tempuri.org/IDataCommandService/EditDeansOfficesResponse")]
+        void EditDeansOffices(ProjektGlowny.DataCommandService.DeansOfficeInfo deansOfficeInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditDeansOffices", ReplyAction="http://tempuri.org/IDataCommandService/EditDeansOfficesResponse")]
+        System.Threading.Tasks.Task EditDeansOfficesAsync(ProjektGlowny.DataCommandService.DeansOfficeInfo deansOfficeInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditEvents", ReplyAction="http://tempuri.org/IDataCommandService/EditEventsResponse")]
+        void EditEvents(ProjektGlowny.DataCommandService.EventInfo eventInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditEvents", ReplyAction="http://tempuri.org/IDataCommandService/EditEventsResponse")]
+        System.Threading.Tasks.Task EditEventsAsync(ProjektGlowny.DataCommandService.EventInfo eventInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditMessages", ReplyAction="http://tempuri.org/IDataCommandService/EditMessagesResponse")]
+        void EditMessages(ProjektGlowny.DataCommandService.MessageInfo messageInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditMessages", ReplyAction="http://tempuri.org/IDataCommandService/EditMessagesResponse")]
+        System.Threading.Tasks.Task EditMessagesAsync(ProjektGlowny.DataCommandService.MessageInfo messageInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditLibraries", ReplyAction="http://tempuri.org/IDataCommandService/EditLibrariesResponse")]
+        void EditLibraries(ProjektGlowny.DataCommandService.LibraryInfo libraryInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditLibraries", ReplyAction="http://tempuri.org/IDataCommandService/EditLibrariesResponse")]
+        System.Threading.Tasks.Task EditLibrariesAsync(ProjektGlowny.DataCommandService.LibraryInfo libraryInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditUsers", ReplyAction="http://tempuri.org/IDataCommandService/EditUsersResponse")]
+        void EditUsers(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditUsers", ReplyAction="http://tempuri.org/IDataCommandService/EditUsersResponse")]
+        System.Threading.Tasks.Task EditUsersAsync(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditDepartments", ReplyAction="http://tempuri.org/IDataCommandService/EditDepartmentsResponse")]
+        void EditDepartments(ProjektGlowny.DataCommandService.Department department, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditDepartments", ReplyAction="http://tempuri.org/IDataCommandService/EditDepartmentsResponse")]
+        System.Threading.Tasks.Task EditDepartmentsAsync(ProjektGlowny.DataCommandService.Department department, System.Guid ticketId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -797,6 +1937,118 @@ namespace ProjektGlowny.DataCommandService {
         
         public System.Threading.Tasks.Task AddUserAsync(ProjektGlowny.DataCommandService.AddUserRequest request) {
             return base.Channel.AddUserAsync(request);
+        }
+        
+        public void DeleteUnits(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            base.Channel.DeleteUnits(deleteRequest);
+        }
+        
+        public System.Threading.Tasks.Task DeleteUnitsAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            return base.Channel.DeleteUnitsAsync(deleteRequest);
+        }
+        
+        public void DeleteDeansOffices(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            base.Channel.DeleteDeansOffices(deleteRequest);
+        }
+        
+        public System.Threading.Tasks.Task DeleteDeansOfficesAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            return base.Channel.DeleteDeansOfficesAsync(deleteRequest);
+        }
+        
+        public void DeleteEvents(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            base.Channel.DeleteEvents(deleteRequest);
+        }
+        
+        public System.Threading.Tasks.Task DeleteEventsAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            return base.Channel.DeleteEventsAsync(deleteRequest);
+        }
+        
+        public void DeleteMessages(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            base.Channel.DeleteMessages(deleteRequest);
+        }
+        
+        public System.Threading.Tasks.Task DeleteMessagesAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            return base.Channel.DeleteMessagesAsync(deleteRequest);
+        }
+        
+        public void DeleteLibraries(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            base.Channel.DeleteLibraries(deleteRequest);
+        }
+        
+        public System.Threading.Tasks.Task DeleteLibrariesAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            return base.Channel.DeleteLibrariesAsync(deleteRequest);
+        }
+        
+        public void DeleteUsers(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            base.Channel.DeleteUsers(deleteRequest);
+        }
+        
+        public System.Threading.Tasks.Task DeleteUsersAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            return base.Channel.DeleteUsersAsync(deleteRequest);
+        }
+        
+        public void DeleteDepartments(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            base.Channel.DeleteDepartments(deleteRequest);
+        }
+        
+        public System.Threading.Tasks.Task DeleteDepartmentsAsync(ProjektGlowny.DataCommandService.DeleteRequest deleteRequest) {
+            return base.Channel.DeleteDepartmentsAsync(deleteRequest);
+        }
+        
+        public void EditUnits(ProjektGlowny.DataCommandService.UnitInfo unitInfo, System.Guid ticketId) {
+            base.Channel.EditUnits(unitInfo, ticketId);
+        }
+        
+        public System.Threading.Tasks.Task EditUnitsAsync(ProjektGlowny.DataCommandService.UnitInfo unitInfo, System.Guid ticketId) {
+            return base.Channel.EditUnitsAsync(unitInfo, ticketId);
+        }
+        
+        public void EditDeansOffices(ProjektGlowny.DataCommandService.DeansOfficeInfo deansOfficeInfo, System.Guid ticketId) {
+            base.Channel.EditDeansOffices(deansOfficeInfo, ticketId);
+        }
+        
+        public System.Threading.Tasks.Task EditDeansOfficesAsync(ProjektGlowny.DataCommandService.DeansOfficeInfo deansOfficeInfo, System.Guid ticketId) {
+            return base.Channel.EditDeansOfficesAsync(deansOfficeInfo, ticketId);
+        }
+        
+        public void EditEvents(ProjektGlowny.DataCommandService.EventInfo eventInfo, System.Guid ticketId) {
+            base.Channel.EditEvents(eventInfo, ticketId);
+        }
+        
+        public System.Threading.Tasks.Task EditEventsAsync(ProjektGlowny.DataCommandService.EventInfo eventInfo, System.Guid ticketId) {
+            return base.Channel.EditEventsAsync(eventInfo, ticketId);
+        }
+        
+        public void EditMessages(ProjektGlowny.DataCommandService.MessageInfo messageInfo, System.Guid ticketId) {
+            base.Channel.EditMessages(messageInfo, ticketId);
+        }
+        
+        public System.Threading.Tasks.Task EditMessagesAsync(ProjektGlowny.DataCommandService.MessageInfo messageInfo, System.Guid ticketId) {
+            return base.Channel.EditMessagesAsync(messageInfo, ticketId);
+        }
+        
+        public void EditLibraries(ProjektGlowny.DataCommandService.LibraryInfo libraryInfo, System.Guid ticketId) {
+            base.Channel.EditLibraries(libraryInfo, ticketId);
+        }
+        
+        public System.Threading.Tasks.Task EditLibrariesAsync(ProjektGlowny.DataCommandService.LibraryInfo libraryInfo, System.Guid ticketId) {
+            return base.Channel.EditLibrariesAsync(libraryInfo, ticketId);
+        }
+        
+        public void EditUsers(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId) {
+            base.Channel.EditUsers(userInfo, ticketId);
+        }
+        
+        public System.Threading.Tasks.Task EditUsersAsync(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId) {
+            return base.Channel.EditUsersAsync(userInfo, ticketId);
+        }
+        
+        public void EditDepartments(ProjektGlowny.DataCommandService.Department department, System.Guid ticketId) {
+            base.Channel.EditDepartments(department, ticketId);
+        }
+        
+        public System.Threading.Tasks.Task EditDepartmentsAsync(ProjektGlowny.DataCommandService.Department department, System.Guid ticketId) {
+            return base.Channel.EditDepartmentsAsync(department, ticketId);
         }
     }
 }

@@ -5,6 +5,8 @@
       <xsd:import schemaLocation="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto" />
+      <xsd:import schemaLocation="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Zedd" />
+      <xsd:import schemaLocation="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Zedd.DataAccess" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IDataCommandService_AddDeansOffice_InputMessage">
@@ -43,6 +45,90 @@
   <wsdl:message name="IDataCommandService_AddUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUnits" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteDeansOffices_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeansOffices" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteDeansOffices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeansOfficesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEvents" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMessages" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteLibraries_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLibraries" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteLibraries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLibrariesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDepartments" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_DeleteDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditUnits" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditDeansOffices_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditDeansOffices" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditDeansOffices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditDeansOfficesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditEvents" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditMessages" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditLibraries_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditLibraries" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditLibraries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditLibrariesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditDepartments" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_EditDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditDepartmentsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDataCommandService">
     <wsdl:operation name="AddDeansOffice">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/AddDeansOffice" message="tns:IDataCommandService_AddDeansOffice_InputMessage" />
@@ -67,6 +153,62 @@
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/AddUser" message="tns:IDataCommandService_AddUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/AddUserResponse" message="tns:IDataCommandService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUnits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/DeleteUnits" message="tns:IDataCommandService_DeleteUnits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/DeleteUnitsResponse" message="tns:IDataCommandService_DeleteUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeansOffices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/DeleteDeansOffices" message="tns:IDataCommandService_DeleteDeansOffices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/DeleteDeansOfficesResponse" message="tns:IDataCommandService_DeleteDeansOffices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/DeleteEvents" message="tns:IDataCommandService_DeleteEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/DeleteEventsResponse" message="tns:IDataCommandService_DeleteEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/DeleteMessages" message="tns:IDataCommandService_DeleteMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/DeleteMessagesResponse" message="tns:IDataCommandService_DeleteMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLibraries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/DeleteLibraries" message="tns:IDataCommandService_DeleteLibraries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/DeleteLibrariesResponse" message="tns:IDataCommandService_DeleteLibraries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/DeleteUsers" message="tns:IDataCommandService_DeleteUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/DeleteUsersResponse" message="tns:IDataCommandService_DeleteUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/DeleteDepartments" message="tns:IDataCommandService_DeleteDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/DeleteDepartmentsResponse" message="tns:IDataCommandService_DeleteDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditUnits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/EditUnits" message="tns:IDataCommandService_EditUnits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/EditUnitsResponse" message="tns:IDataCommandService_EditUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDeansOffices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/EditDeansOffices" message="tns:IDataCommandService_EditDeansOffices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/EditDeansOfficesResponse" message="tns:IDataCommandService_EditDeansOffices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/EditEvents" message="tns:IDataCommandService_EditEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/EditEventsResponse" message="tns:IDataCommandService_EditEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/EditMessages" message="tns:IDataCommandService_EditMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/EditMessagesResponse" message="tns:IDataCommandService_EditMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditLibraries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/EditLibraries" message="tns:IDataCommandService_EditLibraries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/EditLibrariesResponse" message="tns:IDataCommandService_EditLibraries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/EditUsers" message="tns:IDataCommandService_EditUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/EditUsersResponse" message="tns:IDataCommandService_EditUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/EditDepartments" message="tns:IDataCommandService_EditDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/EditDepartmentsResponse" message="tns:IDataCommandService_EditDepartments_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDataCommandService" type="tns:IDataCommandService">
@@ -118,6 +260,132 @@
     </wsdl:operation>
     <wsdl:operation name="AddUser">
       <soap:operation soapAction="http://tempuri.org/IDataCommandService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUnits">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/DeleteUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeansOffices">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/DeleteDeansOffices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvents">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/DeleteEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessages">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/DeleteMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLibraries">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/DeleteLibraries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUsers">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/DeleteUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartments">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/DeleteDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditUnits">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/EditUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDeansOffices">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/EditDeansOffices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEvents">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/EditEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMessages">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/EditMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditLibraries">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/EditLibraries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditUsers">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/EditUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDepartments">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/EditDepartments" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

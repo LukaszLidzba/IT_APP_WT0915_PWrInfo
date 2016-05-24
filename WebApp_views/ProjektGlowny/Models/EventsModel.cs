@@ -17,13 +17,40 @@ namespace ProjektGlowny.Models
         public DateTime date { get; set; } 
         public string filtred { get; set; }
 
+        public IEnumerable<EventsModel> GetEvents(Guid ticket, DateTime startDate, DateTime endDate)
+        {
+            List<EventsModel> e = new List<EventsModel>();
+
+            IDataQueryService dataQueryService = new DataQueryServiceClient();
+
+            var result = dataQueryService.GetEvents(ticket, DateTime.Now.AddDays(-60), DateTime.Now);
+
+            foreach (EventInfo events in result)
+            {
+                e.Add(new EventsModel()
+                {
+                    Id = events.Id,
+                    content = events.Content,
+                    UserId = events.UserId,
+                    departments = events.Department,
+                    title = events.Title,
+                    // extensionDate = DateTime.Parse(events.ExtensionData),// to nie jest string tylko data
+                    date = DateTime.Parse(events.Date),
+                    notificationDate = DateTime.Parse(events.NotificationDate),
+
+                });
+            }
+
+            return e;
+        }
+
         public IEnumerable<EventsModel> GetEvents(Guid ticket)
         {
             List<EventsModel> e = new List<EventsModel>();
 
             IDataQueryService dataQueryService = new DataQueryServiceClient();
 
-            var result = dataQueryService.GetEvents(ticket);
+            var result = dataQueryService.GetEvents(ticket,null,null);
             
             foreach (EventInfo events in result)
             {

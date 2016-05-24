@@ -20,10 +20,34 @@ namespace ProjektGlowny.Models
         public IEnumerable<MessagesModel> GetMessages(Guid ticket)
         {
             List<MessagesModel> m = new List<MessagesModel>();
+
+            IDataQueryService dataQueryService = new DataQueryServiceClient();
+
+            var result = dataQueryService.GetMessages(ticket, null);
+
+            foreach (MessageInfo msg in result)
+            {
+                m.Add(new MessagesModel()
+                {
+                    Id = msg.Id,
+                    content = msg.Content,
+                    UserId = msg.UserId,
+                    departments = msg.Department,
+                    title = msg.Title,
+                    important = msg.Important
+                });
+            }
+
+            return m;
+        }
+
+        public IEnumerable<MessagesModel> GetMessages(Guid ticket, DateTime startDate)
+        {
+            List<MessagesModel> m = new List<MessagesModel>();
                
             IDataQueryService  dataQueryService = new DataQueryServiceClient();
                
-            var result = dataQueryService.GetMessages(ticket);
+            var result = dataQueryService.GetMessages(ticket, startDate);
 
             foreach (MessageInfo msg in result)
             {

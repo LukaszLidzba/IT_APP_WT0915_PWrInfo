@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Zedd" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Zedd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zedd.azurewebsites.net/DataCommandService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="DeleteRequest">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="Ticket" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteRequest" nillable="true" type="tns:DeleteRequest" />
+</xs:schema>
