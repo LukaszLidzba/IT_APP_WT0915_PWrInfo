@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ProjektGlowny.Models;
+using ProjektGlowny.LoginService1;
 
 namespace ProjektGlowny.Controllers
 {
@@ -23,11 +24,24 @@ namespace ProjektGlowny.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChangePassword(UserModels model)
+        public ActionResult UserProfile(UserModels model)
         {
-            if (model.Password == model.repeatPassword)//to do
+            if (Session["UserTicket"] != null)
             {
-                return Redirect("~/PWrInfo/Index");
+                if (model.Password == model.repeatPassword)
+                {
+                    ILoginService loginService = new LoginServiceClient();
+
+
+                    if (loginService.TryLogin(model.Login.Trim(), model.oldPassword.Trim()))
+                    {
+                        model.changePassword(model, new Guid(Session["UserTicket"].ToString()));
+                        return Redirect("~/PWrInfo/Index");
+                    }
+                }
+                ModelState.AddModelError("", "The user old password is incorrect.");
+                return View(model);
+               
             }
             return Redirect("~/Login/Login");
         }

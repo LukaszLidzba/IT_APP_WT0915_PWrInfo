@@ -42,10 +42,15 @@ namespace ProjektGlowny.Models
 
         [Display(Name = "Jednostka")]
         public string unitName { get; set; }
-        
-       
 
-        public void addUser(Guid ticket, string name, string surname, string password, string login, int unitId,  bool isAdmin)
+        [Display(Name = "Jednostka")]
+        public DataCommandService.UnitInfo unit { get; set; }
+
+        [Display(Name = "Id")]
+        public int id { get; set; }
+        
+
+        public void addUser(Guid ticket, string name, string surname, string password, string login, int unitId, bool isAdmin)
         {
             if (Login != null && password != null && ticket != null)
             {
@@ -85,8 +90,7 @@ namespace ProjektGlowny.Models
 
                 });
             }
-            //TODO nie ładuje poprawnie unit
-            return users;
+           return users;
         }
 
         public UserModels GetUser(Guid ticket)
@@ -107,6 +111,42 @@ namespace ProjektGlowny.Models
 
             return user;
                     
+        }
+
+        private DataCommandService.UnitInfo unitInfoConventer( LoginService1.UnitInfo logUnitInfo)
+        {
+            DataCommandService.UnitInfo dataCommUnitInfo = new DataCommandService.UnitInfo();
+
+            dataCommUnitInfo.Id = logUnitInfo.Id;
+            dataCommUnitInfo.Name = logUnitInfo.Name;
+            dataCommUnitInfo.Description = logUnitInfo.Description;
+            dataCommUnitInfo.ExtensionData = logUnitInfo.ExtensionData;
+
+            return dataCommUnitInfo;
+        }
+
+        public void changePassword(UserModels model, Guid ticket)
+        {
+            DataCommandService.UserInfo user = new DataCommandService.UserInfo();
+
+            ProjektGlowny.LoginService1.ILoginService loginService = new ProjektGlowny.LoginService1.LoginServiceClient();
+            ProjektGlowny.LoginService1.UserInfo result = new ProjektGlowny.LoginService1.UserInfo();
+
+            IDataCommandService dataCommandService = new DataCommandServiceClient();
+            
+            result = loginService.GetUser(ticket);
+
+            user.Id = result.Id;
+            user.IsAdmin = result.IsAdmin;
+            user.Login = result.Login;
+            user.Surname = result.Surname;
+            user.Password = model.Password;
+            user.Unit = unitInfoConventer(result.Unit);
+            user.Name = result.Name;
+
+            dataCommandService.EditUsers(user, ticket);
+        
+  
         }
     }
        

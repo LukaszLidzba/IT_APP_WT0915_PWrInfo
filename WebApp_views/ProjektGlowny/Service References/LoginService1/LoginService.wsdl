@@ -13,6 +13,12 @@
   <wsdl:message name="ILoginService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="ILoginService_TryLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:TryLogin" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_TryLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TryLoginResponse" />
+  </wsdl:message>
   <wsdl:message name="ILoginService_ProlongSession_InputMessage">
     <wsdl:part name="parameters" element="tns:ProlongSession" />
   </wsdl:message>
@@ -30,6 +36,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/Login" message="tns:ILoginService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/LoginResponse" message="tns:ILoginService_Login_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="TryLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/TryLogin" message="tns:ILoginService_TryLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/TryLoginResponse" message="tns:ILoginService_TryLogin_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ProlongSession">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/ProlongSession" message="tns:ILoginService_ProlongSession_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/ProlongSessionResponse" message="tns:ILoginService_ProlongSession_OutputMessage" />
@@ -43,6 +53,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/ILoginService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TryLogin">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/TryLogin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

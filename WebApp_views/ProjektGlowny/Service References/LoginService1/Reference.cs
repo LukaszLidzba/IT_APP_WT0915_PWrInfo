@@ -241,6 +241,12 @@ namespace ProjektGlowny.LoginService1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/Login", ReplyAction="http://tempuri.org/ILoginService/LoginResponse")]
         System.Threading.Tasks.Task<string> LoginAsync(string loginName, string password);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/TryLogin", ReplyAction="http://tempuri.org/ILoginService/TryLoginResponse")]
+        bool TryLogin(string loginName, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/TryLogin", ReplyAction="http://tempuri.org/ILoginService/TryLoginResponse")]
+        System.Threading.Tasks.Task<bool> TryLoginAsync(string loginName, string password);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/ProlongSession", ReplyAction="http://tempuri.org/ILoginService/ProlongSessionResponse")]
         void ProlongSession(System.Guid ticketId);
         
@@ -287,6 +293,14 @@ namespace ProjektGlowny.LoginService1 {
         
         public System.Threading.Tasks.Task<string> LoginAsync(string loginName, string password) {
             return base.Channel.LoginAsync(loginName, password);
+        }
+        
+        public bool TryLogin(string loginName, string password) {
+            return base.Channel.TryLogin(loginName, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> TryLoginAsync(string loginName, string password) {
+            return base.Channel.TryLoginAsync(loginName, password);
         }
         
         public void ProlongSession(System.Guid ticketId) {
