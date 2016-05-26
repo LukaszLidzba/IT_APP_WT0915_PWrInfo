@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Wiadomości";
-    Layout = "_Layout.cshtml";
+    Layout = "~/Views/PWrInfo/_Layout.cshtml";
 }
 
 <h1>@ViewBag.Title</h1>
@@ -46,7 +46,7 @@
         <td>Nie wiem jakie?</td>
         <td>Tak</td>
         <td>
-            <button onclick="location.href='/PWrInfo/MessagesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href = '/Messages/MessagesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>

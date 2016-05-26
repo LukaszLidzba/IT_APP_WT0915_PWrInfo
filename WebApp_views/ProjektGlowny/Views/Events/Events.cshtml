@@ -1,17 +1,17 @@
 ﻿
 @{
-    ViewBag.Title = "Jednostki";
-    Layout = "_Layout.cshtml";
+    ViewBag.Title = "Wydarzenia";
+    Layout = "~/Views/PWrInfo/_Layout.cshtml";
 }
 
 <h1>@ViewBag.Title</h1>
 <div class="title-description">
-    Lista jednostek w systemie.
+    Lista wydarzeń w systemie.
 </div>
 
 <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
-    <li><a href="#">Jednostki</a></li>
+    <li><a href="#">Wydarzenia</a></li>
     <li class="active">Lista</li>
 </ol>
 
@@ -22,6 +22,13 @@
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Szukaj...">
     </div>
+    <div class="form-group">Podaj datę:</div>
+    <div class="form-group">
+        <input type="text" class="form-control datepicker" placeholder="od">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control datepicker" placeholder="do">
+    </div>
     <button type="submit" class="btn btn-default">
         <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
     </button>
@@ -29,9 +36,13 @@
 
 <table class="table table-striped">
     <tr>
-        <td>ID jednostki</td>
-        <td>Nazwa</td>
-        <td>Opis</td>
+        <td>ID wydarzenia</td>
+        <td>Wydział</td>
+        <td>Tytuł</td>
+        <td>Treść</td>
+        <td>Data</td>
+        <td>Data przypomnienia</td>
+        <td>Id użytkownika</td>
         <td>Działania</td>
     </tr>
     <!--(tr>td{$}+td{Biblioteka $$}+td{Łopinki Łuzyckie 4$$}+td{$$:00-1$:00}+td{brak})*5-->
@@ -39,8 +50,12 @@
         <td>1</td>
         <td>4</td>
         <td>Dzień rektorski</td>
+        <td>Dzień rektorski 02.05.2016</td>
+        <td>24.04.2016</td>
+        <td>01.05.2016</td>
+        <td>200855</td>
         <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href = '/Events/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>
@@ -54,8 +69,12 @@
         <td>1</td>
         <td>4</td>
         <td>Dzień rektorski</td>
+        <td>Dzień rektorski 02.05.2016</td>
+        <td>24.04.2016</td>
+        <td>01.05.2016</td>
+        <td>200855</td>
         <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>
@@ -69,8 +88,12 @@
         <td>1</td>
         <td>4</td>
         <td>Dzień rektorski</td>
+        <td>Dzień rektorski 02.05.2016</td>
+        <td>24.04.2016</td>
+        <td>01.05.2016</td>
+        <td>200855</td>
         <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>
@@ -84,8 +107,12 @@
         <td>1</td>
         <td>4</td>
         <td>Dzień rektorski</td>
+        <td>Dzień rektorski 02.05.2016</td>
+        <td>24.04.2016</td>
+        <td>01.05.2016</td>
+        <td>200855</td>
         <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>
@@ -99,8 +126,12 @@
         <td>1</td>
         <td>4</td>
         <td>Dzień rektorski</td>
+        <td>Dzień rektorski 02.05.2016</td>
+        <td>24.04.2016</td>
+        <td>01.05.2016</td>
+        <td>200855</td>
         <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>
@@ -114,8 +145,12 @@
         <td>1</td>
         <td>4</td>
         <td>Dzień rektorski</td>
+        <td>Dzień rektorski 02.05.2016</td>
+        <td>24.04.2016</td>
+        <td>01.05.2016</td>
+        <td>200855</td>
         <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>
@@ -129,8 +164,12 @@
         <td>1</td>
         <td>4</td>
         <td>Dzień rektorski</td>
+        <td>Dzień rektorski 02.05.2016</td>
+        <td>24.04.2016</td>
+        <td>01.05.2016</td>
+        <td>200855</td>
         <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>
@@ -144,8 +183,12 @@
         <td>1</td>
         <td>4</td>
         <td>Dzień rektorski</td>
+        <td>Dzień rektorski 02.05.2016</td>
+        <td>24.04.2016</td>
+        <td>01.05.2016</td>
+        <td>200855</td>
         <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>
@@ -159,8 +202,12 @@
         <td>1</td>
         <td>4</td>
         <td>Dzień rektorski</td>
+        <td>Dzień rektorski 02.05.2016</td>
+        <td>24.04.2016</td>
+        <td>01.05.2016</td>
+        <td>200855</td>
         <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>
@@ -174,8 +221,12 @@
         <td>1</td>
         <td>4</td>
         <td>Dzień rektorski</td>
+        <td>Dzień rektorski 02.05.2016</td>
+        <td>24.04.2016</td>
+        <td>01.05.2016</td>
+        <td>200855</td>
         <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>

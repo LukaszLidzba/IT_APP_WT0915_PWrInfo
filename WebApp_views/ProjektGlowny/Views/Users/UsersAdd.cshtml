@@ -2,7 +2,7 @@
 @model UserModels
 @{
     ViewBag.Title = "Dodaj użytkownika";
-    Layout = "_Layout.cshtml";
+    Layout = "~/Views/PWrInfo/_Layout.cshtml";
 }
 
 <h1>@ViewBag.Title</h1>
@@ -16,7 +16,7 @@
     <li class="active">Dodaj</li>
 </ol>
 
-@using (Html.BeginForm("UsersAdd", "PWrInfo", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+@using (Html.BeginForm("UsersAdd", "Users", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.name)

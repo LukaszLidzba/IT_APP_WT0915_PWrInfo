@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Biblioteki";
-    Layout = "_Layout.cshtml";
+    Layout = "~/Views/PWrInfo/_Layout.cshtml";
 }
 
 <h1>@ViewBag.Title</h1>
@@ -46,7 +46,7 @@
         <td>brak</td>
         <td>123456</td>
         <td>
-            <button onclick="location.href='/PWrInfo/LibrariesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
+            <button onclick="location.href = '/Libraries/LibrariesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
                 <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                 <span class="button-text">Edytuj</span>
             </button>

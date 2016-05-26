@@ -18,25 +18,25 @@
         <aside>
             <ul>
                 <li>
-                    <a href="/PWrInfo/Index">
+                    <a href="@Url.Action("Index", "PWrInfo")">
                         <i class="icon icon-main fa fa-desktop fa-3x" aria-hidden="true"></i>
                         <div class="description">Główna</div>
                     </a>
                 </li>
                 <li>
-                    <a href="/PWrInfo/UserProfile">
+                    <a href="@Url.Action("UserProfile", "UserProfile")">
                         <i class="icon icon-profile fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
                         <div class="description">Mój profil</div>
                     </a>
                 </li>
                 <li>
-                    <a href="/PWrInfo/Messages">
+                    <a href="@Url.Action("Messages", "Messages")">
                         <i class="icon icon-messages fa fa-comments-o fa-3x" aria-hidden="true"></i>
                         <div class="description">Komunikaty</div>
                     </a>
                 </li>
                 <li>
-                    <a href="/PWrInfo/Events">
+                    <a href="@Url.Action("Events", "Events")">
                         <i class="icon icon-events fa fa-newspaper-o fa-3x" aria-hidden="true"></i>
                         <div class="description">Wydarzenia</div>
                     </a>
@@ -44,25 +44,25 @@
                 @if (Session["UserIsAdmin"].ToString() == "True")
                 {
                 <li>
-                    <a href="/PWrInfo/Libraries">
+                    <a href="@Url.Action("Libraries", "Libraries")">
                         <i class="icon icon-libraries fa fa-university fa-3x" aria-hidden="true"></i>
                         <div class="description">Biblioteki</div>
                     </a>
                 </li>
                 <li>
-                    <a href="/PWrInfo/Units">
+                    <a href="@Url.Action("Units", "Units")">
                         <i class="icon icon-units fa fa-briefcase fa-3x" aria-hidden="true"></i>
                         <div class="description">Jednostki</div>
                     </a>
                 </li>
                 <li>
-                    <a href="/PWrInfo/DeansOffices">
+                    <a href="@Url.Action("DeansOffices", "DeansOffices")">
                         <i class="icon icon-deansOffices fa fa-graduation-cap fa-3x" aria-hidden="true"></i>
                         <div class="description">Dziekanaty</div>
                     </a>
                 </li>
                 <li>
-                    <a href="/PWrInfo/Users">
+                    <a href="@Url.Action("Users", "Users")">
                         <i class="icon icon-users fa fa-users fa-3x" aria-hidden="true"></i>
                         <div class="description">Użytkownicy</div>
                     </a>
@@ -82,16 +82,9 @@
         <div class="loginbar">
             <div class="loginbar-description">Zalogowany jako: </div>
             <div class="loginbar-user">@Session["UserName"] @Session["UserSurname"] </div>
-     
-                           @Html.ActionLink("Wyloguj", "LogOff", "Login", null, new { @style = "color:#fff; border-top: 1px solid #fff; border-right: 1px solid #fff;border-bottom: 1px solid #fff; border-left: 1px solid #fff;  padding: 2px 6px 2px 6px;" })
-   
+            @Html.ActionLink("Wyloguj", "LogOff", "Login", null, new { @style = "color:#fff; border-top: 1px solid #fff; border-right: 1px solid #fff;border-bottom: 1px solid #fff; border-left: 1px solid #fff;  padding: 2px 6px 2px 6px;" })
         </div>
     </div>
-
-  
-
-
-
 
 <script>
     classAdder(480, 768, 1024, 1440);

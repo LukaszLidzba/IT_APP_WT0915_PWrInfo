@@ -11,118 +11,6 @@ namespace ProjektGlowny.Controllers
   public class PWrInfoController : Controller
   {
     // GET: PWrInfo
-
-    public ActionResult DeansOfficesEdit()
-    {
-      return View();
-    }
-
-    public ActionResult DeansOffices()
-    {
-      return View();
-    }
-
-    public ActionResult UnitsEdit()
-    {
-      return View();
-    }
-
-    public ActionResult Units()
-    {
-      return View();
-    }
-
-    public ActionResult LibrariesEdit()
-    {
-      return View();
-    }
-
-    public ActionResult Libraries()
-    {
-      return View();
-    }
-
-    public ActionResult Data()
-    {
-      return View();
-    }
-
-    public ActionResult EventsEdit()
-    {
-      return View();
-    }
-
-    public ActionResult Events()
-    {
-      return View();
-    }
-
-    public ActionResult MessagesEdit()
-    {
-      return View();
-    }
-
-    public ActionResult Messages()
-    {
-      return View();
-    }
-
-    public ActionResult UsersAdd()
-    {
-      UserModels model = new UserModels();
-      return View(model);
-    }
-
-    [HttpPost]
-    public ActionResult UsersAdd(UserModels model)
-    {
-      if (model.Password == model.repeatPassword)
-      {
-        model.addUser(new Guid(Session["UserTicket"].ToString()), model.name, model.surname, model.Password, model.Login, 1, model.isAdmin);
-
-        return Redirect("~/PWrInfo/Users");
-      }
-
-      ModelState.AddModelError("", "The user name or password provided is incorrect.");
-      return View(model);
-    }
-
-    public ActionResult UserProfile()
-    {
-      if (Session["UserTicket"] != null)
-      {
-        UserModels u = new UserModels();
-
-        UserModels user = u.GetUser(new Guid(Session["UserTicket"].ToString()));
-
-        return View(user);
-      }
-      return Redirect("~/Login/Login");
-    }
-
-    [HttpPost]
-    public ActionResult ChangePassword(UserModels model)
-    {
-        if (model.Password == model.repeatPassword )//to do
-        {
-            return Redirect("~/PWrInfo/Index");
-        }
-        return Redirect("~/Login/Login");
-    }
-
-    public ActionResult Users()
-    {
-      if (Session["UserTicket"] != null)
-      {
-        UserModels u = new UserModels();
-
-        IList<UserModels> users = u.GetUsers(new Guid(Session["UserTicket"].ToString())).ToList();
-
-        return View(users);
-      }
-      return Redirect("~/Login/Login");
-    }
-
     public ActionResult Index()
     {
       if (Session["UserTicket"] != null)
@@ -137,5 +25,11 @@ namespace ProjektGlowny.Controllers
       }
       return Redirect("~/Login/Login");
     }
+
+    public ActionResult Data()
+    {
+      return View();
+    }
+ 
   }
 }

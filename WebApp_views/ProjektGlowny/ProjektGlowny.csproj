@@ -204,8 +204,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DeansOfficesController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\LibrariesController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\PWrInfoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UnitsController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -318,10 +325,10 @@
     <Content Include="Styles\Bootstrap\wells.less" />
     <Content Include="Styles\PWrInfo\Styles.less" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\PWrInfo\Messages.cshtml" />
-    <Content Include="Views\PWrInfo\Events.cshtml" />
-    <Content Include="Views\PWrInfo\UserProfile.cshtml" />
-    <Content Include="Views\PWrInfo\Users.cshtml" />
+    <Content Include="Views\Messages\Messages.cshtml" />
+    <Content Include="Views\Events\Events.cshtml" />
+    <Content Include="Views\UserProfile\UserProfile.cshtml" />
+    <Content Include="Views\Users\Users.cshtml" />
     <Content Include="Views\PWrInfo\Data.cshtml" />
     <None Include="Service References\DataCommandService\DataCommandService.wsdl" />
     <None Include="Service References\DataCommandService\DataCommandService.xsd">
@@ -356,15 +363,15 @@
     <None Include="Service References\LoginService1\LoginService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\PWrInfo\Libraries.cshtml" />
-    <Content Include="Views\PWrInfo\Units.cshtml" />
-    <Content Include="Views\PWrInfo\DeansOffices.cshtml" />
-    <Content Include="Views\PWrInfo\DeansOfficesEdit.cshtml" />
-    <Content Include="Views\PWrInfo\EventsEdit.cshtml" />
-    <Content Include="Views\PWrInfo\LibrariesEdit.cshtml" />
-    <Content Include="Views\PWrInfo\MessagesEdit.cshtml" />
-    <Content Include="Views\PWrInfo\UnitsEdit.cshtml" />
-    <Content Include="Views\PWrInfo\UsersAdd.cshtml" />
+    <Content Include="Views\Libraries\Libraries.cshtml" />
+    <Content Include="Views\Units\Units.cshtml" />
+    <Content Include="Views\DeansOffices\DeansOffices.cshtml" />
+    <Content Include="Views\DeansOffices\DeansOfficesEdit.cshtml" />
+    <Content Include="Views\Events\EventsEdit.cshtml" />
+    <Content Include="Views\Libraries\LibrariesEdit.cshtml" />
+    <Content Include="Views\Messages\MessagesEdit.cshtml" />
+    <Content Include="Views\Units\UnitsEdit.cshtml" />
+    <Content Include="Views\Users\UsersAdd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
