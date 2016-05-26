@@ -41,32 +41,35 @@
                         <div class="description">Wydarzenia</div>
                     </a>
                 </li>
-                @if (Session["UserIsAdmin"].ToString() == "True")
-                {
-                <li>
-                    <a href="@Url.Action("Libraries", "Libraries")">
-                        <i class="icon icon-libraries fa fa-university fa-3x" aria-hidden="true"></i>
-                        <div class="description">Biblioteki</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Units", "Units")">
-                        <i class="icon icon-units fa fa-briefcase fa-3x" aria-hidden="true"></i>
-                        <div class="description">Jednostki</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("DeansOffices", "DeansOffices")">
-                        <i class="icon icon-deansOffices fa fa-graduation-cap fa-3x" aria-hidden="true"></i>
-                        <div class="description">Dziekanaty</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Users", "Users")">
-                        <i class="icon icon-users fa fa-users fa-3x" aria-hidden="true"></i>
-                        <div class="description">Użytkownicy</div>
-                    </a>
-                </li>
+                @if (Session["UserIsAdmin"] != null) 
+                { 
+                    if (Session["UserIsAdmin"].ToString() == "True")
+                    {
+                    <li>
+                        <a href="@Url.Action("Libraries", "Libraries")">
+                            <i class="icon icon-libraries fa fa-university fa-3x" aria-hidden="true"></i>
+                            <div class="description">Biblioteki</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Units", "Units")">
+                            <i class="icon icon-units fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                            <div class="description">Jednostki</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("DeansOffices", "DeansOffices")">
+                            <i class="icon icon-deansOffices fa fa-graduation-cap fa-3x" aria-hidden="true"></i>
+                            <div class="description">Dziekanaty</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Users", "Users")">
+                            <i class="icon icon-users fa fa-users fa-3x" aria-hidden="true"></i>
+                            <div class="description">Użytkownicy</div>
+                        </a>
+                    </li>
+                    }
                 }
             </ul>
         </aside>

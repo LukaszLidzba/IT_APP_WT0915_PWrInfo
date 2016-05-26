@@ -1,0 +1,44 @@
+﻿@using ProjektGlowny.Models
+@model MessagesModel
+@{
+    ViewBag.Title = "Dodawanie komunikatu";
+    Layout = "~/Views/PWrInfo/_Layout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+<div class="title-description">
+    Tutaj możesz dodać komunikat.
+</div>
+
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Komunikaty</a></li>
+    <li class="active">Dodaj</li>
+</ol>
+
+
+@using (Html.BeginForm("MessagesAdd", "Messages", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.title)
+        @Html.TextBoxFor(m => m.title, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.content)<br />
+        @Html.TextAreaFor(m => m.content, new { style = "width: 70%; height: 250px;"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.departmentsList)
+        @Html.DropDownListFor(m => m.selectedDepartmentId, new SelectList(Model.departmentsList, "Value", "Text"), new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.important)
+        @Html.DropDownListFor(m => m.important, new List<SelectListItem>()
+        {
+           new SelectListItem() { Text = "Tak", Value = "True" },
+           new SelectListItem() { Text = "Nie", Value = "False"}
+        }, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
+    <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
+}

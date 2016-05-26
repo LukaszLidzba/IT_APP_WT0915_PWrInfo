@@ -372,6 +372,7 @@
     <Content Include="Views\Messages\MessagesEdit.cshtml" />
     <Content Include="Views\Units\UnitsEdit.cshtml" />
     <Content Include="Views\Users\UsersAdd.cshtml" />
+    <Content Include="Views\Messages\MessagesAdd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

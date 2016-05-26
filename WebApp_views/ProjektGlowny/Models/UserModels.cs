@@ -145,8 +145,6 @@ namespace ProjektGlowny.Models
             user.Name = result.Name;
 
             dataCommandService.EditUsers(user, ticket);
-        
-  
         }
     }
        

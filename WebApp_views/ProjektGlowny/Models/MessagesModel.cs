@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
  
-
 namespace ProjektGlowny.Models
 {
     public class MessagesModel
@@ -12,10 +13,20 @@ namespace ProjektGlowny.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public Departments departments { get; set; }
+
+        [Display(Name = "Wydział")]
+        public IEnumerable<SelectListItem> departmentsList { get; set; }
+        public int selectedDepartmentId { get; set; }
+
+        [Display(Name = "Treść")]
         public string content { get; set; }
+
+        [Display(Name = "Tytuł")]
         public string title { get; set; }
+
+        [Display(Name = "Czy ważne?")]
         public bool important { get; set; }
-        public string filtred { get; set; }
+      
 
         public IEnumerable<MessagesModel> GetMessages(Guid ticket)
         {
@@ -63,6 +74,21 @@ namespace ProjektGlowny.Models
             } 
            
             return m;
+        }
+               
+        public void addMessage(MessagesModel model, Guid ticket)
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+
+            DataCommandService.AddMessageRequest message = new DataCommandService.AddMessageRequest();
+
+            message.Title = model.title;
+            message.Content = model.content;
+            message.Ticket = ticket;
+            message.DepartmentId = model.selectedDepartmentId;
+
+            dataCommandService.AddMessage(message);
+
         }
     }
 }
