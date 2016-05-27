@@ -82,9 +82,9 @@ namespace ProjektGlowny.Controllers
             {
                 if (id != null)
                 {
-                    MessagesModel m = new MessagesModel();
-                    
-                    return View(m);
+                    MessagesModel model = new MessagesModel();
+                    //find
+                    return View(model);
                 }
                 return Redirect("~/Messages/Messages");
             }
@@ -96,30 +96,34 @@ namespace ProjektGlowny.Controllers
         {
             if (Session["UserTicket"] != null)
             {
-
+                //edit func
                 return Redirect("~/Messages/Messages");
             }
             return Redirect("~/Login/Login");
         }
 
-        public ActionResult MessagesDelete(MessagesModel model)
+        public ActionResult MessagesDelete(int? id)
         {
             if (Session["UserTicket"] != null)
             {
+                MessagesModel model = new MessagesModel();
+
+                //find DataCommandService.find()
                 return View(model);
             }
             return Redirect("~/Login/Login");
         }
 
-        //[HttpPost]
-        //public ActionResult MessagesDelete(MessagesModel model)
-        //{
-        //    if (Session["UserTicket"] != null)
-        //    {
-        //        return View();
-        //    }
-        //    return Redirect("~/Login/Login");
-        //}
+        [HttpPost]
+        public ActionResult MessagesDelete(MessagesModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                //delete func
+                return Redirect("~/Messages/Messages");
+            }
+            return Redirect("~/Login/Login");
+        }
 
         public ActionResult MessagesAdd()
         {

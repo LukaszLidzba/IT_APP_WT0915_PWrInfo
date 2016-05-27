@@ -19,7 +19,7 @@ namespace ProjektGlowny.Controllers
         EventsModel e = new EventsModel();
 
         var tuple = new Tuple<List<MessagesModel>, List<EventsModel>>
-            (m.GetMessages(new Guid(Session["UserTicket"].ToString())).OrderByDescending(msg => msg.Id).ToList(), e.GetEvents(new Guid(Session["UserTicket"].ToString())).ToList());
+            (m.GetMessages(new Guid(Session["UserTicket"].ToString())).OrderByDescending(msg => msg.Id).ToList(), e.GetEvents(new Guid(Session["UserTicket"].ToString())).OrderByDescending(evt => evt.Id).ToList());
 
         return View(tuple);
       }

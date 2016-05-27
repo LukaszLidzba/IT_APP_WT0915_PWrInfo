@@ -1,4 +1,7 @@
-﻿
+﻿@using ProjektGlowny.Models
+@using PagedList.Mvc;
+@model PagedList.IPagedList<EventsModel>
+
 @{
     ViewBag.Title = "Wydarzenia";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
@@ -37,203 +40,57 @@
 <table class="table table-striped">
     <tr>
         <td>ID wydarzenia</td>
-        <td>Wydział</td>
         <td>Tytuł</td>
         <td>Treść</td>
         <td>Data</td>
         <td>Data przypomnienia</td>
+        <td>Wydział</td>
         <td>Id użytkownika</td>
         <td>Działania</td>
     </tr>
-    <!--(tr>td{$}+td{Biblioteka $$}+td{Łopinki Łuzyckie 4$$}+td{$$:00-1$:00}+td{brak})*5-->
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>Dzień rektorski 02.05.2016</td>
-        <td>24.04.2016</td>
-        <td>01.05.2016</td>
-        <td>200855</td>
-        <td>
-            <button onclick="location.href = '/Events/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>Dzień rektorski 02.05.2016</td>
-        <td>24.04.2016</td>
-        <td>01.05.2016</td>
-        <td>200855</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>Dzień rektorski 02.05.2016</td>
-        <td>24.04.2016</td>
-        <td>01.05.2016</td>
-        <td>200855</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>Dzień rektorski 02.05.2016</td>
-        <td>24.04.2016</td>
-        <td>01.05.2016</td>
-        <td>200855</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>Dzień rektorski 02.05.2016</td>
-        <td>24.04.2016</td>
-        <td>01.05.2016</td>
-        <td>200855</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>Dzień rektorski 02.05.2016</td>
-        <td>24.04.2016</td>
-        <td>01.05.2016</td>
-        <td>200855</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>Dzień rektorski 02.05.2016</td>
-        <td>24.04.2016</td>
-        <td>01.05.2016</td>
-        <td>200855</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>Dzień rektorski 02.05.2016</td>
-        <td>24.04.2016</td>
-        <td>01.05.2016</td>
-        <td>200855</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>Dzień rektorski 02.05.2016</td>
-        <td>24.04.2016</td>
-        <td>01.05.2016</td>
-        <td>200855</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>Dzień rektorski 02.05.2016</td>
-        <td>24.04.2016</td>
-        <td>01.05.2016</td>
-        <td>200855</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/EventsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
+   
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.content)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.notificationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.departments.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.UserId)
+            </td>
+            <td>
+
+                <a href="@Url.Action("EventsEdit", "Events", new { id = item.Id })">
+                    <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
+                    <span class="button-text">Edytuj</span>
+                </a>
+                <br />
+                <a href="@Url.Action("EventsDelete", "Events", new { id = item.Id })">
+                    <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
+                    <span class="button-text">Usuń</span>
+                </a>
+            </td>
+        </tr>
+    }
+ 
 </table>
+
+Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Events",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

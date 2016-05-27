@@ -1,18 +1,18 @@
 ﻿
 @{
-    ViewBag.Title = "Edycja wydarzenia";
+    ViewBag.Title = "Dodaj Wydarzenie";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
 }
 
 <h1>@ViewBag.Title</h1>
 <div class="title-description">
-    Tutaj możesz zmienić informacje o wydarzeniu.
+    Tutaj możesz dodać wydarzenie.
 </div>
 
 <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
     <li><a href="#">Wydarzenia</a></li>
-    <li class="active">Edycja</li>
+    <li class="active">Dodaj</li>
 </ol>
 
 <form>
@@ -45,4 +45,5 @@
         <input type="text" class="form-control" id="id-usera" placeholder="ID użytkownika" value="200855">
     </div>
     <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
- </form>
+    <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
+</form>

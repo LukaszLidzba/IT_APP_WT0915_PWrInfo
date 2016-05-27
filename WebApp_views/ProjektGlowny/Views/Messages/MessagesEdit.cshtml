@@ -18,14 +18,14 @@
 
 @using (Html.BeginForm("MessagesEdit", "Messages", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
 {
-
+       
     <div class="form-group">
-        <label for="id-komunikatu">ID komunikatu</label>
-        <input type="text" class="form-control" id="id-komunikatu" placeholder="ID komunikatu" value="123456">
+        @Html.LabelFor(m => m.Id)
+        @Html.DisplayFor(m => m.Id, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.title)
-        @Html.DisplayFor(m => m.title, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.title, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.content)<br />
@@ -40,12 +40,13 @@
         @Html.TextBoxFor(m => m.UserId, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="isImportant">Czy ważne?</label>
-        <select id="isImportant" class="form-control">
-            <option value="yes">Tak</option>
-            <option value="no">Nie</option>
-        </select>
+        @Html.LabelFor(m => m.important)
+        @Html.DropDownListFor(m => m.important, new List<SelectListItem>()
+        {
+           new SelectListItem() { Text = "Tak", Value = "True" },
+           new SelectListItem() { Text = "Nie", Value = "False"}
+        }, new { @class = "form-control" })
     </div>
     <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
-    <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
+
 }

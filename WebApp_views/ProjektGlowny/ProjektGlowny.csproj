@@ -381,6 +381,8 @@
     <Content Include="Views\Users\UsersAdd.cshtml" />
     <Content Include="Views\Messages\MessagesAdd.cshtml" />
     <Content Include="Views\Messages\MessagesDelete.cshtml" />
+    <Content Include="Views\Events\EventsAdd.cshtml" />
+    <Content Include="Views\Events\EventsDelete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

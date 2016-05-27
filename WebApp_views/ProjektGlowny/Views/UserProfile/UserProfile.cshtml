@@ -16,27 +16,27 @@
 {
     <div class="form-group">
         @Html.LabelFor(m => m.name)<br/>
-        @Html.TextBoxFor(m => m.name, new { @readonly = true })
+        @Html.DisplayFor(m => m.name, new { @class = "form-control" })
 
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.surname)<br />
-        @Html.TextBoxFor(m => m.surname, new { @readonly = true })
+        @Html.DisplayFor(m => m.surname, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Login)<br />
-        @Html.TextBoxFor(m => m.Login, new { @readonly = true })
+        @Html.DisplayFor(m => m.Login, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.unitName)<br />
-        @Html.TextBoxFor(m => m.unitName, new { @readonly = true })
+        @Html.DisplayFor(m => m.unitName, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.isAdmin)<br />
-        @Html.TextBoxFor(m => m.isAdmin, new { @readonly = true })
+        @Html.DisplayFor(m => m.isAdmin, new { @class = "form-control" })
      </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.oldPassword)
+        @Html.LabelFor(m => m.oldPassword)<br />
         @Html.PasswordFor(m => m.oldPassword, new { @class = "form-control" })
     </div>
     <div class="form-group">
