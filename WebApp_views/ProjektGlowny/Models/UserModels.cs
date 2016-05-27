@@ -44,6 +44,10 @@ namespace ProjektGlowny.Models
         public string unitName { get; set; }
 
         [Display(Name = "Jednostka")]
+        public IEnumerable<SelectListItem> unitList { get; set; }
+        public int selectedUnitId { get; set; }
+
+        [Display(Name = "Jednostka")]
         public DataCommandService.UnitInfo unit { get; set; }
 
         [Display(Name = "Id")]
@@ -64,8 +68,12 @@ namespace ProjektGlowny.Models
                 addUser.Password = password;
                 addUser.Ticket = ticket;
                 addUser.UnitId = unitId;
-   
-                dataCommandService.AddUser(addUser);
+
+                try
+                {
+                    dataCommandService.AddUser(addUser);
+                }
+                catch (Exception ex) { }
             }
 
         }
@@ -144,7 +152,11 @@ namespace ProjektGlowny.Models
             user.Unit = unitInfoConventer(result.Unit);
             user.Name = result.Name;
 
-            dataCommandService.EditUsers(user, ticket);
+            try
+            {
+                dataCommandService.EditUsers(user, ticket);
+            }
+            catch(Exception ex){ }
         }
     }
        

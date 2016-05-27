@@ -10,11 +10,25 @@ namespace ProjektGlowny.Controllers
     public class UsersController : Controller
     {
         
-        
         public ActionResult UsersAdd()
         {
-            UserModels model = new UserModels();
-            return View(model);
+            if (Session["UserTicket"] != null)
+            {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+                var units = dataQueryService.GetUnits(new Guid(Session["UserTicket"].ToString()));
+
+                var userAdd = new UserModels
+                {
+                    unitList = units.Select(u => new SelectListItem
+                    {
+                        Text = u.Name,
+                        Value = u.Id.ToString()
+                    })
+                };
+ 
+                return View(userAdd);
+            }
+            return Redirect("~/Login/Login");
         }
 
         [HttpPost]
@@ -22,7 +36,7 @@ namespace ProjektGlowny.Controllers
         {
             if (model.Password == model.repeatPassword)
             {
-                model.addUser(new Guid(Session["UserTicket"].ToString()), model.name, model.surname, model.Password, model.Login, 1, model.isAdmin);
+                model.addUser(new Guid(Session["UserTicket"].ToString()), model.name, model.surname, model.Password, model.Login, model.selectedUnitId, model.isAdmin);
 
                 return Redirect("~/Users/Users");
             }
