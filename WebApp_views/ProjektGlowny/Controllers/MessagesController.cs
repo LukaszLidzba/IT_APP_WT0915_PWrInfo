@@ -14,19 +14,59 @@ namespace ProjektGlowny.Controllers
         {
             if (Session["UserTicket"] != null)
             {
-            return View();
+                MessagesModel m = new MessagesModel();
+                IList<MessagesModel> messages = m.GetMessages(new Guid(Session["UserTicket"].ToString())).ToList();
+
+                return View(messages);
+
             }
             return Redirect("~/Login/Login");
         }
 
-        public ActionResult MessagesEdit()
+        public ActionResult MessagesEdit(int? id)
         {
             if (Session["UserTicket"] != null)
             {
-            return View();
+                if (id != null)
+                {
+                    MessagesModel m = new MessagesModel();
+                    
+                    return View(m);
                 }
+                return Redirect("~/Messages/Messages");
+            }
             return Redirect("~/Login/Login");
         }
+
+        [HttpPost]
+        public ActionResult MessagesEdit(MessagesModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+
+                return Redirect("~/Messages/Messages");
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        public ActionResult MessagesDelete(MessagesModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                return View(model);
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        //[HttpPost]
+        //public ActionResult MessagesDelete(MessagesModel model)
+        //{
+        //    if (Session["UserTicket"] != null)
+        //    {
+        //        return View();
+        //    }
+        //    return Redirect("~/Login/Login");
+        //}
 
         public ActionResult MessagesAdd()
         {

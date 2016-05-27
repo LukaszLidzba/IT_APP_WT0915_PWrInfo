@@ -87,8 +87,60 @@ namespace ProjektGlowny.Models
             message.Ticket = ticket;
             message.DepartmentId = model.selectedDepartmentId;
 
-            dataCommandService.AddMessage(message);
+            try
+            {
+                dataCommandService.AddMessage(message);
+            }
+            catch (Exception ex)
+            { }
 
         }
+
+
+        private DataCommandService.Department departmentInfoConverter(DataQueryService.Department departmentServiceInfo) 
+        {
+            DataCommandService.Department departmentCommandInfo = new DataCommandService.Department();
+
+            return departmentCommandInfo;
+        }
+
+        public void editMessage(MessagesModel model, Guid ticket) 
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+        
+            DataCommandService.MessageInfo message = new DataCommandService.MessageInfo();
+
+            message.Id = model.Id;
+            message.Title = model.title;
+            message.Content = model.content;
+        //    message.Department = departmentInfoConverter (model.departments);
+            message.Important = model.important;
+
+            try
+            {
+                dataCommandService.EditMessages(message,ticket);
+            }
+            catch (Exception ex)
+            { }
+
+        }
+
+        public void deleteMessage(MessagesModel model, Guid ticket)
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+
+            DataCommandService.DeleteRequest message = new DataCommandService.DeleteRequest();
+
+           // dokonczyc
+
+            try
+            {
+                dataCommandService.DeleteMessages(message);
+            }
+            catch (Exception ex)
+            { }
+
+        }
+
     }
 }

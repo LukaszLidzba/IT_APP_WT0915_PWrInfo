@@ -1,4 +1,5 @@
-﻿
+﻿@using ProjektGlowny.Models
+@model IList<MessagesModel>
 @{
     ViewBag.Title = "Wiadomości";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
@@ -37,43 +38,42 @@
         <td>Czy ważne?</td>
         <td>Działania</td>
     </tr>
-    <!--(tr>td{$}+td{Biblioteka $$}+td{Łopinki Łuzyckie 4$$}+td{$$:00-1$:00}+td{brak})*5-->
-    <tr>
-        <td>1</td>
-        <td>Na W4 rozdają karty VIP do dziakantu</td>
-        <td>Na wydziale Elektroniki (W4) studenci mogą otrzymac karty VIP do dzikanatu. Ilośc ograniczona!</td>
-        <td>4</td>
-        <td>Nie wiem jakie?</td>
-        <td>Tak</td>
-        <td>
-            <button onclick="location.href = '/Messages/MessagesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Na W4 rozdają karty VIP do dziakantu</td>
-        <td>Na wydziale Elektroniki (W4) studenci mogą otrzymac karty VIP do dzikanatu. Ilośc ograniczona!</td>
-        <td>4</td>
-        <td>Nie wiem jakie?</td>
-        <td>Tak</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/MessagesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
+     
+    @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.content)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.departments.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.important)
+            </td>
+            <td>
+             
+                <a href="@Url.Action("MessagesEdit", "Messages", new { id = item.Id })">
+                    <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
+                    <span class="button-text">Edytuj</span>
+                </a>        
+                <br/>
+                <a href="@Url.Action("MessagesDelete", "Messages", new { id = item.Id })">
+                    <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
+                    <span class="button-text">Usuń</span>
+                </a>       
+    </td>
+        </tr>
+    }
 
 </table>
 

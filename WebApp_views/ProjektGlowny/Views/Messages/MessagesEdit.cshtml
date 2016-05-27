@@ -1,4 +1,5 @@
-﻿
+﻿@using ProjektGlowny.Models
+@model MessagesModel
 @{
     ViewBag.Title = "Edycja komunikatu";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
@@ -15,26 +16,28 @@
     <li class="active">Edycja</li>
 </ol>
 
-<form>
+@using (Html.BeginForm("MessagesEdit", "Messages", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+
     <div class="form-group">
         <label for="id-komunikatu">ID komunikatu</label>
         <input type="text" class="form-control" id="id-komunikatu" placeholder="ID komunikatu" value="123456">
     </div>
     <div class="form-group">
-        <label for="tytul">Tytuł</label>
-        <input type="text" class="form-control" id="tytul" placeholder="Tytuł" value="Jakiś ciekawy tytuł typu 'Lorem Ipsum'">
+        @Html.LabelFor(m => m.title)
+        @Html.DisplayFor(m => m.title, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="tresc">Treść</label>
-        <input type="text" class="form-control" id="tresc" placeholder="Treść" value="Treść wydarzenia, które jeszcze nie wiadomo czy się odbędzie.">
+        @Html.LabelFor(m => m.content)<br />
+        @Html.TextAreaFor(m => m.content)
     </div>
     <div class="form-group">
-        <label for="id-wydzialu">ID wydziału</label>
-        <input type="text" class="form-control" id="id-wydzialu" placeholder="ID wydziału" value="654">
+        @Html.LabelFor(m => m.departments)
+        @Html.TextBoxFor(m => m.departments, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="id-usera">ID użytkownika</label>
-        <input type="text" class="form-control" id="id-usera" placeholder="ID użytkownika" value="200855">
+        @Html.LabelFor(m => m.UserId)
+        @Html.TextBoxFor(m => m.UserId, new { @class = "form-control" })
     </div>
     <div class="form-group">
         <label for="isImportant">Czy ważne?</label>
@@ -45,4 +48,4 @@
     </div>
     <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
     <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
-</form>
+}
