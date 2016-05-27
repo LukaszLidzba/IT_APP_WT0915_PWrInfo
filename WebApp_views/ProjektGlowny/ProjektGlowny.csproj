@@ -383,6 +383,8 @@
     <Content Include="Views\Messages\MessagesDelete.cshtml" />
     <Content Include="Views\Events\EventsAdd.cshtml" />
     <Content Include="Views\Events\EventsDelete.cshtml" />
+    <Content Include="Views\Libraries\LibrariesDelete.cshtml" />
+    <Content Include="Views\Libraries\LibrariesAdd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,4 +1,7 @@
-﻿
+﻿@using ProjektGlowny.Models
+@using PagedList.Mvc;
+@model PagedList.IPagedList<UnitsModel>
+
 @{
     ViewBag.Title = "Jednostki";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
@@ -16,173 +19,58 @@
 </ol>
 
 <form class="navbar-form navbar-left">
-    <button type="button" class="btn btn-success">
+    <button type="button" onclick="location.href = '/Units/UnitsAdd'" class=" btn btn-success">
         <i class="icon icon-data fa fa-plus" aria-hidden="true"></i> Dodaj
     </button>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Szukaj...">
-    </div>
-    <button type="submit" class="btn btn-default">
-        <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
-    </button>
+
+    @using (Html.BeginForm("Units", "Units", FormMethod.Get))
+    {
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+        <button type="submit" class="btn btn-default">
+            <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
+        </button>
+    }
 </form>
 
 <table class="table table-striped">
     <tr>
-        <td>ID jednostki</td>
-        <td>Nazwa</td>
+        <td>@Html.ActionLink("ID", "Units", new { sortOrder = ViewBag.IdSortParm, currentFilter = ViewBag.CurrentFilter })</td>
+        <td>@Html.ActionLink("Nazwa", "Units", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</td>
         <td>Opis</td>
         <td>Działania</td>
     </tr>
     <!--(tr>td{$}+td{Biblioteka $$}+td{Łopinki Łuzyckie 4$$}+td{$$:00-1$:00}+td{brak})*5-->
     <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>
-            <button onclick="location.href = '~/Views/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>4</td>
-        <td>Dzień rektorski</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/UnitsEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Description)
+            </td>
+            <td>
+                <a href="@Url.Action("UnitsEdit", "Units", new { id = item.Id })">
+                    <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
+                    <span class="button-text">Edytuj</span>
+                </a>
+                <br />
+                <a href="@Url.Action("UnitsDelete", "Units", new { id = item.Id })">
+                    <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
+                    <span class="button-text">Usuń</span>
+                </a>
+            </td>
+        </tr>
+
+        }
 </table>
+
+<br />
+Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Units",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

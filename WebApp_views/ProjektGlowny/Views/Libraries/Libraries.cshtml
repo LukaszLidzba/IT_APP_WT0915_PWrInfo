@@ -1,4 +1,7 @@
-﻿
+﻿@using ProjektGlowny.Models
+@using PagedList.Mvc;
+@model PagedList.IPagedList<LibrariesModel>
+
 @{
     ViewBag.Title = "Biblioteki";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
@@ -16,152 +19,73 @@
 </ol>
 
 <form class="navbar-form navbar-left">
-    <button type="button" class="btn btn-success">
+    <button type="button" onclick="location.href = '/Libraries/LibrariesAdd'" class=" btn btn-success">
         <i class="icon icon-data fa fa-plus" aria-hidden="true"></i> Dodaj
     </button>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Szukaj...">
-    </div>
-    <button type="submit" class="btn btn-default">
-        <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
-    </button>
+
+    @using (Html.BeginForm("Libraries", "Libraries", FormMethod.Get))
+    {
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+        <button type="submit" class="btn btn-default">
+            <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
+        </button>
+    }
 </form>
 
 <table class="table table-striped">
     <tr>
-        <td>ID Biblioteki</td>
-        <td>Nazwa</td>
+        <td>@Html.ActionLink("ID", "Libraries", new { sortOrder = ViewBag.IdSortParm, currentFilter = ViewBag.CurrentFilter })</td>
+        <td>@Html.ActionLink("Nazwa", "Libraries", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</td>
         <td>Adres</td>
         <td>Godziny otwarcia</td>
         <td>Dodatkowe informacje</td>
         <td>ID użytkownika</td>
         <td>Działania</td>
     </tr>
-    <!--(tr>td{$}+td{Biblioteka $$}+td{Łopinki Łuzyckie 4$$}+td{$$:00-1$:00}+td{brak})*5-->
+
     <tr>
-        <td>1</td>
-        <td>Biblioteka 01</td>
-        <td>Łopinki Łuzyckie 401</td>
-        <td>01:00-11:00</td>
-        <td>brak</td>
-        <td>123456</td>
         <td>
-            <button onclick="location.href = '/Libraries/LibrariesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Biblioteka 01</td>
-        <td>Łopinki Łuzyckie 401</td>
-        <td>01:00-11:00</td>
-        <td>brak</td>
-        <td>123456</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/LibrariesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Biblioteka 01</td>
-        <td>Łopinki Łuzyckie 401</td>
-        <td>01:00-11:00</td>
-        <td>brak</td>
-        <td>123456</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/LibrariesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Biblioteka 01</td>
-        <td>Łopinki Łuzyckie 401</td>
-        <td>01:00-11:00</td>
-        <td>brak</td>
-        <td>123456</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/LibrariesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Biblioteka 01</td>
-        <td>Łopinki Łuzyckie 401</td>
-        <td>01:00-11:00</td>
-        <td>brak</td>
-        <td>123456</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/LibrariesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Biblioteka 01</td>
-        <td>Łopinki Łuzyckie 401</td>
-        <td>01:00-11:00</td>
-        <td>brak</td>
-        <td>123456</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/LibrariesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Biblioteka 01</td>
-        <td>Łopinki Łuzyckie 401</td>
-        <td>01:00-11:00</td>
-        <td>brak</td>
-        <td>123456</td>
-        <td>
-            <button onclick="location.href='/PWrInfo/LibrariesEdit'" type="button" class="btn btn-default" aria-label="Left Align">
-                <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
-                <span class="button-text">Edytuj</span>
-            </button>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-                <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
-                <span class="button-text">Usuń</span>
-            </button>
-        </td>
-    </tr>
-</table>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.OpeningHours)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.AdditionalInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.UserId)
+            </td>
+            <td>
+
+                <a href="@Url.Action("LibrariesEdit", "Libraries", new { id = item.Id })">
+                    <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
+                    <span class="button-text">Edytuj</span>
+                </a>
+                <br />
+                <a href="@Url.Action("LibrariesDelete", "Libraries", new { id = item.Id })">
+                    <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
+                    <span class="button-text">Usuń</span>
+                </a>
+            </td>
+        </tr>
+
+            }
+ </table>
+
+<br />
+Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Libraries",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
