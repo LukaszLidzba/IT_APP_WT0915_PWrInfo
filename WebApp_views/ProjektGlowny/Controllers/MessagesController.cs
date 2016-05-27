@@ -4,24 +4,77 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ProjektGlowny.Models;
+using PagedList;
 
 namespace ProjektGlowny.Controllers
 {
     public class MessagesController : Controller
     {
         // GET: Messages
-        public ActionResult Messages()
+        public ViewResult Messages(string sortOrder, string currentFilter, string searchString, int? page)
         {
             if (Session["UserTicket"] != null)
             {
+                ViewBag.CurrentSort = sortOrder;
+                ViewBag.IdSortParm = String.IsNullOrEmpty(sortOrder) ? "id_asc" : "";
+                ViewBag.UserIdSortParm = sortOrder == "UserId" ? "UserId_desc" : "UserId";
+                ViewBag.DepartmentSortParm = sortOrder == "DeparmentId" ? "DeparmentId_desc" : "DeparmentId";
+
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+
+                ViewBag.CurrentFilter = searchString;
+           
                 MessagesModel m = new MessagesModel();
-                IList<MessagesModel> messages = m.GetMessages(new Guid(Session["UserTicket"].ToString())).ToList();
+           
+                var messages = m.GetMessages(new Guid(Session["UserTicket"].ToString()));
+                        
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    messages = messages.Where(s => s.title.Contains(searchString)
+                                           || s.content.Contains(searchString)
+                                           || s.departments.Name.Contains(searchString)
+                                           || s.Id.ToString().Contains(searchString)
+                                           || s.UserId.ToString().Contains(searchString));
+                }
+                switch (sortOrder)
+                {
+                    case "id_asc":
+                        messages = messages.OrderBy(s => s.Id);
+                        break;
+                    case "UserId":
+                        messages = messages.OrderBy(s => s.UserId);
+                        break;
+                    case "UserId_desc":
+                        messages = messages.OrderByDescending(s => s.UserId);
+                        break;
+                    case "DeparmentId_desc":
+                        messages = messages.OrderByDescending(s => s.departments.Name);
+                        break;
+                    case "DeparmentId":
+                        messages = messages.OrderBy(s => s.departments.Name);
+                        break;
+                    default:  // id ascending 
+                        messages = messages.OrderByDescending(s => s.Id);
+                        break;
+                }
 
-                return View(messages);
-
-            }
-            return Redirect("~/Login/Login");
+                int pageSize = 5;
+                int pageNumber = (page ?? 1);
+                return View(messages.ToPagedList(pageNumber, pageSize));
+           }
+            
+            RedirectToAction("Login", "login");
+            return View();
         }
+
+
 
         public ActionResult MessagesEdit(int? id)
         {

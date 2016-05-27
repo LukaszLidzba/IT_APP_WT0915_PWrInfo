@@ -96,14 +96,6 @@ namespace ProjektGlowny.Models
 
         }
 
-
-        private DataCommandService.Department departmentInfoConverter(DataQueryService.Department departmentServiceInfo) 
-        {
-            DataCommandService.Department departmentCommandInfo = new DataCommandService.Department();
-
-            return departmentCommandInfo;
-        }
-
         public void editMessage(MessagesModel model, Guid ticket) 
         {
             DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
@@ -113,9 +105,15 @@ namespace ProjektGlowny.Models
             message.Id = model.Id;
             message.Title = model.title;
             message.Content = model.content;
-        //    message.Department = departmentInfoConverter (model.departments);
-            message.Important = model.important;
+            message.Department.Id = model.departments.Id;
+         //   DeansOffices[] deans = model.departments.DeansOffices;
+           //TU
+         //  message.Department.DeansOffices = ; 
 
+            message.Department.Name = model.departments.Name;
+            message.Department.ExtensionData = model.departments.ExtensionData;  
+            message.Important = model.important;
+            
             try
             {
                 dataCommandService.EditMessages(message,ticket);
