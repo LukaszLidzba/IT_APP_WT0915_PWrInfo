@@ -69,5 +69,26 @@ namespace ProjektGlowny.Controllers
         {
             return View();
         }
+
+        public ActionResult UnitsAdd()
+        {
+            if (Session["UserTicket"] != null && Session["UserId"] != null)
+            {
+                UnitsModel model = new UnitsModel();
+                return View(model);
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        [HttpPost]
+        public ActionResult UnitsAdd(UnitsModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                model.addUnit(model, new Guid(Session["UserTicket"].ToString()));
+                return Redirect("~/Units/Units");
+            }
+            return Redirect("~/Login/Login");
+        }
     }
 }

@@ -86,7 +86,7 @@ namespace ProjektGlowny.Models
             message.Content = model.content;
             message.Ticket = ticket;
             message.DepartmentId = model.selectedDepartmentId;
-
+          
             try
             {
                 dataCommandService.AddMessage(message);

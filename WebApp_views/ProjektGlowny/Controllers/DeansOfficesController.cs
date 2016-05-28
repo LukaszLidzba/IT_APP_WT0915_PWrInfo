@@ -76,5 +76,39 @@ namespace ProjektGlowny.Controllers
         {
             return View();
         }
+
+
+        public ActionResult DeansOfficesAdd()
+        {
+            if (Session["UserTicket"] != null && Session["UserId"] != null)
+            {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+                var departments = dataQueryService.GetAllDeansOffices(new Guid(Session["UserTicket"].ToString()));
+
+                var model = new DeansOfficesModel
+                {
+                    departmentsList = departments.Select(d => new SelectListItem
+                    {
+                        Text = d.Department.Name,
+                        Value = d.Id.ToString()
+                    })
+                };
+
+
+                return View(model);
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        [HttpPost]
+        public ActionResult DeansOfficesAdd(DeansOfficesModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                model.addDeanOffice(model, new Guid(Session["UserTicket"].ToString()));
+                return Redirect("~/DeansOffices/DeansOffices");
+            }
+            return Redirect("~/Login/Login");
+        }
     }
 }

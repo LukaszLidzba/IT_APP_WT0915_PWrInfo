@@ -1,0 +1,58 @@
+﻿@using ProjektGlowny.Models
+@model UserModels
+@{
+    ViewBag.Title = "Dodaj użytkownika";
+    Layout = "~/Views/PWrInfo/_Layout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+<div class="title-description">
+    Tutaj możesz dodać użytkownika.
+</div>
+
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Użytkownicy</a></li>
+    <li class="active">Dodaj</li>
+</ol>
+
+@using (Html.BeginForm("UsersAdd", "Users", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.name)
+        @Html.TextBoxFor(m => m.name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.surname)
+        @Html.TextBoxFor(m => m.surname, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Login)
+        @Html.TextBoxFor(m => m.Login, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.repeatPassword)
+        @Html.PasswordFor(m => m.repeatPassword, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.isAdmin)
+        @Html.DropDownListFor(m => m.isAdmin, new List<SelectListItem>()
+        {
+           new SelectListItem() { Text = "Tak", Value = "True" },
+           new SelectListItem() { Text = "Nie", Value = "False"}
+        }, new { @class = "form-control" })
+        
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.unitName)
+        @Html.DropDownListFor(m => m.selectedUnitId, new SelectList(Model.unitList, "Value", "Text"), new { @class = "form-control" })
+    </div>
+    <div class="login-wrapper-buttons">
+        <button type="submit" class="btn btn-primary btn-lg">Dodaj</button>
+        <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
+    </div>
+}

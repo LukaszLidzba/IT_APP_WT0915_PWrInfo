@@ -53,8 +53,26 @@ namespace ProjektGlowny.Models
 
          }
 
-        public void addLibrary()
-        {}
+        public void addLibrary(LibrariesModel model, Guid ticket)
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+
+            DataCommandService.AddLibraryRequest library = new DataCommandService.AddLibraryRequest();
+
+            library.Name = model.Name;
+            library.OpeningHours = model.OpeningHours;
+            library.AdditionalInfo = model.AdditionalInfo;
+            library.Address = model.Address;
+            library.Ticket = ticket;
+
+            try
+            {
+                dataCommandService.AddLibrary(library);
+            }
+            catch (Exception ex)
+            { }
+
+        }
 
         public void editLibrary()
         {}

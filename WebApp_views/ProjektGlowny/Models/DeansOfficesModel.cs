@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using ProjektGlowny.DataQueryService;
+using System.Web.Mvc;
 
 namespace ProjektGlowny.Models
 {
@@ -12,7 +13,7 @@ namespace ProjektGlowny.Models
         [Display(Name = "Id")]
         public int Id { set; get; }
 
-        [Display(Name = "Nazwa")]
+        [Display(Name = "Dodatakowe informacje")]
         public string AdditionalInfo { set; get; }
 
         [Display(Name = "Adres")]
@@ -26,6 +27,10 @@ namespace ProjektGlowny.Models
 
         [Display(Name = "Id użytkownika")]
         public int UserId { set; get; }
+
+        [Display(Name = "Wydział")]
+        public IEnumerable<SelectListItem> departmentsList { get; set; }
+        public int selectedDepartmentId { get; set; }
 
         public IEnumerable<DeansOfficesModel> GetDeansOffices(Guid ticket)
         {
@@ -49,6 +54,26 @@ namespace ProjektGlowny.Models
             }
 
             return m;
+        }
+
+        public void addDeanOffice(DeansOfficesModel model, Guid ticket)
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+
+            DataCommandService.AddDeansOfficeRequest deansOffice = new DataCommandService.AddDeansOfficeRequest();
+
+            deansOffice.DepartmentId = model.selectedDepartmentId;
+            deansOffice.AdditionalInfo = model.AdditionalInfo;
+            deansOffice.Address = model.Address;
+            deansOffice.OpeningHours = model.OpeningHours;
+            deansOffice.Ticket = ticket;
+
+            try
+            {
+                dataCommandService.AddDeansOffice(deansOffice);
+            }
+            catch (Exception ex)
+            { }
         }
     }
 }

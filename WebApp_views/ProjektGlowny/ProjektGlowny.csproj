@@ -385,6 +385,10 @@
     <Content Include="Views\Events\EventsDelete.cshtml" />
     <Content Include="Views\Libraries\LibrariesDelete.cshtml" />
     <Content Include="Views\Libraries\LibrariesAdd.cshtml" />
+    <Content Include="Views\Units\UnitsAdd.cshtml" />
+    <Content Include="Views\DeansOffices\DeansOfficesAdd.cshtml" />
+    <Content Include="Views\DeansOffices\DeansOfficesDelete.cshtml" />
+    <Content Include="Views\Users\UsersEdit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

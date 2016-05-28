@@ -70,5 +70,26 @@ namespace ProjektGlowny.Controllers
         {
             return View();
         }
+
+        public ActionResult LibrariesAdd()
+        {
+            if (Session["UserTicket"] != null && Session["UserId"] != null)
+            {
+                LibrariesModel model = new LibrariesModel();
+                return View(model);
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        [HttpPost]
+        public ActionResult LibrariesAdd(LibrariesModel model)
+        {
+            if (Session["UserTicket"] != null )
+            {
+                model.addLibrary(model, new Guid(Session["UserTicket"].ToString()));
+                return Redirect("~/Libraries/Libraries");
+            }
+            return Redirect("~/Login/Login");
+        }
     }
 }
