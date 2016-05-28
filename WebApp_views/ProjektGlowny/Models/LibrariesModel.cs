@@ -74,10 +74,25 @@ namespace ProjektGlowny.Models
 
         }
 
-        public void editLibrary()
+        public void editLibrary(LibrariesModel model, Guid ticket)
         {}
 
-        public void deleteLibrary()
-        {}
+        public void deleteLibrary(LibrariesModel model, Guid ticket)
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+
+            DataCommandService.DeleteRequest library = new DataCommandService.DeleteRequest();
+
+            library.Id = model.Id
+            library.Ticket = ticket;
+
+            try
+            {
+                dataCommandService.DeleteLibraries(library);
+            }
+            catch (Exception ex)
+            { }
+        
+        }
     }
 }

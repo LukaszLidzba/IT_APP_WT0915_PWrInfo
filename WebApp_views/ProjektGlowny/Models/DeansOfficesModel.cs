@@ -75,5 +75,41 @@ namespace ProjektGlowny.Models
             catch (Exception ex)
             { }
         }
+
+        public void editDeanOffice(DeansOfficesModel model, Guid ticket)
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+
+            DataCommandService.DeansOfficeInfo deansOffice = new DataCommandService.DeansOfficeInfo();
+
+            deansOffice.AdditionalInfo = model.AdditionalInfo;
+            deansOffice.Address = model.Address;
+            deansOffice.OpeningHours = model.OpeningHours;
+          //  deansOffice.Department = model.Department;
+            //tu dokonczyc
+            try
+            {
+                dataCommandService.EditDeansOffices(deansOffice, ticket);
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        public void deleteDeanOffice(DeansOfficesModel model, Guid ticket)
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+
+            DataCommandService.DeleteRequest deansOffice = new DataCommandService.DeleteRequest();
+
+            deansOffice.Id = model.Id;
+            deansOffice.Ticket = ticket;
+
+            try
+            {
+                dataCommandService.DeleteDeansOffices(deansOffice);
+            }
+            catch (Exception ex)
+            { }
+        }
     }
 }

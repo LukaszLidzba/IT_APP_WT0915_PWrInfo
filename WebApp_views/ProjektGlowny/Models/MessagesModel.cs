@@ -129,7 +129,8 @@ namespace ProjektGlowny.Models
 
             DataCommandService.DeleteRequest message = new DataCommandService.DeleteRequest();
 
-           // dokonczyc
+            message.Id = model.Id;
+            message.Ticket = ticket;
 
             try
             {

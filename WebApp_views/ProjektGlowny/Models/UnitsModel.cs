@@ -61,9 +61,6 @@ namespace ProjektGlowny.Models
 
         public void editUnit()
         { }
-
-        public void deleteUnit()
-        { }
-
+       
     }
 }

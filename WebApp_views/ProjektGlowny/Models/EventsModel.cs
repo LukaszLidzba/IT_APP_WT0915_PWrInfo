@@ -88,5 +88,29 @@ namespace ProjektGlowny.Models
 
             return e;
         }
+
+        public void addEvent(EventsModel model, Guid ticket)
+        {}
+
+        public void editEvent(EventsModel model, Guid ticket) 
+        { }
+
+        public void deleteEvent(EventsModel model, Guid ticket)
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+
+            DataCommandService.DeleteRequest evnt = new DataCommandService.DeleteRequest();
+
+            evnt.Id = model.Id;
+            evnt.Ticket = ticket;
+
+            try
+            {
+                dataCommandService.DeleteEvents(evnt);
+            }
+            catch (Exception ex)
+            { }
+
+        }
     }
 }
