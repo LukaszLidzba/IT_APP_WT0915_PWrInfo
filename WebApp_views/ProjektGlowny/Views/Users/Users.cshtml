@@ -1,5 +1,7 @@
 ﻿@using ProjektGlowny.Models
-@model IList<UserModels>  
+@using PagedList.Mvc;
+@model PagedList.IPagedList<UserModels>
+
 @{
     ViewBag.Title = "Użytkownicy";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
@@ -18,35 +20,64 @@
 </ol>
 
 <form class="navbar-form navbar-left">
-    <button type="button" class="btn btn-success" onclick="location.href='/Users/UsersAdd'">
+    <button type="button" onclick="location.href = '/Users/UsersAdd'" class=" btn btn-success">
         <i class="icon icon-data fa fa-plus" aria-hidden="true"></i> Dodaj
+    </button>
 
-    </button>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Szukaj...">
-    </div>
-    <button type="submit" class="btn btn-default">
-        <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
-    </button>
+    @using (Html.BeginForm("Users", "Users", FormMethod.Get))
+    {
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+        <button type="submit" class="btn btn-default">
+            <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
+        </button>
+    }
 </form>
 
 <table class="table table-striped">
     <tr>
-        <td>Imię </td>
-        <td>Nazwisko</td>
-        <td>Login</td>
-        <td>Administrator</td>
-        <td>Jednostka</td>
+        <td>@Html.ActionLink("ID", "Users", new { sortOrder = ViewBag.IdSortParm, currentFilter = ViewBag.CurrentFilter }) </td>
+        <td>@Html.ActionLink("Imię", "Users", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter }) </td>
+        <td>@Html.ActionLink("Nazwisko", "Users", new { sortOrder = ViewBag.SurnameSortParm, currentFilter = ViewBag.CurrentFilter })</td>
+        <td>@Html.ActionLink("Login", "Users", new { sortOrder = ViewBag.LoginSortParm, currentFilter = ViewBag.CurrentFilter })</td>
+        <td>@Html.ActionLink("Administrator", "Users", new { sortOrder = ViewBag.IsAdminSortParm, currentFilter = ViewBag.CurrentFilter })</td>
+        <td>@Html.ActionLink("Jednostka", "Users", new { sortOrder = ViewBag.UnitSortParm, currentFilter = ViewBag.CurrentFilter })</td>
 
     </tr>
-    @foreach(var item in Model)
+    @foreach (var item in Model)
     {
         <tr>
-            <td>@Html.DisplayFor(m => item.name )</td>
-            <td>@Html.DisplayFor(m => item.surname)</td>
-            <td>@Html.DisplayFor(m => item.Login)</td>
-            <td>@Html.DisplayFor(m => item.isAdmin)</td>
-            <td>@Html.DisplayFor(m => item.unitName)</td>
+            <td>
+                @Html.DisplayFor(m => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.surname)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.isAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.unitName)
+            </td>
+            <td>
+                <a href="@Url.Action("UsersEdit", "Users", new { id = item.id })">
+                    <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
+                    <span class="button-text">Edytuj</span>
+                </a>
+                
+            </td>
         </tr>
-  }
+
+    }
 </table>
+
+<br />
+Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Users",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

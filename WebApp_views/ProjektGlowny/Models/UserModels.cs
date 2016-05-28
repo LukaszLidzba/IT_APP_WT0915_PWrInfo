@@ -90,6 +90,7 @@ namespace ProjektGlowny.Models
             {
                 users.Add(new UserModels()
                 {
+                    id = user.Id,
                     name = user.Name,
                     surname = user.Surname,
                     isAdmin = user.IsAdmin,
