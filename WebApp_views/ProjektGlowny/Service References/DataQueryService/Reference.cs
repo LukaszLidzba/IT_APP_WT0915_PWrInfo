@@ -1020,6 +1020,36 @@ namespace ProjektGlowny.DataQueryService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetDeansOfficeInfo", ReplyAction="http://tempuri.org/IDataQueryService/GetDeansOfficeInfoResponse")]
         System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.DeansOfficeInfo> GetDeansOfficeInfoAsync(int id, System.Guid ticket);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetLibrary", ReplyAction="http://tempuri.org/IDataQueryService/GetLibraryResponse")]
+        ProjektGlowny.DataQueryService.LibraryInfo GetLibrary(int id, System.Guid ticket);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetLibrary", ReplyAction="http://tempuri.org/IDataQueryService/GetLibraryResponse")]
+        System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.LibraryInfo> GetLibraryAsync(int id, System.Guid ticket);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetMessage", ReplyAction="http://tempuri.org/IDataQueryService/GetMessageResponse")]
+        ProjektGlowny.DataQueryService.MessageInfo GetMessage(int id, System.Guid ticket);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetMessage", ReplyAction="http://tempuri.org/IDataQueryService/GetMessageResponse")]
+        System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.MessageInfo> GetMessageAsync(int id, System.Guid ticket);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetEvent", ReplyAction="http://tempuri.org/IDataQueryService/GetEventResponse")]
+        ProjektGlowny.DataQueryService.EventInfo GetEvent(int id, System.Guid ticket);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetEvent", ReplyAction="http://tempuri.org/IDataQueryService/GetEventResponse")]
+        System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.EventInfo> GetEventAsync(int id, System.Guid ticket);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetUnit", ReplyAction="http://tempuri.org/IDataQueryService/GetUnitResponse")]
+        ProjektGlowny.DataQueryService.UnitInfo GetUnit(int id, System.Guid ticket);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetUnit", ReplyAction="http://tempuri.org/IDataQueryService/GetUnitResponse")]
+        System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.UnitInfo> GetUnitAsync(int id, System.Guid ticket);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetUser", ReplyAction="http://tempuri.org/IDataQueryService/GetUserResponse")]
+        ProjektGlowny.DataQueryService.UserInfo GetUser(int id, System.Guid ticket);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetUser", ReplyAction="http://tempuri.org/IDataQueryService/GetUserResponse")]
+        System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.UserInfo> GetUserAsync(int id, System.Guid ticket);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetAllDeansOffices", ReplyAction="http://tempuri.org/IDataQueryService/GetAllDeansOfficesResponse")]
         ProjektGlowny.DataQueryService.DeansOfficeInfo[] GetAllDeansOffices(System.Guid ticket);
         
@@ -1090,6 +1120,46 @@ namespace ProjektGlowny.DataQueryService {
         
         public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.DeansOfficeInfo> GetDeansOfficeInfoAsync(int id, System.Guid ticket) {
             return base.Channel.GetDeansOfficeInfoAsync(id, ticket);
+        }
+        
+        public ProjektGlowny.DataQueryService.LibraryInfo GetLibrary(int id, System.Guid ticket) {
+            return base.Channel.GetLibrary(id, ticket);
+        }
+        
+        public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.LibraryInfo> GetLibraryAsync(int id, System.Guid ticket) {
+            return base.Channel.GetLibraryAsync(id, ticket);
+        }
+        
+        public ProjektGlowny.DataQueryService.MessageInfo GetMessage(int id, System.Guid ticket) {
+            return base.Channel.GetMessage(id, ticket);
+        }
+        
+        public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.MessageInfo> GetMessageAsync(int id, System.Guid ticket) {
+            return base.Channel.GetMessageAsync(id, ticket);
+        }
+        
+        public ProjektGlowny.DataQueryService.EventInfo GetEvent(int id, System.Guid ticket) {
+            return base.Channel.GetEvent(id, ticket);
+        }
+        
+        public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.EventInfo> GetEventAsync(int id, System.Guid ticket) {
+            return base.Channel.GetEventAsync(id, ticket);
+        }
+        
+        public ProjektGlowny.DataQueryService.UnitInfo GetUnit(int id, System.Guid ticket) {
+            return base.Channel.GetUnit(id, ticket);
+        }
+        
+        public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.UnitInfo> GetUnitAsync(int id, System.Guid ticket) {
+            return base.Channel.GetUnitAsync(id, ticket);
+        }
+        
+        public ProjektGlowny.DataQueryService.UserInfo GetUser(int id, System.Guid ticket) {
+            return base.Channel.GetUser(id, ticket);
+        }
+        
+        public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.UserInfo> GetUserAsync(int id, System.Guid ticket) {
+            return base.Channel.GetUserAsync(id, ticket);
         }
         
         public ProjektGlowny.DataQueryService.DeansOfficeInfo[] GetAllDeansOffices(System.Guid ticket) {

@@ -83,7 +83,7 @@ namespace ProjektGlowny.Models
 
             DataCommandService.DeleteRequest library = new DataCommandService.DeleteRequest();
 
-            library.Id = model.Id
+            library.Id = model.Id;
             library.Ticket = ticket;
 
             try

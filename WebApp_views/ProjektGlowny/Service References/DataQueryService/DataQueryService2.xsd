@@ -17,38 +17,113 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetLibrary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q3:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLibraryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetLibraryResult" nillable="true" type="q4:LibraryInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q5:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetMessageResult" nillable="true" type="q6:MessageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q7:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetEventResult" nillable="true" type="q8:EventInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q9:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetUnitResult" nillable="true" type="q10:UnitInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q11:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetUserResult" nillable="true" type="q12:UserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllDeansOffices">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q3:guid" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q13:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllDeansOfficesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetAllDeansOfficesResult" nillable="true" type="q4:ArrayOfDeansOfficeInfo" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetAllDeansOfficesResult" nillable="true" type="q14:ArrayOfDeansOfficeInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetLibraries">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q5:guid" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q15:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetLibrariesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetLibrariesResult" nillable="true" type="q6:ArrayOfLibraryInfo" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetLibrariesResult" nillable="true" type="q16:ArrayOfLibraryInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetMessages">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q7:guid" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q17:guid" />
         <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
@@ -56,14 +131,14 @@
   <xs:element name="GetMessagesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetMessagesResult" nillable="true" type="q8:ArrayOfMessageInfo" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetMessagesResult" nillable="true" type="q18:ArrayOfMessageInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEvents">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q9:guid" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q19:guid" />
         <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
         <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
       </xs:sequence>
@@ -72,35 +147,35 @@
   <xs:element name="GetEventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetEventsResult" nillable="true" type="q10:ArrayOfEventInfo" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetEventsResult" nillable="true" type="q20:ArrayOfEventInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUnits">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q11:guid" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q21:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUnitsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetUnitsResult" nillable="true" type="q12:ArrayOfUnitInfo" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetUnitsResult" nillable="true" type="q22:ArrayOfUnitInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUsers">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q13:guid" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticket" type="q23:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetUsersResult" nillable="true" type="q14:ArrayOfUserInfo" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="GetUsersResult" nillable="true" type="q24:ArrayOfUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

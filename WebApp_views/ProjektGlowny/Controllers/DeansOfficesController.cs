@@ -72,12 +72,6 @@ namespace ProjektGlowny.Controllers
             return View();
         }
 
-        public ActionResult DeansOfficesEdit()
-        {
-            return View();
-        }
-
-
         public ActionResult DeansOfficesAdd()
         {
             if (Session["UserTicket"] != null && Session["UserId"] != null)
@@ -110,5 +104,88 @@ namespace ProjektGlowny.Controllers
             }
             return Redirect("~/Login/Login");
         }
+
+        public ActionResult DeansOfficesEdit(int id)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+               
+                var DeansOff = dataQueryService.GetDeansOfficeInfo(id, new Guid(Session["UserTicket"].ToString()));
+                var departments = dataQueryService.GetAllDeansOffices(new Guid(Session["UserTicket"].ToString()));
+
+                var model = new DeansOfficesModel
+                {
+                    departmentsList = departments.Select(d => new SelectListItem
+                    {
+                        Text = d.Department.Name,
+                        Value = d.Id.ToString()
+                    })
+                };
+
+                if (DeansOff != null)
+                {
+                    model.Id = DeansOff.Id;
+                    model.AdditionalInfo = DeansOff.AdditionalInfo;
+                    model.Address = DeansOff.Address;
+                    model.Department = DeansOff.Department;
+                    model.OpeningHours = DeansOff.OpeningHours;
+                    model.UserId = DeansOff.UserId;
+                    model.selectedDepartmentId = DeansOff.Department.Id;
+
+                    return View(model);
+                }
+                return Redirect("~/DeansOffices/DeansOffices");
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        [HttpPost]
+        public ActionResult DeansOfficesEdit(DeansOfficesModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                model.editDeanOffice(model, new Guid(Session["UserTicket"].ToString()));
+                return Redirect("~/DeansOffices/DeansOffices");
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        public ActionResult DeansOfficesDelete(int id)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+                DeansOfficesModel model = new DeansOfficesModel();
+
+                var DeansOff = dataQueryService.GetDeansOfficeInfo(id, new Guid(Session["UserTicket"].ToString()));
+
+                if (DeansOff != null)
+                {
+                    model.Id = DeansOff.Id;
+                    model.AdditionalInfo = DeansOff.AdditionalInfo;
+                    model.Address = DeansOff.Address;
+                    model.Department = DeansOff.Department;
+                    model.OpeningHours = DeansOff.OpeningHours;
+                    model.UserId = DeansOff.UserId;
+
+                    return View(model);
+                }
+                return View(model);
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        [HttpPost]
+        public ActionResult DeansOfficesDelete(DeansOfficesModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                model.deleteDeanOffice(model, new Guid(Session["UserTicket"].ToString()));
+                return Redirect("~/DeansOffices/DeansOffices");
+            }
+            return Redirect("~/Login/Login");
+        }
+
     }
 }

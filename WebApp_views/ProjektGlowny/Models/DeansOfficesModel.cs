@@ -81,12 +81,13 @@ namespace ProjektGlowny.Models
             DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
 
             DataCommandService.DeansOfficeInfo deansOffice = new DataCommandService.DeansOfficeInfo();
+            DataCommandService.Department depart = new DataCommandService.Department();
+            depart.Id = model.selectedDepartmentId;
 
             deansOffice.AdditionalInfo = model.AdditionalInfo;
             deansOffice.Address = model.Address;
             deansOffice.OpeningHours = model.OpeningHours;
-          //  deansOffice.Department = model.Department;
-            //tu dokonczyc
+            deansOffice.Department= depart;
             try
             {
                 dataCommandService.EditDeansOffices(deansOffice, ticket);

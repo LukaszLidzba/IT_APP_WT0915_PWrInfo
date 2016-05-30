@@ -10,8 +10,13 @@ namespace ProjektGlowny.Models
 {
     public class MessagesModel
     {
+        [Display(Name = "Id")]
         public int Id { get; set; }
+
+        [Display(Name = "Id użytkownika")]
         public int UserId { get; set; }
+
+        [Display(Name = "Wydział")]
         public Departments departments { get; set; }
 
         [Display(Name = "Wydział")]

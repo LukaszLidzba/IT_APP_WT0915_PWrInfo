@@ -1,22 +1,22 @@
 ﻿@using ProjektGlowny.Models
 @model UserModels
 @{
-    ViewBag.Title = "Dodaj użytkownika";
+    ViewBag.Title = "Edytuj konto użytkownika";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
 }
 
 <h1>@ViewBag.Title</h1>
 <div class="title-description">
-    Tutaj możesz dodać użytkownika.
+    Tutaj możesz edytować konto użytkownika.
 </div>
 
 <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
     <li><a href="#">Użytkownicy</a></li>
-    <li class="active">Dodaj</li>
+    <li class="active">Edytuj</li>
 </ol>
 
-@using (Html.BeginForm("UsersAdd", "Users", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+@using (Html.BeginForm("UsersEdit", "Users", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.name)

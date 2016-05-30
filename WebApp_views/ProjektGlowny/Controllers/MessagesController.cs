@@ -102,13 +102,26 @@ namespace ProjektGlowny.Controllers
             return Redirect("~/Login/Login");
         }
 
-        public ActionResult MessagesDelete(int? id)
+        public ActionResult MessagesDelete(int id)
         {
             if (Session["UserTicket"] != null)
             {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
                 MessagesModel model = new MessagesModel();
 
-                //find DataCommandService.find()
+                var message = dataQueryService.GetMessage(id, new Guid(Session["UserTicket"].ToString()));
+
+                if (message != null)
+                {
+                    model.Id = message.Id;
+                    model.content = message.Content;
+                    model.title = message.Title;
+                    model.departments = message.Department;
+                    model.important = message.Important;
+                    model.UserId = message.UserId;
+
+                    return View(model);
+                }
                 return View(model);
             }
             return Redirect("~/Login/Login");
@@ -119,7 +132,7 @@ namespace ProjektGlowny.Controllers
         {
             if (Session["UserTicket"] != null)
             {
-                //delete func
+                model.deleteMessage(model, new Guid(Session["UserTicket"].ToString()));
                 return Redirect("~/Messages/Messages");
             }
             return Redirect("~/Login/Login");

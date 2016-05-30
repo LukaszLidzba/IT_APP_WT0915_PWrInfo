@@ -14,6 +14,36 @@
   <wsdl:message name="IDataQueryService_GetDeansOfficeInfo_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDeansOfficeInfoResponse" />
   </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetLibrary_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLibrary" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetLibrary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLibraryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvent" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnit" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IDataQueryService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IDataQueryService_GetAllDeansOffices_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllDeansOffices" />
   </wsdl:message>
@@ -55,6 +85,26 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetDeansOfficeInfo" message="tns:IDataQueryService_GetDeansOfficeInfo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetDeansOfficeInfoResponse" message="tns:IDataQueryService_GetDeansOfficeInfo_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetLibrary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetLibrary" message="tns:IDataQueryService_GetLibrary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetLibraryResponse" message="tns:IDataQueryService_GetLibrary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetMessage" message="tns:IDataQueryService_GetMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetMessageResponse" message="tns:IDataQueryService_GetMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetEvent" message="tns:IDataQueryService_GetEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetEventResponse" message="tns:IDataQueryService_GetEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetUnit" message="tns:IDataQueryService_GetUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetUnitResponse" message="tns:IDataQueryService_GetUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetUser" message="tns:IDataQueryService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetUserResponse" message="tns:IDataQueryService_GetUser_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllDeansOffices">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataQueryService/GetAllDeansOffices" message="tns:IDataQueryService_GetAllDeansOffices_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataQueryService/GetAllDeansOfficesResponse" message="tns:IDataQueryService_GetAllDeansOffices_OutputMessage" />
@@ -84,6 +134,51 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetDeansOfficeInfo">
       <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetDeansOfficeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLibrary">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetLibrary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvent">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnit">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IDataQueryService/GetUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

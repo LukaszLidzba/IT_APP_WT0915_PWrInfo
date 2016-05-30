@@ -91,5 +91,42 @@ namespace ProjektGlowny.Controllers
             }
             return Redirect("~/Login/Login");
         }
+
+
+        public ActionResult LibrariesDelete(int id)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+                LibrariesModel model = new LibrariesModel();
+
+                var library = dataQueryService.GetLibrary(id, new Guid(Session["UserTicket"].ToString()));
+
+                if (library != null)
+                {
+                    model.Id = library.Id;
+                    model.AdditionalInfo = library.AdditionalInfo;
+                    model.Address = library.Address;
+                    model.Name = library.Name;
+                    model.OpeningHours = library.OpeningHours;
+                    model.UserId = library.UserId;
+                 
+                    return View(model);
+                }
+                return View(model);
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        [HttpPost]
+        public ActionResult LibrariesDelete(LibrariesModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                model.deleteLibrary(model, new Guid(Session["UserTicket"].ToString()));
+                return Redirect("~/Libraries/Libraries");
+            }
+            return Redirect("~/Login/Login");
+        }
     }
 }

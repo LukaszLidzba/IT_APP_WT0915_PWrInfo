@@ -1,45 +1,49 @@
-﻿
+﻿@using ProjektGlowny.Models
+@model DeansOfficesModel
 @{
-    ViewBag.Title = "Edycja dziekanatu";
+    ViewBag.Title = "Usuń dziekanat";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
 }
 
 <h1>@ViewBag.Title</h1>
 <div class="title-description">
-    Tutaj możesz zmienić dane dziekanatu.
+    Tutaj możesz usunąc dane dziekanatu.
 </div>
 
 <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
     <li><a href="#">Dziekanaty</a></li>
-    <li class="active">Edycja</li>
+    <li class="active">Usuń</li>
 </ol>
 
-<form>
+@using (Html.BeginForm("DeansOfficesDelete", "DeansOffices", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+{ 
     <div class="form-group">
-        <label for="id-dziekanatu">ID dziekanatu</label>
-        <input type="text" class="form-control" id="id-dziekanatu" placeholder="ID dziekanatu" value="123456">
+       @Html.LabelFor(m =>m.Id)
+       @Html.DisplayFor(m => m.Id, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="id-wydzialu">ID wydziału</label>
-        <input type="text" class="form-control" id="id-wydzialu" placeholder="ID wydziału" value="654">
+        @Html.LabelFor(m => m.Department.Name)
+        @Html.DisplayFor(m => m.Department.Name, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="godz-otwarcia">Godziny otwarcia</label>
-        <input type="text" class="form-control" id="godz-otwarcia" placeholder="Godziny otwarcia" value="11:00 - 13:00">
+        @Html.LabelFor(m => m.OpeningHours)
+        @Html.DisplayFor(m => m.OpeningHours, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="dod-info">Dodatkowe informacje</label>
-        <input type="text" class="form-control" id="dod-info" placeholder="Dodatkowe informacje" value="Brak">
+        @Html.LabelFor(m => m.AdditionalInfo)
+        @Html.DisplayFor(m => m.AdditionalInfo, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="adres">Adres</label>
-        <input type="text" class="form-control" id="adres" placeholder="Adres" value="Łopinki Łuzyckie 4, 48-513 Łużyce">
+        @Html.LabelFor(m => m.Address)
+        @Html.DisplayFor(m => m.Address, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="id-usera">ID użytkownika</label>
-        <input type="text" class="form-control" id="id-usera" placeholder="ID użytkownika" value="200855">
+        @Html.LabelFor(m => m.UserId)
+        @Html.DisplayFor(m => m.UserId, new { @class = "form-control" })
     </div>
-    <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
-    <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
-</form>
+    <button type="submit" class="btn btn-primary btn-lg">Usuń</button>
+}
+
+
+
