@@ -19,7 +19,9 @@ namespace ProjektGlowny.Controllers
                 ViewBag.CurrentSort = sortOrder;
                 ViewBag.IdSortParm = String.IsNullOrEmpty(sortOrder) ? "id_asc" : "";
                 ViewBag.UserIdSortParm = sortOrder == "UserId" ? "UserId_desc" : "UserId";
-                ViewBag.DepartmentSortParm = sortOrder == "DeparmentId" ? "DeparmentId_desc" : "DeparmentId";
+                ViewBag.DepartSortParm = sortOrder == "DeparmentId" ? "DeparmentId_desc" : "DeparmentId";
+                ViewBag.DateSortParm = sortOrder == "Date" ? "Date_desc" : "Date";
+                ViewBag.NotifDateSortParm = sortOrder == "NotifDate" ? "NotifDate_desc" : "NotifDate";
 
                 if (searchString != null)
                 {
@@ -34,7 +36,7 @@ namespace ProjektGlowny.Controllers
 
                 EventsModel e = new EventsModel();
 
-                var events = e.GetEvents(new Guid(Session["UserTicket"].ToString()));
+                var events = e.GetEvents(new Guid(Session["UserTicket"].ToString()), DateTime.Today.AddDays(-60), DateTime.Today);
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
@@ -60,6 +62,18 @@ namespace ProjektGlowny.Controllers
                         break;
                     case "DeparmentId":
                         events = events.OrderBy(s => s.departments.Name);
+                        break;
+                    case "Date_desc":
+                        events = events.OrderByDescending(s => s.date);
+                        break;
+                    case "Date":
+                        events = events.OrderBy(s => s.date);
+                        break;
+                    case "NotifDate_desc":
+                        events = events.OrderByDescending(s => s.notificationDate);
+                        break;
+                    case "NotifDate":
+                        events = events.OrderBy(s => s.notificationDate);
                         break;
                     default:  // id ascending 
                         events = events.OrderByDescending(s => s.Id);

@@ -23,17 +23,13 @@ namespace ProjektGlowny.Models
 
         [Display(Name = "Tytuł")]
         public string title { get; set; }
-
-        [Display(Name = "data1")]
-        public DateTime extensionDate { get; set; }
-
-        [Display(Name = "data2")]
+       
+        [Display(Name = "Data przypomnienia")]
         public DateTime notificationDate { get; set; }
 
-        [Display(Name = "data3")]
+        [Display(Name = "Data wydarzenia")]
         public DateTime date { get; set; } 
 
-        //public string filtred { get; set; }
 
         public IEnumerable<EventsModel> GetEvents(Guid ticket, DateTime startDate, DateTime endDate)
         {
@@ -52,10 +48,9 @@ namespace ProjektGlowny.Models
                     UserId = events.UserId,
                     departments = events.Department,
                     title = events.Title,
-                    // extensionDate = DateTime.Parse(events.ExtensionData),// to nie jest string tylko data
                     date = DateTime.Parse(events.Date),
                     notificationDate = DateTime.Parse(events.NotificationDate),
-
+                   
                 });
             }
 
@@ -79,7 +74,6 @@ namespace ProjektGlowny.Models
                     UserId = events.UserId,
                     departments = events.Department,
                     title = events.Title,
-                   // extensionDate = DateTime.Parse(events.ExtensionData),// to nie jest string tylko data
                     date = DateTime.Parse(events.Date),
                     notificationDate = DateTime.Parse(events.NotificationDate),
                     

@@ -17,7 +17,7 @@ namespace ProjektGlowny.Controllers
             {
                 ViewBag.CurrentSort = sortOrder;
                 ViewBag.IdSortParm = String.IsNullOrEmpty(sortOrder) ? "id_asc" : "";
-                ViewBag.UserIdSortParm = sortOrder == "UserId" ? "UserId_desc" : "UserId";
+                ViewBag.UserIdParm = sortOrder == "UserId" ? "UserId_desc" : "UserId";
                 ViewBag.DepartmentSortParm = sortOrder == "DeparmentId" ? "DeparmentId_desc" : "DeparmentId";
 
                 if (searchString != null)
