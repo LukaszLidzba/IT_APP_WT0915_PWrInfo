@@ -7,6 +7,16 @@
     android:orientation="vertical"
     tools:context="pl.ziwg.pwrinfo.MainActivity">
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:adjustViewBounds="true"
+        android:maxHeight="128dp"
+        android:maxWidth="128dp"
+        android:layout_gravity="center"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

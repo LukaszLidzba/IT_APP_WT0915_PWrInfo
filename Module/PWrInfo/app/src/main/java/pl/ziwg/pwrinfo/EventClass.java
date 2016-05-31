@@ -27,7 +27,7 @@ public class EventClass {
     private Date stringToDate (String string) {
         // Format: "4/21/2016 12:00:00 AM"
         Date tempDate = null;
-        SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy' 'HH:mm:ss' 'aa");
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy' 'HH:mm:ss' 'aa");
         try {
             tempDate = format.parse(string);
         } catch (ParseException e) {

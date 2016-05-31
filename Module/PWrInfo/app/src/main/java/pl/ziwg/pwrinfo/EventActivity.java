@@ -77,6 +77,7 @@ public class EventActivity extends OwnActivity implements AdapterView.OnItemSele
                     new int[]{R.id.event_title,
                             R.id.event_date, R.id.event_content});
             listView.setAdapter(adapter);
+
         }
     }
 }

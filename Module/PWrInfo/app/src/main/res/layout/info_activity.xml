@@ -4,13 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textStyle="bold"
-        android:textSize="50sp"
-        android:textAlignment="center"/>
+        android:src="@drawable/logo"
+        android:adjustViewBounds="true"
+        android:maxHeight="256dp"
+        android:maxWidth="256dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:layout_width="match_parent"

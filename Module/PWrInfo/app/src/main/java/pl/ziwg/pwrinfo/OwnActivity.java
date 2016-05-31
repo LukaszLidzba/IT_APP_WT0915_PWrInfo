@@ -20,12 +20,12 @@ public class OwnActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.action_menu) {
+        /*if(id == R.id.action_menu) {
             Intent getMenuScreenIntent = new Intent(this, MainActivity.class);
             startActivity(getMenuScreenIntent);
             return true;
         }
-        else if (id == R.id.action_messages) {
+        else*/ if (id == R.id.action_messages) {
             Intent getMessageScreenIntent = new Intent(this, MessageActivity.class);
             startActivity(getMessageScreenIntent);
             return true;

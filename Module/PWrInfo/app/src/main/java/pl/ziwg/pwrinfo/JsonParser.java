@@ -17,6 +17,7 @@ public class JsonParser {
     final static private String TAG_ADDITIONAL_INFO = "additionalInfo";
     final static private String TAG_DATA = "data";
     final static private String TAG_DATE = "date";
+    final static private String TAG_NOTIFICATION = "notificationDate";
 
     public void MessagesJson (String data, List<Map<String,String>> dataList) throws JSONException {
         JSONArray jsonArray = new JSONArray(data);
@@ -39,6 +40,7 @@ public class JsonParser {
             datum.put(TAG_TITLE, jsonObject.getString("Title"));
             datum.put(TAG_DATE, jsonObject.getString("Date"));
             datum.put(TAG_DATA, jsonObject.getString("Content"));
+            datum.put(TAG_NOTIFICATION, jsonObject.getString("NotificationDate"));
             dataList.add(datum);
         }
     }
