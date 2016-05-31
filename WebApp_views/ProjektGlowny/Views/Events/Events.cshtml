@@ -7,6 +7,8 @@
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
 }
 
+@*@Scripts.Render("~/bundles/jqueryui")*@
+
 <h1>@ViewBag.Title</h1>
 <div class="title-description">
     Lista wydarzeń w systemie.
@@ -22,30 +24,35 @@
     <button type="button" onclick="location.href = '/Events/EventsAdd'" class="btn btn-success">
         <i class="icon icon-data fa fa-plus" aria-hidden="true"></i> Dodaj
     </button>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Szukaj...">
-    </div>
-    <div class="form-group">Podaj datę:</div>
-    <div class="form-group">
+
+    @using (Html.BeginForm("Events", "Events", FormMethod.Get))
+    {
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+         
+        <div class="form-group">Podaj datę:</div>
+          <div class="form-group">
         <input type="text" class="form-control datepicker" placeholder="od">
-    </div>
-    <div class="form-group">
+        </div>
+        <div class="form-group">
         <input type="text" class="form-control datepicker" placeholder="do">
-    </div>
-    <button type="submit" class="btn btn-default">
-        <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
-    </button>
+         </div>
+        <button type="submit" class="btn btn-default">
+            <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
+        </button>
+    }
+    @*<h2>Date Time Picker</h2>
+    <p>Date: <input type="text" id="datepicker" /></p>*@
 </form>
 
 <table class="table table-striped">
     <tr>
-        <td>ID wydarzenia</td>
+        <td>@Html.ActionLink("ID", "Events", new { sortOrder = ViewBag.IdSortParm, currentFilter = ViewBag.CurrentFilter })</td>
         <td>Tytuł</td>
         <td>Treść</td>
-        <td>Data</td>
-        <td>Data przypomnienia</td>
-        <td>Wydział</td>
-        <td>Id użytkownika</td>
+        <td>@Html.ActionLink("Data wydarzenia", "Events", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })</td>
+        <td>@Html.ActionLink("Data przypomnienia", "Events", new { sortOrder = ViewBag.NotifDateSortParm, currentFilter = ViewBag.CurrentFilter })</td>
+        <td>@Html.ActionLink("Wydział", "Events", new { sortOrder = ViewBag.DepartSortParm, currentFilter = ViewBag.CurrentFilter })</td>
+        <td>@Html.ActionLink("Id  użytkownika", "Events", new { sortOrder = ViewBag.UserIdSortParm, currentFilter = ViewBag.CurrentFilter })</td>
         <td>Działania</td>
     </tr>
    
@@ -94,3 +101,13 @@ Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.Pag
 
 @Html.PagedListPager(Model, page => Url.Action("Events",
     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
+
+@*<script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+</script>*@
+
+
