@@ -3,6 +3,10 @@ package pl.ziwg.pwrinfo;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+
 public class NotificationActivity extends OwnActivity {
 
     final static private String TAG_TITLE = "title";

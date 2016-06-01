@@ -10,6 +10,11 @@ import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import android.widget.TextView;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+
 import org.json.JSONException;
 
 import java.util.ArrayList;
@@ -21,6 +26,13 @@ public class DeansOfficeActivity extends OwnActivity implements AdapterView.OnIt
     final static private String TAG_ADDRESS = "address";
     final static private String TAG_OPENING_HOURS = "openingHours";
     final static private String TAG_ADDITIONAL_INFO = "additionalInfo";
+
+    public NetworkChangeReceiver networkChangeReceiver;
+    public TextView internetconnectionTextViewDeansOffice;
+    public IntentFilter filter;
+    public DeansOfficeActivity() {
+        filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +47,12 @@ public class DeansOfficeActivity extends OwnActivity implements AdapterView.OnIt
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+        internetconnectionTextViewDeansOffice = (TextView) findViewById(R.id.BrakInternetuDeansOffice);
+
+        networkChangeReceiver = new NetworkChangeReceiver(internetconnectionTextViewDeansOffice);
+        registerReceiver(networkChangeReceiver, filter);
+
     }
 
     @Override

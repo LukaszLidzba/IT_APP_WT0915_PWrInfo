@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import android.widget.TextView;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+
 import org.json.JSONException;
 
 import java.util.ArrayList;
@@ -19,11 +24,24 @@ public class LibraryActivity extends OwnActivity {
     final static private String TAG_OPENING_HOURS = "openingHours";
     final static private String TAG_ADDITIONAL_INFO = "additionalInfo";
 
+    public NetworkChangeReceiver networkChangeReceiver;
+    public TextView internetconnectionTextViewLibrary;
+    public IntentFilter filter;
+    public LibraryActivity() {
+        filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.library_activity);
         new RetrieveLibrary().execute(urlLibrary);
+
+        internetconnectionTextViewLibrary = (TextView) findViewById(R.id.BrakInternetuLibrary);
+
+        networkChangeReceiver = new NetworkChangeReceiver(internetconnectionTextViewLibrary);
+        registerReceiver(networkChangeReceiver, filter);
     }
 
     private class RetrieveLibrary extends AsyncTask<String, Void, Void> {

@@ -4,6 +4,8 @@
 
     <!-- Internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
 
     <application
         android:allowBackup="true"
@@ -14,22 +16,33 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".MessageActivity"
             android:label="@string/title_activity_message"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MESSAGE" />
+            </intent-filter>
         <activity android:name=".InfoActivity"
             android:label="@string/title_activity_info"/>
         <activity android:name=".EventActivity"
             android:label="@string/title_activity_event"/>
+        <intent-filter>
+            <action android:name="android.intent.action.EVENT" />
+        </intent-filter>
         <activity android:name=".LibraryActivity"
             android:label="@string/title_activity_library"/>
+        <intent-filter>
+            <action android:name="android.intent.action.LIBRARY" />
+        </intent-filter>
         <activity android:name=".MapActivity"
             android:label="@string/title_activity_map"/>
         <activity android:name=".DeansOfficeActivity"
             android:label="@string/title_activity_deansOffice"/>
+        <intent-filter>
+            <action android:name="android.intent.action.DEANSOFFICE" />
+        </intent-filter>
         <activity android:name=".NotificationActivity"
             android:label="@string/title_activity_notification"
             android:taskAffinity=""

@@ -10,6 +10,11 @@ import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import android.widget.TextView;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+
 import org.json.JSONException;
 
 import java.util.ArrayList;
@@ -21,6 +26,14 @@ public class MessageActivity extends OwnActivity implements AdapterView.OnItemSe
     final private static String urlMessages = "http://zedd.azurewebsites.net/RestDataService.svc/messages";
     final static private String TAG_TITLE = "title";
     final static private String TAG_DATA = "data";
+
+    public NetworkChangeReceiver networkChangeReceiver;
+    public TextView internetconnectionTextViewMessage;
+    public IntentFilter filter;
+    public MessageActivity() {
+        filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +48,11 @@ public class MessageActivity extends OwnActivity implements AdapterView.OnItemSe
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+        internetconnectionTextViewMessage = (TextView) findViewById(R.id.BrakInternetuMessage);
+
+        networkChangeReceiver = new NetworkChangeReceiver(internetconnectionTextViewMessage);
+        registerReceiver(networkChangeReceiver, filter);
     }
 
     @Override

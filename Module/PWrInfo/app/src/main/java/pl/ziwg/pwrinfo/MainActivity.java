@@ -12,6 +12,10 @@ import android.support.v4.app.NotificationCompat;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 
 import org.json.JSONException;
 
@@ -29,6 +33,15 @@ public class MainActivity extends OwnActivity implements View.OnClickListener {
     final static private String TAG_DATE = "date";
     final static private String TAG_DATA = "data";
     final static private String TAG_NOTIFICATION = "notificationDate";
+
+    public NetworkChangeReceiver networkChangeReceiver;
+    public TextView internetconnectionTextView;
+
+    public IntentFilter filter;
+
+    public MainActivity() {
+        filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +69,11 @@ public class MainActivity extends OwnActivity implements View.OnClickListener {
         for (int i = 1; i <= 1; i++) {
             new RetrieveNotification().execute(urlEvent, Integer.toString(i));
         }
+
+        internetconnectionTextView = (TextView) findViewById(R.id.BrakInternetu);
+
+        networkChangeReceiver = new NetworkChangeReceiver(internetconnectionTextView);
+        registerReceiver(networkChangeReceiver, filter);
     }
 
     @Override
