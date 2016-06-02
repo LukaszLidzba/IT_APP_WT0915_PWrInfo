@@ -10,6 +10,7 @@
     <string name="title_menu">Menu</string>
     <string name="description_info">Aplikacja stworzona w ramach projektu:\nZastosowanie Informatyki w Gospodarce\n\nZespół pracujący nad tym projektem:\nMichał Chłoń\nKrystian Kaliciak\nŁukasz Lidzba\nMariusz Różański\nPiotr Sekieta\nPiotr Zalfresso-Jundziłło\n\n Prowadzący: Dr inż. Marek Woda</string>
     <string name="title_activity_map">Mapa kampusu</string>
+    <string name="title_activity_guide">Przewodnik</string>
     <string name="title_activity_notification">Powiadomienia</string>
     <string-array name="list_of_departments">
         <item>W1 - Wydział Architektury</item>

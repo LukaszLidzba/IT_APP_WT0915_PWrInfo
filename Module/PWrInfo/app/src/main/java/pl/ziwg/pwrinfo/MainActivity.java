@@ -63,6 +63,9 @@ public class MainActivity extends OwnActivity implements View.OnClickListener {
         Button button_map_ =  (Button) findViewById(R.id.button_map);
         button_map_.setOnClickListener(this);
 
+        Button button_guide_ =  (Button) findViewById(R.id.button_guide);
+        button_guide_.setOnClickListener(this);
+
         Button button_info =  (Button) findViewById(R.id.button_info);
         button_info.setOnClickListener(this);
 
@@ -98,6 +101,10 @@ public class MainActivity extends OwnActivity implements View.OnClickListener {
             case R.id.button_map:
                 Intent getMapScreenIntent = new Intent(this, MapActivity.class);
                 startActivity(getMapScreenIntent);
+                break;
+            case R.id.button_guide:
+                Intent getGuideScreenIntent = new Intent(this, GuideActivity.class);
+                startActivity(getGuideScreenIntent);
                 break;
             case R.id.button_info:
                 Intent getInfoScreenIntent = new Intent(this, InfoActivity.class);
