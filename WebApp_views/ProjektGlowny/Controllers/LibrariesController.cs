@@ -66,11 +66,42 @@ namespace ProjektGlowny.Controllers
             return View();
         }
 
-        public ActionResult LibrariesEdit()
+        public ActionResult LibrariesEdit(int id)
         {
-            return View();
+            if (Session["UserTicket"] != null)
+            {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+
+                var library = dataQueryService.GetLibrary(id, new Guid(Session["UserTicket"].ToString()));
+
+                LibrariesModel model = new LibrariesModel();
+
+                model.Id = library.Id;
+                model.AdditionalInfo = library.AdditionalInfo;
+                model.Address = library.Address;
+                model.Name = library.Name;
+                model.OpeningHours = library.OpeningHours;
+                model.UserId = (int)Session["UserId"];
+
+                return View(model);
+            }
+            return Redirect("~/Login/Login");
         }
 
+        [HttpPost]
+        public ActionResult LibrariesEdit(LibrariesModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                if (model.Name != null)
+                {
+                    model.editLibrary(model, new Guid(Session["UserTicket"].ToString()));
+                    return Redirect("~/Libraries/Libraries");
+                }
+                return View(model);
+            }
+            return Redirect("~/Login/Login");
+        }
         public ActionResult LibrariesAdd()
         {
             if (Session["UserTicket"] != null && Session["UserId"] != null)

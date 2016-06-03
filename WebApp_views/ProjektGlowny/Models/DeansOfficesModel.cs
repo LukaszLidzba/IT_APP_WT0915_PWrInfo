@@ -67,7 +67,7 @@ namespace ProjektGlowny.Models
             deansOffice.Address = model.Address;
             deansOffice.OpeningHours = model.OpeningHours;
             deansOffice.Ticket = ticket;
-
+        
             try
             {
                 dataCommandService.AddDeansOffice(deansOffice);
@@ -76,18 +76,30 @@ namespace ProjektGlowny.Models
             { }
         }
 
+        private DataCommandService.Department departInfoConventer(DataQueryService.Department queryDepartInfo)
+        {
+            DataCommandService.Department dataCommDepartInfo = new DataCommandService.Department();
+
+            dataCommDepartInfo.Id = queryDepartInfo.Id;
+            dataCommDepartInfo.Name = queryDepartInfo.Name;
+            dataCommDepartInfo.ExtensionData = queryDepartInfo.ExtensionData;
+
+            return dataCommDepartInfo;
+        }
+
         public void editDeanOffice(DeansOfficesModel model, Guid ticket)
         {
             DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
 
             DataCommandService.DeansOfficeInfo deansOffice = new DataCommandService.DeansOfficeInfo();
-            DataCommandService.Department depart = new DataCommandService.Department();
-            depart.Id = model.selectedDepartmentId;
 
+            deansOffice.Id = model.Id;
             deansOffice.AdditionalInfo = model.AdditionalInfo;
             deansOffice.Address = model.Address;
             deansOffice.OpeningHours = model.OpeningHours;
-            deansOffice.Department= depart;
+            deansOffice.UserId = model.UserId;
+            deansOffice.Department = departInfoConventer(model.Department);
+
             try
             {
                 dataCommandService.EditDeansOffices(deansOffice, ticket);

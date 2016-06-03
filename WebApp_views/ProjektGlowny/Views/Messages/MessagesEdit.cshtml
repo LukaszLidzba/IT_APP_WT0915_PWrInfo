@@ -18,27 +18,26 @@
 
 @using (Html.BeginForm("MessagesEdit", "Messages", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
 {
-       
     <div class="form-group">
-        @Html.LabelFor(m => m.Id)
+        @Html.HiddenFor(m => m.UserId, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id)<br />
         @Html.DisplayFor(m => m.Id, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.title)
+        @Html.LabelFor(m => m.title)<br />
         @Html.TextBoxFor(m => m.title, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.content)<br />
-        @Html.TextAreaFor(m => m.content)
+        @Html.TextAreaFor(m => m.content, new { style = "width: 70%; height: 250px;" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.departments)
-        @Html.TextBoxFor(m => m.departments, new { @class = "form-control" })
+        @Html.LabelFor(m => m.departmentsList)
+        @Html.DropDownListFor(m => m.selectedDepartmentId, new SelectList(Model.departmentsList, "Value", "Text"), new { @class = "form-control" })
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.UserId)
-        @Html.TextBoxFor(m => m.UserId, new { @class = "form-control" })
-    </div>
+
     <div class="form-group">
         @Html.LabelFor(m => m.important)
         @Html.DropDownListFor(m => m.important, new List<SelectListItem>()

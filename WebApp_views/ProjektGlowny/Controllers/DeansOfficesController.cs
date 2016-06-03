@@ -130,9 +130,9 @@ namespace ProjektGlowny.Controllers
                     model.Address = DeansOff.Address;
                     model.Department = DeansOff.Department;
                     model.OpeningHours = DeansOff.OpeningHours;
-                    model.UserId = DeansOff.UserId;
+                    model.UserId = (int)Session["UserId"];
                     model.selectedDepartmentId = DeansOff.Department.Id;
-
+                  //  model.Department = DeansOff.Department;
                     return View(model);
                 }
                 return Redirect("~/DeansOffices/DeansOffices");

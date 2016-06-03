@@ -65,9 +65,38 @@ namespace ProjektGlowny.Controllers
             return View();
         }
 
-        public ActionResult UnitsEdit()
+        public ActionResult UnitsEdit(int id)
         {
-            return View();
+            if (Session["UserTicket"] != null)
+            {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+
+                var unit = dataQueryService.GetUnit(id, new Guid(Session["UserTicket"].ToString()));
+
+                UnitsModel model = new UnitsModel();
+
+                model.Id = unit.Id;
+                model.Name = unit.Name;
+                model.Description = unit.Description;
+
+                return View(model);
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        [HttpPost]
+        public ActionResult UnitsEdit(UnitsModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                if (model.Name != null)
+                {
+                    model.editUnit(model, new Guid(Session["UserTicket"].ToString()));
+                    return Redirect("~/Units/Units");
+                }
+                return View(model);
+            }
+            return Redirect("~/Login/Login");
         }
 
         public ActionResult UnitsAdd()

@@ -130,18 +130,45 @@ namespace ProjektGlowny.Controllers
             return View(model);
         }
 
-        // GET: Users
-        //public ActionResult Users()
-        //{
-        //    if (Session["UserTicket"] != null)
-        //    {
-        //        UserModels u = new UserModels();
+        public ActionResult UsersEdit(int id)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();     
 
-        //        IList<UserModels> users = u.GetUsers(new Guid(Session["UserTicket"].ToString())).ToList();
+                var user = dataQueryService.GetUser(id, new Guid(Session["UserTicket"].ToString()));     
+                var units = dataQueryService.GetUnits(new Guid(Session["UserTicket"].ToString()));     
+                    
+                var model = new UserModels     
+                {     
+                     unitList = units.Select(u => new SelectListItem     
+                    {     
+                        Text = u.Name,     
+                        Value = u.Id.ToString()     
+                    })     
+                };     
 
-        //        return View(users);
-        //    }
-        //    return Redirect("~/Login/Login");
-        //}
+                model.id = user.Id;     
+                model.name = user.Name;     
+                model.surname = user.Surname;     
+                model.Login = user.Login;     
+                model.isAdmin = user.IsAdmin;     
+                model.selectedUnitId = user.Unit.Id;     
+
+                return View(model);     
+            }
+            return Redirect("~/Login/Login");
+        }
+
+        [HttpPost]
+        public ActionResult UsersEdit(UserModels model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                model.editUser(model, new Guid(Session["UserTicket"].ToString()));
+                return Redirect("~/Users/Users");
+            }
+            return Redirect("~/Login/Login");
+        }
     }
 }

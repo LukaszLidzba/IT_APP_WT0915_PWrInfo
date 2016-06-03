@@ -76,17 +76,35 @@ namespace ProjektGlowny.Controllers
 
 
 
-        public ActionResult MessagesEdit(int? id)
+        public ActionResult MessagesEdit(int id)
         {
             if (Session["UserTicket"] != null)
             {
-                if (id != null)
+
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+
+                var msg = dataQueryService.GetMessage(id, new Guid(Session["UserTicket"].ToString()));
+                var departments = dataQueryService.GetAllDeansOffices(new Guid(Session["UserTicket"].ToString())); // tu get deparmen
+
+                var model = new MessagesModel
                 {
-                    MessagesModel model = new MessagesModel();
-                    //find
-                    return View(model);
-                }
-                return Redirect("~/Messages/Messages");
+                    departmentsList = departments.Select(d => new SelectListItem
+                    {
+                        Text = d.Department.Name,
+                        Value = d.Id.ToString()
+                    })
+                };
+
+                model.Id = msg.Id;
+                model.content = msg.Content;
+                model.title = msg.Title;
+                model.important = msg.Important;
+                model.selectedDepartmentId = msg.Department.Id;
+                model.UserId = (int)Session["UserId"];
+
+                return View(model);
+               
+                
             }
             return Redirect("~/Login/Login");
         }
@@ -96,8 +114,12 @@ namespace ProjektGlowny.Controllers
         {
             if (Session["UserTicket"] != null)
             {
-                //edit func
-                return Redirect("~/Messages/Messages");
+                if (model.title != null)
+                {
+                    model.editMessage(model, new Guid(Session["UserTicket"].ToString()));
+                    return Redirect("~/Messages/Messages");
+                }
+                return View(model);
             }
             return Redirect("~/Login/Login");
         }

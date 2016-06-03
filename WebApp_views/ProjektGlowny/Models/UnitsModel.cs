@@ -59,8 +59,24 @@ namespace ProjektGlowny.Models
             { }
         }
 
-        public void editUnit()
-        { }
+        public void editUnit(UnitsModel model, Guid ticket)
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+
+            DataCommandService.UnitInfo unit = new DataCommandService.UnitInfo();
+
+            unit.Id = model.Id;
+            unit.Name = model.Name;
+            unit.Description = model.Description;
+
+            try
+            {
+                dataCommandService.EditUnits(unit, ticket);
+            }
+            catch (Exception ex)
+            { }
+        
+        }
        
     }
 }

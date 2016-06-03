@@ -110,15 +110,9 @@ namespace ProjektGlowny.Models
             message.Id = model.Id;
             message.Title = model.title;
             message.Content = model.content;
-            message.Department.Id = model.departments.Id;
-         //   DeansOffices[] deans = model.departments.DeansOffices;
-           //TU
-         //  message.Department.DeansOffices = ; 
-
-            message.Department.Name = model.departments.Name;
-            message.Department.ExtensionData = model.departments.ExtensionData;  
             message.Important = model.important;
-            
+            message.UserId = model.UserId;
+         //departmetnt 
             try
             {
                 dataCommandService.EditMessages(message,ticket);

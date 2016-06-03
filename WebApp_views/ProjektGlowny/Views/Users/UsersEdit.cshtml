@@ -19,6 +19,10 @@
 @using (Html.BeginForm("UsersEdit", "Users", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
 {
     <div class="form-group">
+        @Html.LabelFor(m => m.id)<br/>
+        @Html.DisplayFor(m => m.id, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
         @Html.LabelFor(m => m.name)
         @Html.TextBoxFor(m => m.name, new { @class = "form-control" })
     </div>
@@ -52,7 +56,6 @@
         @Html.DropDownListFor(m => m.selectedUnitId, new SelectList(Model.unitList, "Value", "Text"), new { @class = "form-control" })
     </div>
     <div class="login-wrapper-buttons">
-        <button type="submit" class="btn btn-primary btn-lg">Dodaj</button>
-        <button type="reset" class="btn btn-default btn-lg">Wyczyść</button>
+        <button type="submit" class="btn btn-primary btn-lg">Zmień</button>
     </div>
 }

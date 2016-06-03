@@ -159,6 +159,12 @@ namespace ProjektGlowny.Models
             }
             catch(Exception ex){ }
         }
+
+
+        public void editUser(UserModels model, Guid ticket)
+        { 
+        
+        }
     }
        
 }
