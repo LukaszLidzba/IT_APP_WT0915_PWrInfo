@@ -1,4 +1,5 @@
-﻿
+﻿@using ProjektGlowny.Models
+@model EventsModel
 @{
     ViewBag.Title = "Usuń wydarzenie";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
@@ -12,38 +13,38 @@
 <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
     <li><a href="#">Wydarzenia</a></li>
-    <li class="active">Edycja</li>
+    <li class="active">Usuń</li>
 </ol>
 
-<form>
+@using (Html.BeginForm("EventsDelete", "Events", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+{
     <div class="form-group">
-        <label for="id-wydarzenia">ID wydarzenia</label>
-        <input type="text" class="form-control" id="id-wydarzenia" placeholder="ID wydarzenia" value="123456">
+        @Html.LabelFor(m => m.Id)<br/>
+        @Html.DisplayFor(m => m.Id, new { @class = "form-control" })
+    </div>
+    <div class="form-group"> 
+        @Html.LabelFor(m => m.title)<br />
+        @Html.DisplayFor(m => m.title, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="wydzial">Wydział</label>
-        <input type="text" class="form-control" id="wydzial" placeholder="Wydział" value="W4 - Elektroniki">
+        @Html.LabelFor(m => m.content)<br />
+        @Html.DisplayFor(m => m.content, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="tytul">Tytuł</label>
-        <input type="text" class="form-control" id="tytul" placeholder="Tytuł" value="Jakiś ciekawy tytuł typu 'Lorem Ipsum'">
+        @Html.LabelFor(m => m.departments)<br />
+        @Html.DisplayFor(m => m.departments.Name, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="tresc">Treść</label>
-        <input type="text" class="form-control" id="tresc" placeholder="Treść" value="Treść wydarzenia, które jeszcze nie wiadomo czy się odbędzie.">
+        @Html.LabelFor(m => m.date)<br />
+        @Html.DisplayFor(m => m.date, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="data">Data</label>
-        <input type="text" class="form-control" id="data" placeholder="Data" value="20.06.2016">
+        @Html.LabelFor(m => m.notificationDate)<br />
+        @Html.DisplayFor(m => m.notificationDate, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="data-przypomnienia">Data przypomnienia</label>
-        <input type="text" class="form-control" id="data-przypomnienia" placeholder="Data przypomnienia" value="20.06.2016">
-    </div>
-    <div class="form-group">
-        <label for="id-usera">ID użytkownika</label>
-        <input type="text" class="form-control" id="id-usera" placeholder="ID użytkownika" value="200855">
+        @Html.LabelFor(m => m.UserId)<br />
+        @Html.DisplayFor(m => m.UserId, new { @class = "form-control" })
     </div>
     <button type="submit" class="btn btn-primary btn-lg">Usuń</button>
-   
-</form>
+}

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using ProjektGlowny.DataQueryService;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace ProjektGlowny.Models
 {
@@ -18,7 +19,7 @@ namespace ProjektGlowny.Models
         [Display(Name = "Wydział")]
         public Department departments { get; set; }
 
-        [Display(Name = "treśc")]
+        [Display(Name = "Treść")]
         public string content { get; set; }
 
         [Display(Name = "Tytuł")]
@@ -37,7 +38,8 @@ namespace ProjektGlowny.Models
 
             IDataQueryService dataQueryService = new DataQueryServiceClient();
 
-            var result = dataQueryService.GetEvents(ticket, DateTime.Now.AddDays(-60), DateTime.Now);
+            var result = dataQueryService.GetEvents(ticket, startDate, endDate);
+                CultureInfo provider = CultureInfo.InvariantCulture;
 
             foreach (EventInfo events in result)
             {

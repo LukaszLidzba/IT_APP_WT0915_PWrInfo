@@ -12,7 +12,7 @@ namespace ProjektGlowny.Controllers
     {
         // GET: Evetns
 
-        public ViewResult Events(string sortOrder, string currentFilter, string searchString, int? page)
+        public ViewResult Events(string sortOrder, string currentFilter, string startDate, string endDate, string searchString, int? page)
         {
             if (Session["UserTicket"] != null)
             {
@@ -22,6 +22,18 @@ namespace ProjektGlowny.Controllers
                 ViewBag.DepartSortParm = sortOrder == "DeparmentId" ? "DeparmentId_desc" : "DeparmentId";
                 ViewBag.DateSortParm = sortOrder == "Date" ? "Date_desc" : "Date";
                 ViewBag.NotifDateSortParm = sortOrder == "NotifDate" ? "NotifDate_desc" : "NotifDate";
+
+                if (startDate == null)
+                {
+                    startDate = DateTime.Today.AddDays(-30).ToString("MM-dd-yyyy");
+
+                }
+
+                if (endDate == null)
+                {
+                    endDate = DateTime.Today.ToString("MM-dd-yyyy");
+                }
+
 
                 if (searchString != null)
                 {
@@ -33,10 +45,13 @@ namespace ProjektGlowny.Controllers
                 }
 
                 ViewBag.CurrentFilter = searchString;
+                ViewBag.startDate = startDate.ToString();
+                ViewBag.endDate = endDate.ToString();
+             
 
                 EventsModel e = new EventsModel();
 
-                var events = e.GetEvents(new Guid(Session["UserTicket"].ToString()), DateTime.Today.AddDays(-60), DateTime.Today);
+                var events = e.GetEvents(new Guid(Session["UserTicket"].ToString()), DateTime.Parse(startDate), DateTime.Parse(endDate));
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
@@ -116,62 +131,43 @@ namespace ProjektGlowny.Controllers
             return Redirect("~/Login/Login");
         }
 
-        public ActionResult EventsDelete(int? id)
+        public ActionResult EventsDelete(int id)
         {
             if (Session["UserTicket"] != null)
             {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
                 EventsModel model = new EventsModel();
 
-                //find DataCommandService.find()
+                var evnt = dataQueryService.GetEvent(id, new Guid(Session["UserTicket"].ToString()));
+
+                if (evnt != null)
+                {
+                    model.Id = evnt.Id;
+                    model.date = DateTime.Parse(evnt.Date);
+                    model.notificationDate = DateTime.Parse(evnt.NotificationDate);
+                    model.content = evnt.Content;
+                    model.title = evnt.Title;
+                    model.departments = evnt.Department;
+                    model.UserId = evnt.UserId;
+
+                    return View(model);
+                }
                 return View(model);
             }
             return Redirect("~/Login/Login");
         }
 
         [HttpPost]
-        public ActionResult MessagesDelete(EventsModel model)
+        public ActionResult EventsDelete(EventsModel model)
         {
             if (Session["UserTicket"] != null)
             {
-                //delete func
+                model.deleteEvent(model, new Guid(Session["UserTicket"].ToString()));
                 return Redirect("~/Events/Events");
             }
             return Redirect("~/Login/Login");
         }
 
-        //public ActionResult EventsAdd()
-        //{
-        //    if (Session["UserTicket"] != null)
-        //    {
-        //        DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
-        //        var departments = dataQueryService.GetAllDeansOffices(new Guid(Session["UserTicket"].ToString())); // tu get deparmen
 
-        //        var msgAdd = new MEventsModel
-        //        {
-        //            departmentsList = departments.Select(d => new SelectListItem
-        //            {
-        //                Text = d.Department.Name,
-        //                Value = d.Id.ToString()
-        //            })
-        //        };
-        //        return View(msgAdd);
-
-        //    }
-        //    return Redirect("~/Login/Login");
-
-        //}
-
-        [HttpPost]
-        public ActionResult MessagesAdd(EventsModel model)
-        {
-            if (Session["UserTicket"] != null)
-            {
-               //add func from model
-
-                return Redirect("~/Events/Eventss");
-            }
-
-            return Redirect("~/Login/Login");
-        }
     }
 }
