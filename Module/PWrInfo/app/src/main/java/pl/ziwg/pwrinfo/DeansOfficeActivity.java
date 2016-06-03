@@ -26,7 +26,7 @@ public class DeansOfficeActivity extends OwnActivity implements AdapterView.OnIt
     final static private String TAG_ADDITIONAL_INFO = "additionalInfo";
 
     public NetworkChangeReceiver networkChangeReceiver;
-    public TextView internetconnectionTextViewDeansOffice;
+    public TextView internetConnectionTextViewDeansOffice;
     public IntentFilter filter;
     public DeansOfficeActivity() {
         filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
@@ -46,9 +46,9 @@ public class DeansOfficeActivity extends OwnActivity implements AdapterView.OnIt
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-        internetconnectionTextViewDeansOffice = (TextView) findViewById(R.id.BrakInternetuDeansOffice);
+        internetConnectionTextViewDeansOffice = (TextView) findViewById(R.id.BrakInternetuDeansOffice);
 
-        networkChangeReceiver = new NetworkChangeReceiver(internetconnectionTextViewDeansOffice);
+        networkChangeReceiver = new NetworkChangeReceiver(internetConnectionTextViewDeansOffice);
         registerReceiver(networkChangeReceiver, filter);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -65,6 +65,14 @@ public class DeansOfficeActivity extends OwnActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    @Override
+    protected void onStop()
+    {
+        unregisterReceiver(networkChangeReceiver);
+        super.onStop();
+    }
+
 
     private class RetrieveDeansOffice extends AsyncTask<String, Void, Void> {
         List<Map<String, String>> data;

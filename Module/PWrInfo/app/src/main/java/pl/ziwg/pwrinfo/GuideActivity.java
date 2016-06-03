@@ -1,17 +1,9 @@
 package pl.ziwg.pwrinfo;
 
 import android.app.TabActivity;
-import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TabHost;
-
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 
 public class GuideActivity extends TabActivity{
@@ -42,5 +34,4 @@ public class GuideActivity extends TabActivity{
         tabHost.addTab(ts3);
 
     }
-
 }

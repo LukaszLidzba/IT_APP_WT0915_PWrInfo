@@ -34,7 +34,7 @@ public class MainActivity extends OwnActivity implements View.OnClickListener {
     final static private String TAG_NOTIFICATION = "notificationDate";
 
     public NetworkChangeReceiver networkChangeReceiver;
-    public TextView internetconnectionTextView;
+    public TextView internetConnectionTextView;
 
     public IntentFilter filter;
 
@@ -70,13 +70,13 @@ public class MainActivity extends OwnActivity implements View.OnClickListener {
 
 
 
-        for (int i = 1; i <= 1; i++) {
+        for (int i = 1; i <= 16; i++) {
             new RetrieveNotification().execute(urlEvent, Integer.toString(i));
         }
 
-        internetconnectionTextView = (TextView) findViewById(R.id.BrakInternetu);
+        internetConnectionTextView = (TextView) findViewById(R.id.BrakInternetu);
 
-        networkChangeReceiver = new NetworkChangeReceiver(internetconnectionTextView);
+        networkChangeReceiver = new NetworkChangeReceiver(internetConnectionTextView);
         registerReceiver(networkChangeReceiver, filter);
     }
 

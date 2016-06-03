@@ -9,8 +9,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/logo"
         android:adjustViewBounds="true"
-        android:maxHeight="256dp"
-        android:maxWidth="256dp"
+        android:maxHeight="192dp"
+        android:maxWidth="192dp"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"/>
 

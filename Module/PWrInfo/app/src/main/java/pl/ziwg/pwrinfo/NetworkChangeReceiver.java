@@ -4,18 +4,14 @@ package pl.ziwg.pwrinfo;
  * Created by Krystian on 01.06.2016.
  */
 
-        import android.app.Application;
         import android.content.BroadcastReceiver;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.content.IntentFilter;
-        import android.net.ConnectivityManager;
-        import android.net.NetworkInfo;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 
 public class NetworkChangeReceiver extends BroadcastReceiver {

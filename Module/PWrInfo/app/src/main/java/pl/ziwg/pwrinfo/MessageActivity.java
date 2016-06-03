@@ -26,7 +26,7 @@ public class MessageActivity extends OwnActivity implements AdapterView.OnItemSe
     final static private String TAG_DATA = "data";
 
     public NetworkChangeReceiver networkChangeReceiver;
-    public TextView internetconnectionTextViewMessage;
+    public TextView internetConnectionTextViewMessage;
     public IntentFilter filter;
     public MessageActivity() {
         filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
@@ -47,9 +47,9 @@ public class MessageActivity extends OwnActivity implements AdapterView.OnItemSe
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-        internetconnectionTextViewMessage = (TextView) findViewById(R.id.BrakInternetuMessage);
+        internetConnectionTextViewMessage = (TextView) findViewById(R.id.BrakInternetuMessage);
 
-        networkChangeReceiver = new NetworkChangeReceiver(internetconnectionTextViewMessage);
+        networkChangeReceiver = new NetworkChangeReceiver(internetConnectionTextViewMessage);
         registerReceiver(networkChangeReceiver, filter);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -93,5 +93,12 @@ public class MessageActivity extends OwnActivity implements AdapterView.OnItemSe
                             android.R.id.text2});
             listView.setAdapter(adapter);
         }
+    }
+
+    @Override
+    protected void onStop()
+    {
+        unregisterReceiver(networkChangeReceiver);
+        super.onStop();
     }
 }

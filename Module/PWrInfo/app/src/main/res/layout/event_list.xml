@@ -26,5 +26,6 @@
         android:id="@+id/event_content"
         android:text="Treść: "
         android:textSize="15sp"
+        android:autoLink="web"
         android:layout_marginTop="5dp"/>
 </LinearLayout>

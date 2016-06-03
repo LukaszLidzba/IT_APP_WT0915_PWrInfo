@@ -23,7 +23,7 @@ public class LibraryActivity extends OwnActivity {
     final static private String TAG_ADDITIONAL_INFO = "additionalInfo";
 
     public NetworkChangeReceiver networkChangeReceiver;
-    public TextView internetconnectionTextViewLibrary;
+    public TextView internetConnectionTextViewLibrary;
     public IntentFilter filter;
     public LibraryActivity() {
         filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
@@ -36,9 +36,9 @@ public class LibraryActivity extends OwnActivity {
         setContentView(R.layout.library_activity);
         new RetrieveLibrary().execute(urlLibrary);
 
-        internetconnectionTextViewLibrary = (TextView) findViewById(R.id.BrakInternetuLibrary);
+        internetConnectionTextViewLibrary = (TextView) findViewById(R.id.BrakInternetuLibrary);
 
-        networkChangeReceiver = new NetworkChangeReceiver(internetconnectionTextViewLibrary);
+        networkChangeReceiver = new NetworkChangeReceiver(internetConnectionTextViewLibrary);
         registerReceiver(networkChangeReceiver, filter);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -74,6 +74,13 @@ public class LibraryActivity extends OwnActivity {
                             R.id.library_address, R.id.library_openingHours, R.id.library_additionalInfo});
             listView.setAdapter(adapter);
         }
+    }
+
+    @Override
+    protected void onStop()
+    {
+        unregisterReceiver(networkChangeReceiver);
+        super.onStop();
     }
 }
 

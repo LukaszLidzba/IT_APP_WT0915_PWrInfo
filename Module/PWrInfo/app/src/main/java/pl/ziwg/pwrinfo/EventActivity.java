@@ -69,6 +69,13 @@ public class EventActivity extends OwnActivity implements AdapterView.OnItemSele
 
     }
 
+    @Override
+    protected void onStop()
+    {
+        unregisterReceiver(networkChangeReceiver);
+        super.onStop();
+    }
+
     private class RetrieveEvent extends AsyncTask<String, Void, Void> {
         List<Map<String, String>> data;
         ListView listView = (ListView) findViewById(R.id.listView_event);
