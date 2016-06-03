@@ -9,5 +9,7 @@ public class InfoActivity extends OwnActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.info_activity);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

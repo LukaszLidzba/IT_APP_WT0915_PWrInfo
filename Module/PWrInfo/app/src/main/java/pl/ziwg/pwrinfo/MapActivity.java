@@ -8,5 +8,7 @@ public class MapActivity extends OwnActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_activity);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

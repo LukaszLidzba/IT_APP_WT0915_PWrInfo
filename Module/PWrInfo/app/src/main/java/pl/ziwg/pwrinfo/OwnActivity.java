@@ -48,7 +48,7 @@ public class OwnActivity extends AppCompatActivity {
             startActivity(getMapScreenIntent);
             return true;
         } else if (id == R.id.action_guide) {
-                Intent getGuideScreenIntent = new Intent(this, GuideActivity.class);
+                Intent getGuideScreenIntent = new Intent(this, TabActivity.class);
                 startActivity(getGuideScreenIntent);
                 return true;
         } else if (id == R.id.action_info) {

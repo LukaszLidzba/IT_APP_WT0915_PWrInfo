@@ -1,5 +1,7 @@
 package pl.ziwg.pwrinfo;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -8,12 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
-
 import android.widget.TextView;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
+import android.widget.Toast;
 
 import org.json.JSONException;
 
@@ -52,6 +50,8 @@ public class DeansOfficeActivity extends OwnActivity implements AdapterView.OnIt
 
         networkChangeReceiver = new NetworkChangeReceiver(internetconnectionTextViewDeansOffice);
         registerReceiver(networkChangeReceiver, filter);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 

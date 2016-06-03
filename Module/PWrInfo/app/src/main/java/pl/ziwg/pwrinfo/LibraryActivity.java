@@ -1,14 +1,12 @@
 package pl.ziwg.pwrinfo;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-
 import android.widget.TextView;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
 
 import org.json.JSONException;
 
@@ -42,6 +40,8 @@ public class LibraryActivity extends OwnActivity {
 
         networkChangeReceiver = new NetworkChangeReceiver(internetconnectionTextViewLibrary);
         registerReceiver(networkChangeReceiver, filter);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private class RetrieveLibrary extends AsyncTask<String, Void, Void> {

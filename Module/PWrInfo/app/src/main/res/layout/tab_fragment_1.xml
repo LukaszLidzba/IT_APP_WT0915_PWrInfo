@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="1021dp"
+            android:text="111111111111111111111111111111111111111111111111Akademickie Targi Pracy to cykliczny projekt, który w tym roku odbędzie się 8 i 9 marca 2016 roku w Zintegrowanym Centrum Studenckim Politechniki Wrocławskiej, w budynku C-13. Każdego roku wydarzenie przyciąga średnio 14 000 studentów oraz 80 pracodawców z całej Polski. Nie zabraknie również dodatkowych atrakcji, takich jak szkolenia, czy odbywające się przed samym wydarzeniem konkursy.Akademickie Targi Pracy to cykliczny projekt, który w tym roku odbędzie się 8 i 9 marca 2016 roku w Zintegrowanym Centrum Studenckim Politechniki Wrocławskiej, w budynku C-13. Każdego roku wydarzenie przyciąga średnio 14 000 studentów oraz 80 pracodawców z całej Polski. Nie zabraknie również dodatkowych atrakcji, takich jak szkolenia, czy odbywające się przed samym wydarzeniem konkursy.Akademickie Targi Pracy to cykliczny projekt, który w tym roku odbędzie się 8 i 9 marca 2016 roku w Zintegrowanym Centrum Studenckim Politechniki Wrocławskiej, w budynku C-13. Każdego roku wydarzenie przyciąga średnio 14 000 studentów oraz 80 pracodawców z całej Polski. Nie zabraknie również dodatkowych atrakcji, takich jak szkolenia, czy odbywające się przed samym wydarzeniem konkursy.Akademickie Targi Pracy to cykliczny projekt, który w tym roku odbędzie się 8 i 9 marca 2016 roku w Zintegrowanym Centrum Studenckim Politechniki Wrocławskiej, w budynku C-13. Każdego roku wydarzenie przyciąga średnio 14 000 studentów oraz 80 pracodawców z całej Polski. Nie zabraknie również dodatkowych atrakcji, takich jak szkolenia, czy odbywające się przed samym wydarzeniem konkursy.Akademickie Targi Pracy to cykliczny projekt, który w tym roku odbędzie się 8 i 9 marca 2016 roku w Zintegrowanym Centrum Studenckim Politechniki Wrocławskiej, w budynku C-13. Każdego roku wydarzenie przyciąga średnio 14 000 studentów oraz 80 pracodawców z całej Polski. Nie zabraknie również dodatkowych atrakcji, takich jak szkolenia, czy odbywające się przed samym wydarzeniem konkursy.Akademickie Targi Pracy to cykliczny projekt, który w tym roku odbędzie się 8 i 9 marca 2016 roku w Zintegrowanym Centrum Studenckim Politechniki Wrocławskiej, w budynku C-13. Każdego roku wydarzenie przyciąga średnio 14 000 studentów oraz 80 pracodawców z całej Polski. Nie zabraknie również dodatkowych atrakcji, takich jak szkolenia, czy odbywające się przed samym wydarzeniem konkursy.Akademickie Targi Pracy to cykliczny projekt, który w tym roku odbędzie się 8 i 9 marca 2016 roku w Zintegrowanym Centrum Studenckim Politechniki Wrocławskiej, w budynku C-13. Każdego roku wydarzenie przyciąga średnio 14 000 studentów oraz 80 pracodawców z całej Polski. Nie zabraknie również dodatkowych atrakcji, takich jak szkolenia, czy odbywające się przed samym wydarzeniem konkursy."
+            android:id="@+id/textView3"
+            />
+
+    </LinearLayout>
+</ScrollView>

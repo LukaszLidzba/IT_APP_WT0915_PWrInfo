@@ -4,8 +4,10 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -13,9 +15,6 @@ import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
 
 import org.json.JSONException;
 
@@ -69,6 +68,8 @@ public class MainActivity extends OwnActivity implements View.OnClickListener {
         Button button_info =  (Button) findViewById(R.id.button_info);
         button_info.setOnClickListener(this);
 
+
+
         for (int i = 1; i <= 1; i++) {
             new RetrieveNotification().execute(urlEvent, Integer.toString(i));
         }
@@ -103,7 +104,7 @@ public class MainActivity extends OwnActivity implements View.OnClickListener {
                 startActivity(getMapScreenIntent);
                 break;
             case R.id.button_guide:
-                Intent getGuideScreenIntent = new Intent(this, GuideActivity.class);
+                Intent getGuideScreenIntent = new Intent(this, TabActivity.class);
                 startActivity(getGuideScreenIntent);
                 break;
             case R.id.button_info:
