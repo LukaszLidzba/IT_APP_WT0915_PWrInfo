@@ -123,6 +123,12 @@
   <wsdl:message name="IDataCommandService_EditUsers_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditUsersResponse" />
   </wsdl:message>
+  <wsdl:message name="IDataCommandService_AdminEditUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdminEditUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDataCommandService_AdminEditUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdminEditUsersResponse" />
+  </wsdl:message>
   <wsdl:message name="IDataCommandService_EditDepartments_InputMessage">
     <wsdl:part name="parameters" element="tns:EditDepartments" />
   </wsdl:message>
@@ -205,6 +211,10 @@
     <wsdl:operation name="EditUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/EditUsers" message="tns:IDataCommandService_EditUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/EditUsersResponse" message="tns:IDataCommandService_EditUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdminEditUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/AdminEditUsers" message="tns:IDataCommandService_AdminEditUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataCommandService/AdminEditUsersResponse" message="tns:IDataCommandService_AdminEditUsers_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditDepartments">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataCommandService/EditDepartments" message="tns:IDataCommandService_EditDepartments_InputMessage" />
@@ -377,6 +387,15 @@
     </wsdl:operation>
     <wsdl:operation name="EditUsers">
       <soap:operation soapAction="http://tempuri.org/IDataCommandService/EditUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminEditUsers">
+      <soap:operation soapAction="http://tempuri.org/IDataCommandService/AdminEditUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

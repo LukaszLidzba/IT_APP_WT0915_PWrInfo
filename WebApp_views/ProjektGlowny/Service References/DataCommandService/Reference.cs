@@ -1600,6 +1600,115 @@ namespace ProjektGlowny.DataCommandService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserEdit", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
+    [System.SerializableAttribute()]
+    public partial class UserEdit : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsAdminField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SurnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProjektGlowny.DataCommandService.UnitInfo UnitField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsAdmin {
+            get {
+                return this.IsAdminField;
+            }
+            set {
+                if ((this.IsAdminField.Equals(value) != true)) {
+                    this.IsAdminField = value;
+                    this.RaisePropertyChanged("IsAdmin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Surname {
+            get {
+                return this.SurnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SurnameField, value) != true)) {
+                    this.SurnameField = value;
+                    this.RaisePropertyChanged("Surname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProjektGlowny.DataCommandService.UnitInfo Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
     [System.SerializableAttribute()]
     public partial class UserInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1852,10 +1961,16 @@ namespace ProjektGlowny.DataCommandService {
         System.Threading.Tasks.Task EditLibrariesAsync(ProjektGlowny.DataCommandService.LibraryInfo libraryInfo, System.Guid ticketId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditUsers", ReplyAction="http://tempuri.org/IDataCommandService/EditUsersResponse")]
-        void EditUsers(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId);
+        void EditUsers(ProjektGlowny.DataCommandService.UserEdit userInfo, System.Guid ticketId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditUsers", ReplyAction="http://tempuri.org/IDataCommandService/EditUsersResponse")]
-        System.Threading.Tasks.Task EditUsersAsync(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId);
+        System.Threading.Tasks.Task EditUsersAsync(ProjektGlowny.DataCommandService.UserEdit userInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/AdminEditUsers", ReplyAction="http://tempuri.org/IDataCommandService/AdminEditUsersResponse")]
+        void AdminEditUsers(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/AdminEditUsers", ReplyAction="http://tempuri.org/IDataCommandService/AdminEditUsersResponse")]
+        System.Threading.Tasks.Task AdminEditUsersAsync(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataCommandService/EditDepartments", ReplyAction="http://tempuri.org/IDataCommandService/EditDepartmentsResponse")]
         void EditDepartments(ProjektGlowny.DataCommandService.Department department, System.Guid ticketId);
@@ -2035,12 +2150,20 @@ namespace ProjektGlowny.DataCommandService {
             return base.Channel.EditLibrariesAsync(libraryInfo, ticketId);
         }
         
-        public void EditUsers(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId) {
+        public void EditUsers(ProjektGlowny.DataCommandService.UserEdit userInfo, System.Guid ticketId) {
             base.Channel.EditUsers(userInfo, ticketId);
         }
         
-        public System.Threading.Tasks.Task EditUsersAsync(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId) {
+        public System.Threading.Tasks.Task EditUsersAsync(ProjektGlowny.DataCommandService.UserEdit userInfo, System.Guid ticketId) {
             return base.Channel.EditUsersAsync(userInfo, ticketId);
+        }
+        
+        public void AdminEditUsers(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId) {
+            base.Channel.AdminEditUsers(userInfo, ticketId);
+        }
+        
+        public System.Threading.Tasks.Task AdminEditUsersAsync(ProjektGlowny.DataCommandService.UserInfo userInfo, System.Guid ticketId) {
+            return base.Channel.AdminEditUsersAsync(userInfo, ticketId);
         }
         
         public void EditDepartments(ProjektGlowny.DataCommandService.Department department, System.Guid ticketId) {

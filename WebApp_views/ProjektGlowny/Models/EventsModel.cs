@@ -111,11 +111,24 @@ namespace ProjektGlowny.Models
         
         }
 
+        private DataCommandService.Department departInfoConventer(DataQueryService.Department queryDepartInfo)
+        {
+            DataCommandService.Department dataCommDepartInfo = new DataCommandService.Department();
+
+            dataCommDepartInfo.Id = queryDepartInfo.Id;
+            dataCommDepartInfo.Name = queryDepartInfo.Name;
+            dataCommDepartInfo.ExtensionData = queryDepartInfo.ExtensionData;
+
+            return dataCommDepartInfo;
+        }
+
         public void editEvent(EventsModel model, Guid ticket) 
         {
             DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
             DataCommandService.EventInfo evnt = new DataCommandService.EventInfo();
 
+            DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+            var department = dataQueryService.GetDepartment(model.selectedDepartmentId, ticket);
 
             evnt.Title = model.title;
             evnt.Content = model.content;
@@ -123,7 +136,7 @@ namespace ProjektGlowny.Models
             evnt.NotificationDate = model.notificationDate.ToString();
             evnt.UserId = model.UserId;
             evnt.Id = model.Id;
-            //evnt.Department
+            evnt.Department = departInfoConventer(department);
 
             try
             {

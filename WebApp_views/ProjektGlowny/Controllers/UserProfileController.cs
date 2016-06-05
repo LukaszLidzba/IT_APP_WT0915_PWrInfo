@@ -14,11 +14,11 @@ namespace ProjektGlowny.Controllers
         {
             if (Session["UserTicket"] != null)
             {
-                UserModels u = new UserModels();
+                UserModels model = new UserModels();
 
-                UserModels user = u.GetUser(new Guid(Session["UserTicket"].ToString()));
+                model = model.GetUser(new Guid(Session["UserTicket"].ToString()));
 
-                return View(user);
+                return View(model);
             }
             return Redirect("~/Login/Login");
         }

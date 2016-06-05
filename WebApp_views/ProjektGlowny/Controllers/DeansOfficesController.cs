@@ -134,9 +134,9 @@ namespace ProjektGlowny.Controllers
                     model.Address = DeansOff.Address;
                     model.Department = DeansOff.Department;
                     model.OpeningHours = DeansOff.OpeningHours;
-                    model.UserId = (int)Session["UserId"];
+                    model.UserId = DeansOff.UserId;
                     model.selectedDepartmentId = DeansOff.Department.Id;
-                  //  model.Department = DeansOff.Department;
+
                     return View(model);
                 }
                 return Redirect("~/DeansOffices/DeansOffices");
@@ -149,6 +149,7 @@ namespace ProjektGlowny.Controllers
         {
             if (Session["UserTicket"] != null)
             {
+                model.UserId = (int)Session["UserId"];
                 model.editDeanOffice(model, new Guid(Session["UserTicket"].ToString()));
                 return Redirect("~/DeansOffices/DeansOffices");
             }

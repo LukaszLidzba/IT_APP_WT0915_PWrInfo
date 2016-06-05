@@ -227,7 +227,7 @@
   <xs:element name="EditUsers">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="userInfo" nillable="true" type="q24:UserInfo" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="userInfo" nillable="true" type="q24:UserEdit" />
         <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticketId" type="q25:guid" />
       </xs:sequence>
     </xs:complexType>
@@ -237,11 +237,24 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="AdminEditUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="userInfo" nillable="true" type="q26:UserInfo" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticketId" type="q27:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdminEditUsersResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="EditDepartments">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="department" nillable="true" type="q26:Department" />
-        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticketId" type="q27:guid" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Zedd.Dto" minOccurs="0" name="department" nillable="true" type="q28:Department" />
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ticketId" type="q29:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

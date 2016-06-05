@@ -222,6 +222,9 @@
     <Content Include="Service References\DataQueryService\ProjektGlowny.DataQueryService.UserInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\DataQueryService\ProjektGlowny.DataQueryService.Department.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\DataQueryService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

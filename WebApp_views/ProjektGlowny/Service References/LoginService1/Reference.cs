@@ -15,6 +15,83 @@ namespace ProjektGlowny.LoginService1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ChangePasswordRequest", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
+    [System.SerializableAttribute()]
+    public partial class ChangePasswordRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NewPasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OldPasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid TicketIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NewPassword {
+            get {
+                return this.NewPasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NewPasswordField, value) != true)) {
+                    this.NewPasswordField = value;
+                    this.RaisePropertyChanged("NewPassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OldPassword {
+            get {
+                return this.OldPasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OldPasswordField, value) != true)) {
+                    this.OldPasswordField = value;
+                    this.RaisePropertyChanged("OldPassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid TicketId {
+            get {
+                return this.TicketIdField;
+            }
+            set {
+                if ((this.TicketIdField.Equals(value) != true)) {
+                    this.TicketIdField = value;
+                    this.RaisePropertyChanged("TicketId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/Zedd.Dto")]
     [System.SerializableAttribute()]
     public partial class UserInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -247,6 +324,12 @@ namespace ProjektGlowny.LoginService1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/TryLogin", ReplyAction="http://tempuri.org/ILoginService/TryLoginResponse")]
         System.Threading.Tasks.Task<bool> TryLoginAsync(string loginName, string password);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/ChangePassword", ReplyAction="http://tempuri.org/ILoginService/ChangePasswordResponse")]
+        void ChangePassword(ProjektGlowny.LoginService1.ChangePasswordRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/ChangePassword", ReplyAction="http://tempuri.org/ILoginService/ChangePasswordResponse")]
+        System.Threading.Tasks.Task ChangePasswordAsync(ProjektGlowny.LoginService1.ChangePasswordRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/ProlongSession", ReplyAction="http://tempuri.org/ILoginService/ProlongSessionResponse")]
         void ProlongSession(System.Guid ticketId);
         
@@ -301,6 +384,14 @@ namespace ProjektGlowny.LoginService1 {
         
         public System.Threading.Tasks.Task<bool> TryLoginAsync(string loginName, string password) {
             return base.Channel.TryLoginAsync(loginName, password);
+        }
+        
+        public void ChangePassword(ProjektGlowny.LoginService1.ChangePasswordRequest request) {
+            base.Channel.ChangePassword(request);
+        }
+        
+        public System.Threading.Tasks.Task ChangePasswordAsync(ProjektGlowny.LoginService1.ChangePasswordRequest request) {
+            return base.Channel.ChangePasswordAsync(request);
         }
         
         public void ProlongSession(System.Guid ticketId) {

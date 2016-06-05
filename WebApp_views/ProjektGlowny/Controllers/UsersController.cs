@@ -121,9 +121,13 @@ namespace ProjektGlowny.Controllers
         {
             if (model.Password == model.repeatPassword)
             {
-                model.addUser(new Guid(Session["UserTicket"].ToString()), model.name, model.surname, model.Password, model.Login, model.selectedUnitId, model.isAdmin);
-
+                if (model.Login != null && model.Password != null && model.surname != null)
+                {
+                    model.addUser(new Guid(Session["UserTicket"].ToString()), model);
+              
                 return Redirect("~/Users/Users");
+                }
+                return UsersAdd();
             }
 
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
@@ -165,8 +169,12 @@ namespace ProjektGlowny.Controllers
         {
             if (Session["UserTicket"] != null)
             {
-                model.editUser(model, new Guid(Session["UserTicket"].ToString()));
-                return Redirect("~/Users/Users");
+                if (model.Login != null)
+                {
+                    model.editUser(model, new Guid(Session["UserTicket"].ToString()));
+                    return Redirect("~/Users/Users");
+                }
+                return UsersEdit(model.id);
             }
             return Redirect("~/Login/Login");
         }

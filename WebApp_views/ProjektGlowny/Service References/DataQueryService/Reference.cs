@@ -1050,6 +1050,12 @@ namespace ProjektGlowny.DataQueryService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetUser", ReplyAction="http://tempuri.org/IDataQueryService/GetUserResponse")]
         System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.UserInfo> GetUserAsync(int id, System.Guid ticket);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetDepartment", ReplyAction="http://tempuri.org/IDataQueryService/GetDepartmentResponse")]
+        ProjektGlowny.DataQueryService.Department GetDepartment(int id, System.Guid ticket);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetDepartment", ReplyAction="http://tempuri.org/IDataQueryService/GetDepartmentResponse")]
+        System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.Department> GetDepartmentAsync(int id, System.Guid ticket);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataQueryService/GetAllDeansOffices", ReplyAction="http://tempuri.org/IDataQueryService/GetAllDeansOfficesResponse")]
         ProjektGlowny.DataQueryService.DeansOfficeInfo[] GetAllDeansOffices(System.Guid ticket);
         
@@ -1160,6 +1166,14 @@ namespace ProjektGlowny.DataQueryService {
         
         public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.UserInfo> GetUserAsync(int id, System.Guid ticket) {
             return base.Channel.GetUserAsync(id, ticket);
+        }
+        
+        public ProjektGlowny.DataQueryService.Department GetDepartment(int id, System.Guid ticket) {
+            return base.Channel.GetDepartment(id, ticket);
+        }
+        
+        public System.Threading.Tasks.Task<ProjektGlowny.DataQueryService.Department> GetDepartmentAsync(int id, System.Guid ticket) {
+            return base.Channel.GetDepartmentAsync(id, ticket);
         }
         
         public ProjektGlowny.DataQueryService.DeansOfficeInfo[] GetAllDeansOffices(System.Guid ticket) {

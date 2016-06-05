@@ -123,6 +123,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LibraryInfo" nillable="true" type="tns:LibraryInfo" />
+  <xs:complexType name="UserEdit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Unit" nillable="true" type="tns:UnitInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserEdit" nillable="true" type="tns:UserEdit" />
   <xs:complexType name="UserInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />

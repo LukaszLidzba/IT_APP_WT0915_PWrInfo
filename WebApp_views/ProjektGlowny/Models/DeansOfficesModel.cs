@@ -90,15 +90,17 @@ namespace ProjektGlowny.Models
         public void editDeanOffice(DeansOfficesModel model, Guid ticket)
         {
             DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
-
             DataCommandService.DeansOfficeInfo deansOffice = new DataCommandService.DeansOfficeInfo();
+
+            DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+            var department = dataQueryService.GetDepartment(model.selectedDepartmentId, ticket);
 
             deansOffice.Id = model.Id;
             deansOffice.AdditionalInfo = model.AdditionalInfo;
             deansOffice.Address = model.Address;
             deansOffice.OpeningHours = model.OpeningHours;
             deansOffice.UserId = model.UserId;
-            deansOffice.Department = departInfoConventer(model.Department);
+            deansOffice.Department = departInfoConventer(department);
 
             try
             {

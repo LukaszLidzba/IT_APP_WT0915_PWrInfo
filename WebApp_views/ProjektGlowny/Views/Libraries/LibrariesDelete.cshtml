@@ -17,7 +17,8 @@
 </ol>
     
     @using (Html.BeginForm("LibrariesDelete", "Libraries", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
-    {
+    {    @Html.HiddenFor(m => m.Name, new { @class = "form-control" })
+
         <div class="form-group">
             @Html.LabelFor(m => m.Id)<br />
             @Html.DisplayFor(m => m.Id, new { @class = "form-control" })

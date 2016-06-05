@@ -112,7 +112,7 @@ namespace ProjektGlowny.Controllers
         [HttpPost]
         public ActionResult MessagesEdit(MessagesModel model)
         {
-            if (Session["UserTicket"] != null)
+            if (Session["UserTicket"] != null && model.content != null)
             {
                 if (model.title != null)
                 {
@@ -188,9 +188,14 @@ namespace ProjektGlowny.Controllers
         {
             if (Session["UserTicket"] != null)
             {
-                model.addMessage(model, new Guid(Session["UserTicket"].ToString()));
+                if (model.title != null && model.content != null)
+                {
+                    model.addMessage(model, new Guid(Session["UserTicket"].ToString()));
 
-                return Redirect("~/Messages/Messages");
+                    return Redirect("~/Messages/Messages");
+                }
+
+                return MessagesAdd();
             }
 
             return Redirect("~/Login/Login");
