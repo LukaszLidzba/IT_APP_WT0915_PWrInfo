@@ -90,7 +90,7 @@ namespace ProjektGlowny.Controllers
             if (Session["UserTicket"] != null)
             {
                 if (model.Name != null)
-                {
+                {   
                     model.editUnit(model, new Guid(Session["UserTicket"].ToString()));
                     return Redirect("~/Units/Units");
                 }

@@ -1,4 +1,5 @@
-﻿
+﻿@using ProjektGlowny.Models
+@model EventsModel
 @{
     ViewBag.Title = "Edycja wydarzenia";
     Layout = "~/Views/PWrInfo/_Layout.cshtml";
@@ -15,34 +16,42 @@
     <li class="active">Edycja</li>
 </ol>
 
-<form>
+@using (Html.BeginForm("EventsEdit", "Events", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
+{
     <div class="form-group">
-        <label for="id-wydarzenia">ID wydarzenia</label>
-        <input type="text" class="form-control" id="id-wydarzenia" placeholder="ID wydarzenia" value="123456">
+        @Html.LabelFor(m => m.Id)<br />
+        @Html.DisplayFor(m => m.Id, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="wydzial">Wydział</label>
-        <input type="text" class="form-control" id="wydzial" placeholder="Wydział" value="W4 - Elektroniki">
+        @Html.LabelFor(m => m.title)<br />
+        @Html.TextBoxFor(m => m.title, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="tytul">Tytuł</label>
-        <input type="text" class="form-control" id="tytul" placeholder="Tytuł" value="Jakiś ciekawy tytuł typu 'Lorem Ipsum'">
+        @Html.LabelFor(m => m.content)<br />
+        @Html.TextAreaFor(m => m.content, new { style = "width: 70%; height: 250px;" })
     </div>
     <div class="form-group">
-        <label for="tresc">Treść</label>
-        <input type="text" class="form-control" id="tresc" placeholder="Treść" value="Treść wydarzenia, które jeszcze nie wiadomo czy się odbędzie.">
+        @Html.LabelFor(m => m.departments)<br />
+        @Html.DropDownListFor(m => m.selectedDepartmentId, new SelectList(Model.departmentsList, "Value", "Text"), new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="data">Data</label>
-        <input type="text" class="form-control" id="data" placeholder="Data" value="20.06.2016">
+        @Html.LabelFor(m => m.date)<br />
+        @Html.TextBoxFor(m => m.date, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="data-przypomnienia">Data przypomnienia</label>
-        <input type="text" class="form-control" id="data-przypomnienia" placeholder="Data przypomnienia" value="20.06.2016">
+        @Html.LabelFor(m => m.notificationDate)<br />
+        @Html.TextBoxFor(m => m.notificationDate, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="id-usera">ID użytkownika</label>
-        <input type="text" class="form-control" id="id-usera" placeholder="ID użytkownika" value="200855">
+        @Html.LabelFor(m => m.UserId)<br />
+        @Html.DisplayFor(m => m.UserId, new { @class = "form-control" })
     </div>
-    <button type="submit" class="btn btn-primary btn-lg">Zapisz dane</button>
- </form>
+    <button type="submit" class="btn btn-primary btn-lg">Zmień</button>
+}
+
+<script>
+    $(function () {
+        $("#date").datetimepicker();
+        $("#notificationDate").datetimepicker();
+     });
+</script>

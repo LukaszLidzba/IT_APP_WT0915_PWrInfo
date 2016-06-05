@@ -5,7 +5,8 @@ using System.Web;
 using ProjektGlowny.DataQueryService;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-
+using System.Web.Mvc;
+ 
 namespace ProjektGlowny.Models
 {
     public class EventsModel
@@ -18,6 +19,10 @@ namespace ProjektGlowny.Models
 
         [Display(Name = "Wydział")]
         public Department departments { get; set; }
+
+        [Display(Name = "Wydział")]
+        public IEnumerable<SelectListItem> departmentsList { get; set; }
+        public int selectedDepartmentId { get; set; }
 
         [Display(Name = "Treść")]
         public string content { get; set; }
@@ -86,15 +91,51 @@ namespace ProjektGlowny.Models
         }
 
         public void addEvent(EventsModel model, Guid ticket)
-        {}
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+            DataCommandService.AddEventRequest evnt = new DataCommandService.AddEventRequest();
+
+            evnt.Title = model.title;
+            evnt.Content = model.content;
+            evnt.Ticket = ticket;
+            evnt.DepartmentId = model.selectedDepartmentId;
+            evnt.Date = model.date;
+            evnt.NotificationDate = model.notificationDate;
+
+            try
+            {
+                dataCommandService.AddEvent(evnt);
+            }
+            catch (Exception ex)
+            { }
+        
+        }
 
         public void editEvent(EventsModel model, Guid ticket) 
-        { }
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+            DataCommandService.EventInfo evnt = new DataCommandService.EventInfo();
+
+
+            evnt.Title = model.title;
+            evnt.Content = model.content;
+            evnt.Date = model.date.ToString();
+            evnt.NotificationDate = model.notificationDate.ToString();
+            evnt.UserId = model.UserId;
+            evnt.Id = model.Id;
+            //evnt.Department
+
+            try
+            {
+                dataCommandService.EditEvents(evnt, ticket);
+            }
+            catch (Exception ex)
+            { }
+        }
 
         public void deleteEvent(EventsModel model, Guid ticket)
         {
             DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
-
             DataCommandService.DeleteRequest evnt = new DataCommandService.DeleteRequest();
 
             evnt.Id = model.Id;

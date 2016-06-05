@@ -100,7 +100,7 @@ namespace ProjektGlowny.Controllers
                 model.title = msg.Title;
                 model.important = msg.Important;
                 model.selectedDepartmentId = msg.Department.Id;
-                model.UserId = (int)Session["UserId"];
+                model.UserId = msg.UserId;
 
                 return View(model);
                
@@ -116,6 +116,7 @@ namespace ProjektGlowny.Controllers
             {
                 if (model.title != null)
                 {
+                    model.UserId = (int)Session["UserId"];
                     model.editMessage(model, new Guid(Session["UserTicket"].ToString()));
                     return Redirect("~/Messages/Messages");
                 }

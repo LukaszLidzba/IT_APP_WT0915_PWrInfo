@@ -25,13 +25,13 @@ namespace ProjektGlowny.Controllers
 
                 if (startDate == null)
                 {
-                    startDate = DateTime.Today.AddDays(-30).ToString("MM-dd-yyyy");
+                    startDate = DateTime.Today.AddDays(-15).ToString("MM-dd-yyyy");
 
                 }
 
                 if (endDate == null)
                 {
-                    endDate = DateTime.Today.ToString("MM-dd-yyyy");
+                    endDate = DateTime.Today.AddDays(30).ToString("MM-dd-yyyy");
                 }
 
 
@@ -105,17 +105,33 @@ namespace ProjektGlowny.Controllers
         }
 
      
-        public ActionResult EventsEdit(int? id)
+        public ActionResult EventsEdit(int id)
         {
             if (Session["UserTicket"] != null)
             {
-                if (id != null)
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+
+                var evnt = dataQueryService.GetEvent(id, new Guid(Session["UserTicket"].ToString()));
+                var departments = dataQueryService.GetAllDeansOffices(new Guid(Session["UserTicket"].ToString())); // tu get deparmen
+
+                var model = new EventsModel
                 {
-                    EventsModel model = new EventsModel();
-                    //find
-                    return View(model);
-                }
-                return Redirect("~/Events/Events");
+                    departmentsList = departments.Select(d => new SelectListItem
+                    {
+                        Text = d.Department.Name,
+                        Value = d.Id.ToString()
+                    })
+                };
+
+                model.Id = evnt.Id;
+                model.content = evnt.Content;
+                model.title = evnt.Title;
+                model.date = DateTime.Parse(evnt.Date);
+                model.notificationDate = DateTime.Parse(evnt.NotificationDate);
+                model.selectedDepartmentId = evnt.Department.Id;
+                model.UserId = evnt.UserId;
+
+                return View(model);
             }
             return Redirect("~/Login/Login");
         }
@@ -125,8 +141,14 @@ namespace ProjektGlowny.Controllers
         {
             if (Session["UserTicket"] != null)
             {
-                //edit func
-                return Redirect("~/Messages/Messages");
+                if (model.date != null && model.notificationDate != null && model.title != null && model.content != null)
+                {
+                    model.UserId = (int)Session["UserId"];
+                    model.editEvent(model, new Guid(Session["UserTicket"].ToString()));
+
+                    return Redirect("~/Events/Events");
+                }
+                return View(model);
             }
             return Redirect("~/Login/Login");
         }
@@ -170,12 +192,41 @@ namespace ProjektGlowny.Controllers
 
         public ActionResult EventsAdd()
         {
+            if (Session["UserTicket"] != null)
+            {
+                DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+                var departments = dataQueryService.GetAllDeansOffices(new Guid(Session["UserTicket"].ToString())); // tu get deparmen
 
-            EventsModel model = new EventsModel();
+                var model = new EventsModel
+                {
+                    departmentsList = departments.Select(d => new SelectListItem
+                    {
+                        Text = d.Department.Name,
+                        Value = d.Id.ToString()
+                    })
+                };
+                return View(model);
 
-            return View(model);
+            }
+            return Redirect("~/Login/Login");
+        }
 
+        [HttpPost]
+        public ActionResult EventsAdd(EventsModel model)
+        {
+            if (Session["UserTicket"] != null)
+            {
+                if (model.date != null && model.notificationDate != null && model.title != null && model.content != null)
+                {
+                    model.addEvent(model, new Guid(Session["UserTicket"].ToString()));
 
+                    return Redirect("~/Events/Events");
+                }
+                return View(model);
+
+            }
+
+            return Redirect("~/Login/Login");
         }
     }
 }

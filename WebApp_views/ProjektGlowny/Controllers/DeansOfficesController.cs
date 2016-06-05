@@ -99,8 +99,12 @@ namespace ProjektGlowny.Controllers
         {
             if (Session["UserTicket"] != null)
             {
-                model.addDeanOffice(model, new Guid(Session["UserTicket"].ToString()));
-                return Redirect("~/DeansOffices/DeansOffices");
+                if (model.AdditionalInfo != null)
+                {
+                    model.addDeanOffice(model, new Guid(Session["UserTicket"].ToString()));
+                    return Redirect("~/DeansOffices/DeansOffices");
+                }
+                return View(model);
             }
             return Redirect("~/Login/Login");
         }
