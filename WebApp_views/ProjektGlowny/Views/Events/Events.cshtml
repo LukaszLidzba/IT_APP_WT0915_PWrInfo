@@ -29,9 +29,9 @@
          
         <div class="form-group">Podaj datę:</div>
         <div class="form-group">od:</div>
-        @Html.TextBox("startDate", ViewBag.StartDate as string)
+        @Html.TextBox("startDate", ViewBag.StartDate as string, new { @class = "form-control" })
         <div class="form-group">do:</div>
-        @Html.TextBox("endDate", ViewBag.EndDate as string)
+        @Html.TextBox("endDate", ViewBag.EndDate as string, new { @class = "form-control" })
         
         <button type="submit" class="btn btn-default">
             <i class="icon icon-data fa fa-search" aria-hidden="true"></i> Szukaj
@@ -77,12 +77,12 @@
             </td>
             <td>
 
-                <a href="@Url.Action("EventsEdit", "Events", new { id = item.Id })">
+                <a href="@Url.Action("EventsEdit", "Events", new { id = item.Id })" class="btn btn-default">
                     <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                     <span class="button-text">Edytuj</span>
                 </a>
                 <br />
-                <a href="@Url.Action("EventsDelete", "Events", new { id = item.Id })">
+                <a href="@Url.Action("EventsDelete", "Events", new { id = item.Id })" class="btn btn-danger">
                     <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
                     <span class="button-text">Usuń</span>
                 </a>

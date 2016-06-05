@@ -168,6 +168,14 @@ namespace ProjektGlowny.Controllers
             return Redirect("~/Login/Login");
         }
 
+        public ActionResult EventsAdd()
+        {
 
+            EventsModel model = new EventsModel();
+
+            return View(model);
+
+
+        }
     }
 }

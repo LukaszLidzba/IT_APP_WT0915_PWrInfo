@@ -1,10 +1,6 @@
 ﻿function AddDatePicker() {
-    var $datePicker = $(".datepicker");
+    var $datePicker = $(".DT-Picker");
 
     if ($datePicker != null)
-        $datePicker.datepicker({
-            inline: true,
-            changeMonth: true,
-            changeYear: true
-        });
+        $datePicker.datetimepicker();
 }
