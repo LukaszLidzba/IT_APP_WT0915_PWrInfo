@@ -27,6 +27,8 @@ public class TabFragment2 extends Fragment {
 
        // String htmlAsString = getString(R.string.kandydaci);
         WebView webView = (WebView)rootView.findViewById(R.id.webView);
+        webView.clearCache(true);
+
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("http://krystiankaliciak.tk/student.html");
         //webView.loadDataWithBaseURL(null, htmlAsString, "text/html", "utf-8", null);
