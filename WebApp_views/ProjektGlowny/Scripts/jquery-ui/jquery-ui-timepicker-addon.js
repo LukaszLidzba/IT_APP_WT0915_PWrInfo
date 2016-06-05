@@ -35,20 +35,20 @@
 	var Timepicker = function () {
 		this.regional = []; // Available regional settings, indexed by language code
 		this.regional[''] = { // Default regional settings
-			currentText: 'Now',
-			closeText: 'Done',
+			currentText: 'Teraz',
+			closeText: 'OK',
 			amNames: ['AM', 'A'],
 			pmNames: ['PM', 'P'],
 			timeFormat: 'HH:mm',
 			timeSuffix: '',
-			timeOnlyTitle: 'Choose Time',
-			timeText: 'Time',
-			hourText: 'Hour',
-			minuteText: 'Minute',
-			secondText: 'Second',
-			millisecText: 'Millisecond',
-			microsecText: 'Microsecond',
-			timezoneText: 'Time Zone',
+			timeOnlyTitle: 'Wybierz godzinê',
+			timeText: 'Czas',
+			hourText: 'Godzina',
+			minuteText: 'Minuta',
+			secondText: 'sekunda',
+			millisecText: 'Milisekunda',
+			microsecText: 'Mikrosekunda',
+			timezoneText: 'Strefa czasowa',
 			isRTL: false
 		};
 		this._defaults = { // Global defaults for all the datetime picker instances

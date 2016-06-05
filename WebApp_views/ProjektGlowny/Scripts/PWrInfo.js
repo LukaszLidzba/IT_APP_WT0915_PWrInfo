@@ -2,5 +2,6 @@
     var $datePicker = $(".DT-Picker");
 
     if ($datePicker != null)
-        $datePicker.datetimepicker();
+        $datePicker.datetimepicker({
+});
 }
