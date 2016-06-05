@@ -81,7 +81,7 @@ namespace ProjektGlowny.Controllers
                 model.Address = library.Address;
                 model.Name = library.Name;
                 model.OpeningHours = library.OpeningHours;
-                model.UserId = (int)Session["UserId"];
+                model.UserId = model.UserId;
 
                 return View(model);
             }
@@ -95,6 +95,7 @@ namespace ProjektGlowny.Controllers
             {
                 if (model.Name != null)
                 {
+                    model.UserId = (int)Session["UserId"];
                     model.editLibrary(model, new Guid(Session["UserTicket"].ToString()));
                     return Redirect("~/Libraries/Libraries");
                 }
