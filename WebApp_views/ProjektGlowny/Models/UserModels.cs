@@ -54,20 +54,20 @@ namespace ProjektGlowny.Models
         public int id { get; set; }
         
 
-        public void addUser(Guid ticket, string name, string surname, string password, string login, int unitId, bool isAdmin)
+        public void addUser(Guid ticket, UserModels model)
         {
-            if (Login != null && password != null && ticket != null)
+            if (Login != null && model.Password != null && ticket != null)
             {
                 IDataCommandService dataCommandService = new DataCommandServiceClient();
                 AddUserRequest addUser = new AddUserRequest();
 
-                addUser.Name = name;
-                addUser.Surname = surname;
-                addUser.Login = login;
-                addUser.IsAdmin = isAdmin;
-                addUser.Password = password;
+                addUser.Name = model.name;
+                addUser.Surname = model.surname;
+                addUser.Login = model.Login;
+                addUser.IsAdmin = model.isAdmin;
+                addUser.Password = model.Password;
                 addUser.Ticket = ticket;
-                addUser.UnitId = unitId;
+                addUser.UnitId = model.selectedUnitId;
 
                 try
                 {
@@ -122,48 +122,87 @@ namespace ProjektGlowny.Models
                     
         }
 
-        private DataCommandService.UnitInfo unitInfoConventer( LoginService1.UnitInfo logUnitInfo)
-        {
-            DataCommandService.UnitInfo dataCommUnitInfo = new DataCommandService.UnitInfo();
-
-            dataCommUnitInfo.Id = logUnitInfo.Id;
-            dataCommUnitInfo.Name = logUnitInfo.Name;
-            dataCommUnitInfo.Description = logUnitInfo.Description;
-            dataCommUnitInfo.ExtensionData = logUnitInfo.ExtensionData;
-
-            return dataCommUnitInfo;
-        }
-
         public void changePassword(UserModels model, Guid ticket)
         {
-            DataCommandService.UserInfo user = new DataCommandService.UserInfo();
-
             ProjektGlowny.LoginService1.ILoginService loginService = new ProjektGlowny.LoginService1.LoginServiceClient();
-            ProjektGlowny.LoginService1.UserInfo result = new ProjektGlowny.LoginService1.UserInfo();
+            ProjektGlowny.LoginService1.ChangePasswordRequest changePassReq = new ProjektGlowny.LoginService1.ChangePasswordRequest();
 
-            IDataCommandService dataCommandService = new DataCommandServiceClient();
-            
-            result = loginService.GetUser(ticket);
-
-            user.Id = result.Id;
-            user.IsAdmin = result.IsAdmin;
-            user.Login = result.Login;
-            user.Surname = result.Surname;
-            user.Password = model.Password;
-            user.Unit = unitInfoConventer(result.Unit);
-            user.Name = result.Name;
+            changePassReq.OldPassword = model.oldPassword;
+            changePassReq.NewPassword = model.Password;
+            changePassReq.TicketId = ticket;
 
             try
             {
-                dataCommandService.EditUsers(user, ticket);
+                loginService.ChangePassword(changePassReq);
             }
             catch(Exception ex){ }
         }
 
 
+        private DataCommandService.UnitInfo unitInfoConventer(DataQueryService.UnitInfo UnitInfo)
+        {
+            DataCommandService.UnitInfo dataCommUnitInfo = new DataCommandService.UnitInfo();
+
+            dataCommUnitInfo.Id = UnitInfo.Id;
+            dataCommUnitInfo.Name = UnitInfo.Name;
+            dataCommUnitInfo.Description = UnitInfo.Description;
+            dataCommUnitInfo.ExtensionData = UnitInfo.ExtensionData;
+
+            return dataCommUnitInfo;
+        }
+
+
         public void editUser(UserModels model, Guid ticket)
-        { 
-        
+        {
+            DataCommandService.IDataCommandService dataCommandService = new DataCommandService.DataCommandServiceClient();
+
+            DataQueryService.IDataQueryService dataQueryService = new DataQueryService.DataQueryServiceClient();
+            var unit = dataQueryService.GetUnit(model.selectedUnitId, ticket);
+
+
+            if (model.Password != null)
+            {
+                if (model.Password == model.repeatPassword)
+                {
+                    DataCommandService.UserInfo user = new DataCommandService.UserInfo();
+
+                    user.Id = model.id;
+                    user.Name = model.name;
+                    user.Surname = model.surname;
+                    user.Login = model.Login;
+                    user.IsAdmin = model.isAdmin;
+                    user.Password = model.Password;
+                    user.Unit = unitInfoConventer(unit);
+
+                    try
+                    {
+                        dataCommandService.AdminEditUsers(user, ticket);
+                    }
+                    catch (Exception ex)
+                    { }
+                }
+            }
+            else 
+            {
+                DataCommandService.UserEdit user = new DataCommandService.UserEdit();
+
+                user.Id = model.id;
+                user.Name = model.name;
+                user.Surname = model.surname;
+                user.IsAdmin = model.isAdmin;
+                user.Unit = unitInfoConventer(unit);
+
+                try
+                {
+                    dataCommandService.EditUsers(user, ticket);
+                }
+                catch (Exception ex)
+                { }
+            
+            }
+
+           
+
         }
     }
        
