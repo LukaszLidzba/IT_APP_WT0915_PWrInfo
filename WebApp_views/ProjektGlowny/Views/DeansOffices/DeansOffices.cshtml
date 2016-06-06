@@ -64,12 +64,12 @@
                 @Html.DisplayFor(m => item.UserId)
             </td>
             <td>
-                <a href="@Url.Action("DeansOfficesEdit", "DeansOffices", new { id = item.Id })">
+                <a href="@Url.Action("DeansOfficesEdit", "DeansOffices", new { id = item.Id })" class="btn  btn-default">
                     <i class="icon icon-data fa fa-pencil" aria-hidden="true"></i>
                     <span class="button-text">Edytuj</span>
                 </a>
                 <br />
-                <a href="@Url.Action("DeansOfficesDelete", "DeansOffices", new { id = item.Id })">
+                <a href="@Url.Action("DeansOfficesDelete", "DeansOffices", new { id = item.Id })" class="btn  btn-danger">
                     <i class="icon icon-data fa fa-trash" aria-hidden="true"></i>
                     <span class="button-text">Usuń</span>
                 </a>

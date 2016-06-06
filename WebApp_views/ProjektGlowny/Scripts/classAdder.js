@@ -8,8 +8,8 @@
 
     $(document).ready(function () {
         initClasses();
-        initBadge();
-        setBadgeText();
+        //initBadge();
+        //setBadgeText();
     });
 
     function getWidth() {

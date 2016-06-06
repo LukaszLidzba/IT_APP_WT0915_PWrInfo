@@ -5517,12 +5517,15 @@ aside {
   padding-right: 15px;
   background-color: #013457;
 }
+aside.xs {
+  width: 80px;
+}
 aside ul {
   padding: 0;
 }
 aside ul li {
   display: block;
-  width: 100px;
+  width: 90%;
   margin: 20px auto;
   border: 1px #8DC7FF solid;
   border-radius: 5px;
@@ -5530,6 +5533,9 @@ aside ul li {
   -o-transition: background 0.2s ease-in-out;
   -webkit-transition: background 0.2s ease-in-out;
   transition: background 0.2s ease-in-out;
+}
+aside ul li.xs {
+  width: 100%;
 }
 aside ul li:hover {
   background-color: #01253e;
@@ -5552,40 +5558,76 @@ aside ul li a .icon {
   display: block;
   margin: 0 auto;
 }
+aside ul li a .icon.xs {
+  font-size: 2em;
+}
 aside ul li a .icon-main {
   width: 52px;
+}
+aside ul li a .icon-main.xs {
+  width: 35px;
 }
 aside ul li a .icon-libraries {
   width: 52px;
 }
+aside ul li a .icon-libraries.xs {
+  width: 35px;
+}
 aside ul li a .icon-messages {
   width: 48px;
+}
+aside ul li a .icon-messages.xs {
+  width: 31px;
 }
 aside ul li a .icon-events {
   width: 55px;
 }
+aside ul li a .icon-events.xs {
+  width: 35px;
+}
 aside ul li a .icon-deansOffices {
   width: 62px;
+}
+aside ul li a .icon-deansOffices.xs {
+  width: 40px;
 }
 aside ul li a .icon-users {
   width: 51.5px;
 }
+aside ul li a .icon-users.xs {
+  width: 35px;
+}
 aside ul li a .icon-units {
   width: 48px;
 }
+aside ul li a .icon-units.xs {
+  width: 32px;
+}
 aside ul li a .icon-profile {
   width: 44px;
+}
+aside ul li a .icon-profile.xs {
+  width: 28px;
 }
 aside ul li a .description {
   text-align: center;
   font-size: 12px;
   margin-top: 8px;
 }
+aside ul li a .description.xs {
+  display: none;
+}
 main {
   min-height: 1px;
   padding-right: 15px;
   width: 100%;
   padding-left: 165px;
+}
+main.xs {
+  padding-left: 96px;
+}
+main.xs h1 {
+  margin-top: 80px;
 }
 main footer {
   position: absolute;
@@ -5682,8 +5724,17 @@ main .form-control {
   display: inline-block;
   margin-left: 30px;
 }
+#SearchString {
+  display: inline-block;
+}
+#SearchString.xs {
+  width: 50%;
+}
 /* Bootstrap styles modifications */
 .navbar-form {
   margin-bottom: 15px;
   padding: 0;
+}
+.navbar-form.xs {
+  padding: 0 15px;
 }

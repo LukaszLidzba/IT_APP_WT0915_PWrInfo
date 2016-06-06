@@ -17,7 +17,7 @@
 /* Mixins */
 
 .mk-reset-padding() {
-    padding-left: 0;  
+    padding-left: 0;
     padding-right: 0;
 }
 
@@ -74,16 +74,24 @@ aside {
     padding-right: 15px;
     background-color: @DarkerBlue;
 
+    &.xs {
+        width: 80px;
+    }
+
     ul {
         padding: 0;
 
         li {
             display: block;
-            width: 100px;
+            width: 90%;
             margin: 20px auto;
             border: 1px @LightBlue solid;
             border-radius: 5px;
             .mk-transition(background);
+
+            &.xs {
+                width: 100%;
+            }
 
             &:hover {
                 background-color: @DarkBlue;
@@ -105,36 +113,72 @@ aside {
                     display: block;
                     margin: 0 auto;
 
+                    &.xs {
+                        font-size: 2em;
+                    }
+
                     &-main {
                         width: 52px;
+
+                        &.xs {
+                            width: 35px;
+                        }
                     }
 
                     &-libraries {
                         width: 52px;
+
+                        &.xs {
+                            width: 35px;
+                        }
                     }
 
                     &-messages {
                         width: 48px;
+
+                        &.xs {
+                            width: 31px;
+                        }
                     }
 
                     &-events {
                         width: 55px;
+
+                        &.xs {
+                            width: 35px;
+                        }
                     }
 
-                    &-deansOffices{
+                    &-deansOffices {
                         width: 62px;
+
+                        &.xs {
+                            width: 40px;
+                        }
                     }
 
                     &-users {
                         width: 51.5px;
+
+                        &.xs {
+                            width: 35px;
+                        }
                     }
 
                     &-units {
                         width: 48px;
+
+                        &.xs {
+                            width: 32px;
+                        }
                     }
 
                     &-profile {
                         width: 44px;
+
+                        &.xs {
+                            width: 28px;
+                        }
                     }
                 }
 
@@ -142,6 +186,10 @@ aside {
                     text-align: center;
                     font-size: 12px;
                     margin-top: 8px;
+
+                    &.xs {
+                        display: none;
+                    }
                 }
             }
         }
@@ -153,6 +201,14 @@ main {
     padding-right: 15px;
     width: 100%;
     padding-left: 165px;
+
+    &.xs {
+        padding-left: 96px;
+
+        h1 {
+            margin-top: 80px;
+        }
+    }
 
     footer {
         position: absolute;
@@ -235,7 +291,7 @@ main {
     }
 }
 
-.loginbar{
+.loginbar {
     position: absolute;
     right: 0;
     top: 0;
@@ -246,24 +302,36 @@ main {
     border-bottom-left-radius: 30px;
     color: @LightBlue;
 
-    &-description{
+    &-description {
         display: inline-block;
     }
 
-    &-user{
+    &-user {
         display: inline-block;
         font-weight: bold;
     }
 
-    &-button{
+    &-button {
         display: inline-block;
-        margin-left:30px;
+        margin-left: 30px;
+    }
+}
+
+#SearchString {
+    display: inline-block;
+
+    &.xs {
+        width: 50%;
     }
 }
 
 /* Bootstrap styles modifications */
 
-.navbar-form{
+.navbar-form {
     margin-bottom: 15px;
     padding: 0;
+
+    &.xs {
+        padding: 0 15px;
+    }
 }
