@@ -7,6 +7,7 @@ using System.Web.Security;
 using System.Web.Mvc;
 using ProjektGlowny.DataQueryService;
 using ProjektGlowny.DataCommandService;
+using System.Web.Security;
 
 namespace ProjektGlowny.Models
 {
@@ -127,8 +128,8 @@ namespace ProjektGlowny.Models
             ProjektGlowny.LoginService1.ILoginService loginService = new ProjektGlowny.LoginService1.LoginServiceClient();
             ProjektGlowny.LoginService1.ChangePasswordRequest changePassReq = new ProjektGlowny.LoginService1.ChangePasswordRequest();
 
-            changePassReq.OldPassword = model.oldPassword;
-            changePassReq.NewPassword = model.Password;
+            changePassReq.OldPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(model.oldPassword, "SHA1");
+            changePassReq.NewPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password, "SHA1");
             changePassReq.TicketId = ticket;
 
             try
@@ -171,7 +172,7 @@ namespace ProjektGlowny.Models
                     user.Surname = model.surname;
                     user.Login = model.Login;
                     user.IsAdmin = model.isAdmin;
-                    user.Password = model.Password;
+                    user.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password, "SHA1");
                     user.Unit = unitInfoConventer(unit);
 
                     try

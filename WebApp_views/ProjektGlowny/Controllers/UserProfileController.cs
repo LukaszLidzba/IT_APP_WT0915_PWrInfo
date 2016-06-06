@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ProjektGlowny.Models;
 using ProjektGlowny.LoginService1;
+using System.Web.Security;
 
 namespace ProjektGlowny.Controllers
 {
@@ -33,7 +34,7 @@ namespace ProjektGlowny.Controllers
                     ILoginService loginService = new LoginServiceClient();
 
 
-                    if (loginService.TryLogin(model.Login.Trim(), model.oldPassword.Trim()))
+                    if (loginService.TryLogin(model.Login.Trim(), FormsAuthentication.HashPasswordForStoringInConfigFile(model.oldPassword, "SHA1")))
                     {
                         model.changePassword(model, new Guid(Session["UserTicket"].ToString()));
                         return Redirect("~/PWrInfo/Index");

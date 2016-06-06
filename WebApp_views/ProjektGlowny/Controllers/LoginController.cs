@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ProjektGlowny.Models;
 using ProjektGlowny.LoginService1;
 using ProjektGlowny.DataQueryService;
+using System.Web.Security;
 
 namespace ProjektGlowny.Controllers
 {
@@ -27,7 +28,7 @@ namespace ProjektGlowny.Controllers
 
             try
             {
-                var result = loginService.Login(model.Login.Trim(), model.Password.Trim());
+                var result = loginService.Login(model.Login.Trim(), FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password, "SHA1"));
 
                 var user = loginService.GetUser(new Guid(result));
 

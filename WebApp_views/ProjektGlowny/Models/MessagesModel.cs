@@ -90,6 +90,7 @@ namespace ProjektGlowny.Models
             message.Title = model.title;
             message.Content = model.content;
             message.Ticket = ticket;
+            message.Important = model.important;
             message.DepartmentId = model.selectedDepartmentId;
           
             try
