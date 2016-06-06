@@ -16,13 +16,15 @@
 </ol>
 
 <div>
-   Najnowsze wiadomości
+    <h2>
+        <i class="fa fa-comments-o fa-2x md" aria-hidden="true"></i> Najnowsze wiadomości
+    </h2>
 </div>
 <table class="table table-striped">
     <tr>
         <td>ID </td>
         <td>Treść</td>
-        <td>Wydział</td>
+        <td style="width: 20%;">Wydział</td>
     </tr>
    @foreach(var item in Model.Item1.Take(3))
    {
@@ -34,14 +36,16 @@
     }
 </table>
 
- <div>
-   Najnowsze wydarzenia
+<div>
+    <h2>
+        <i class="fa fa-newspaper-o fa-2x md" aria-hidden="true"></i> Najnowsze wydarzenia
+    </h2>
 </div>
 <table class="table table-striped">
     <tr>
         <td>ID </td>
         <td>Treść</td>
-        <td>Wydział</td>
+        <td style="width: 20%;">Wydział</td>
     </tr>
    @foreach (var item in Model.Item2.Take(3))
    {
