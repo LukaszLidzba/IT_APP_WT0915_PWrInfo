@@ -52,5 +52,35 @@ namespace Zedd.Queries
     {
       return GetMessagesInternal(0, true);
     }
+
+    public MessageInfo GetById(int id)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (session.BeginTransaction())
+        {
+          var message = session.Query<Messages>().SingleOrDefault(x => x.Id == id);
+
+          if (message != null)
+          {
+            return new MessageInfo
+            {
+              Id = message.Id,
+              UserId = message.UserId,
+              Content = message.Content,
+              Department = new Departments
+              {
+                Name = message.Department.Name,
+                Id = message.Department.Id
+              },
+              Title = message.Title,
+              Important = message.Important
+            };
+          }
+        }
+      }
+
+      return new MessageInfo();
+    }
   }
 }

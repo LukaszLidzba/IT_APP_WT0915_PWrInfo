@@ -12,6 +12,24 @@ namespace Zedd
     DeansOfficeInfo GetDeansOfficeInfo(int id, Guid ticket);
 
     [OperationContract]
+    LibraryInfo GetLibrary(int id, Guid ticket);
+
+    [OperationContract]
+    MessageInfo GetMessage(int id, Guid ticket);
+
+    [OperationContract]
+    EventInfo GetEvent(int id, Guid ticket);
+
+    [OperationContract]
+    UnitInfo GetUnit(int id, Guid ticket);
+
+    [OperationContract]
+    UserInfo GetUser(int id, Guid ticket);
+
+    [OperationContract]
+    Department GetDepartment(int id, Guid ticket);
+
+    [OperationContract]
     IList<DeansOfficeInfo> GetAllDeansOffices(Guid ticket);
 
     [OperationContract]

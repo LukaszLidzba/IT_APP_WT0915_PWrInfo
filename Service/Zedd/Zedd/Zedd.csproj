@@ -110,6 +110,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\ChangePasswordRequest.cs" />
     <Compile Include="DeleteRequest.cs" />
     <Compile Include="Dto\AddUserRequest.cs" />
     <Compile Include="Commands\Commands.cs" />
@@ -153,8 +154,10 @@
     <Compile Include="Commands\ILoginHandler.cs" />
     <Compile Include="IRestDataService.cs" />
     <Compile Include="Queries\DeansOfficeQuery.cs" />
+    <Compile Include="Queries\DepartmentQueryDao.cs" />
     <Compile Include="Queries\EventsQueryDao.cs" />
     <Compile Include="Queries\IDeansOfficeQuery.cs" />
+    <Compile Include="Queries\IDepartmentQuery.cs" />
     <Compile Include="Queries\IEventsQuery.cs" />
     <Compile Include="Queries\ILoginQueryDao.cs" />
     <Compile Include="ILoginService.cs" />
@@ -180,6 +183,7 @@
     <Compile Include="RestDataService.svc.cs">
       <DependentUpon>RestDataService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Dto\UserEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

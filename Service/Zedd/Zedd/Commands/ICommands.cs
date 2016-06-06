@@ -18,6 +18,8 @@ namespace Zedd.Commands
 
     void Delete<T>(int id);
 
+    void Edit(UserEdit userInfo);
+
     void Edit(UserInfo userInfo);
 
     void Edit(LibraryInfo libraryInfo);
@@ -31,5 +33,7 @@ namespace Zedd.Commands
     void Edit(UnitInfo unitInfo);
 
     void Edit(MessageInfo messageInfo);
+
+    void ChangePassword(int id, string newPassword, string oldPassword);
   }
 }

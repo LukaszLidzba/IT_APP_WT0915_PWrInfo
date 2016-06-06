@@ -7,6 +7,8 @@ namespace Zedd.Queries
   {
     Guid Login(string loginName, string password);
 
+    bool TryLogin(string loginName, string password);
+
     void IsAuthenticated(Guid ticket);
 
     UserInfo GetUser(Guid ticket);

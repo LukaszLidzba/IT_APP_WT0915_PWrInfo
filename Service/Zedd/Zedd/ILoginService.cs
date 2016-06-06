@@ -17,6 +17,12 @@ namespace Zedd
     string Login(string loginName, string password);
 
     [OperationContract]
+    bool TryLogin(string loginName, string password);
+
+    [OperationContract]
+    void ChangePassword(ChangePasswordRequest request);
+
+    [OperationContract]
     void ProlongSession(Guid ticketId);
 
     [OperationContract]

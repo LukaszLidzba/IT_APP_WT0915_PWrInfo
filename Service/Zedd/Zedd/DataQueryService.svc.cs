@@ -21,13 +21,14 @@ namespace Zedd
     private readonly ILibraryQuery _libraryQuery;
     private readonly IUnitQuery _unitQuery;
     private readonly IUserQuery _userQuery;
+    readonly IDepartmentQuery _departmentQuery;
 
     public DataQueryService()
-      : this(null, null, null, null, null, null, null, null)
+      : this(null, null, null, null, null, null, null, null, null)
     {
     }
 
-    public DataQueryService(IDeansOfficeQuery deansOfficeQuery, ILoginQueryDao loginQuery, ISessionGenerator sessionGenerator, IEventsQuery eventsQuery, IMessageQuery messageQuery, ILibraryQuery libraryQuery, IUnitQuery unitQuery, IUserQuery userQuery)
+    public DataQueryService(IDeansOfficeQuery deansOfficeQuery, ILoginQueryDao loginQuery, ISessionGenerator sessionGenerator, IEventsQuery eventsQuery, IMessageQuery messageQuery, ILibraryQuery libraryQuery, IUnitQuery unitQuery, IUserQuery userQuery, IDepartmentQuery departmentQuery)
     {
       _deansOfficeQuery = deansOfficeQuery ?? new DeansOfficeQuery();
       _loginQuery = loginQuery ?? new LoginQueryDao();
@@ -37,6 +38,7 @@ namespace Zedd
       _libraryQuery = libraryQuery ?? new LibraryQueryDao();
       _unitQuery = unitQuery ?? new UnitQueryDao();
       _userQuery = userQuery ?? new UserQueryDao();
+      _departmentQuery = departmentQuery ?? new DepartmentQueryDao();
     }
 
     public DeansOfficeInfo GetDeansOfficeInfo(int id, Guid ticket)
@@ -60,6 +62,144 @@ namespace Zedd
       }
 
       return deansOfficeInfo;
+    }
+
+    public LibraryInfo GetLibrary(int id, Guid ticket)
+    {
+      LibraryInfo libraryInfo;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        libraryInfo = _libraryQuery.GetById(id);
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException(e.Message);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+
+      return libraryInfo;
+    }
+
+    public MessageInfo GetMessage(int id, Guid ticket)
+    {
+      MessageInfo messageInfo;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        messageInfo = _messageQuery.GetById(id);
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException(e.Message);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+
+      return messageInfo;
+    }
+
+    public EventInfo GetEvent(int id, Guid ticket)
+    {
+      EventInfo eventInfo;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        eventInfo = _eventsQuery.GetById(id);
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException(e.Message);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+
+      return eventInfo;
+    }
+
+    public UnitInfo GetUnit(int id, Guid ticket)
+    {
+      UnitInfo unitInfo;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        unitInfo = _unitQuery.GetById(id);
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException(e.Message);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+
+      return unitInfo;
+    }
+
+    public UserInfo GetUser(int id, Guid ticket)
+    {
+      UserInfo getUser;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        getUser = _userQuery.GetById(id);
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException(e.Message);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+
+      return getUser;
+    }
+
+    public Department GetDepartment(int id, Guid ticket)
+    {
+      Department getDepartment;
+
+      try
+      {
+        _loginQuery.IsAuthenticated(ticket);
+        _sessionGenerator.ProlongSession(ticket);
+
+        getDepartment = _departmentQuery.GetById(id);
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException(e.Message);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+
+      return getDepartment;
     }
 
     public IList<DeansOfficeInfo> GetAllDeansOffices(Guid ticket)

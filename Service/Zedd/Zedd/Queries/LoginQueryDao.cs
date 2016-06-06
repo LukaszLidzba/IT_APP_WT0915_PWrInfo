@@ -33,6 +33,21 @@ namespace Zedd.Queries
       return authenticationUser != null ? _sessionGenerator.GenerateSession(authenticationUser.Id) : Guid.Empty;
     }
 
+    public bool TryLogin(string loginName, string password)
+    {
+      Users authenticationUser;
+
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (session.BeginTransaction())
+        {
+          authenticationUser = session.Query<Users>().SingleOrDefault(x => x.Login == loginName.Trim() && x.Password == password.Trim());
+        }
+      }
+
+      return authenticationUser != null;
+    }
+
     public void IsAuthenticated(Guid ticket)
     {
       Tickets record;

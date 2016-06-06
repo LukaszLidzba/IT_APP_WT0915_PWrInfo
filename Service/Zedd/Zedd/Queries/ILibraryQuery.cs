@@ -6,5 +6,7 @@ namespace Zedd.Queries
   public interface ILibraryQuery
   {
     IList<LibraryInfo> GetLibraries();
+
+    LibraryInfo GetById(int id);
   }
 }

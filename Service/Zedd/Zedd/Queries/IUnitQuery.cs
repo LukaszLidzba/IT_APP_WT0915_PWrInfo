@@ -6,5 +6,7 @@ namespace Zedd.Queries
   public interface IUnitQuery
   {
     IList<UnitInfo> GetUnits();
+
+    UnitInfo GetById(int id);
   }
 }

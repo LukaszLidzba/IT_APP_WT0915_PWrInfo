@@ -356,7 +356,25 @@ namespace Zedd
       }
     }
 
-    public void EditUsers(UserInfo userInfo, Guid ticketId)
+    public void EditUsers(UserEdit userInfo, Guid ticketId)
+    {
+      try
+      {
+        _loginQuery.IsAuthenticated(ticketId);
+
+        _commands.Edit(userInfo);
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException<SecurityException>(e);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+    }
+
+    public void AdminEditUsers(UserInfo userInfo, Guid ticketId)
     {
       try
       {
@@ -381,6 +399,24 @@ namespace Zedd
         _loginQuery.IsAuthenticated(ticketId);
 
         _commands.Edit(department);
+      }
+      catch (SecurityException e)
+      {
+        throw new FaultException<SecurityException>(e);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(e.Message);
+      }
+    }
+
+    public void ChangePassword(Guid ticketId, int id, string newPassword, string oldPassword)
+    {
+      try
+      {
+        _loginQuery.IsAuthenticated(ticketId);
+
+        _commands.ChangePassword(id, newPassword, oldPassword);
       }
       catch (SecurityException e)
       {

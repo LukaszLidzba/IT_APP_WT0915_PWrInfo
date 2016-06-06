@@ -38,5 +38,31 @@ namespace Zedd.Queries
 
       return result ?? new List<LibraryInfo>();
     }
+
+    public LibraryInfo GetById(int id)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (session.BeginTransaction())
+        {
+          var library = session.Query<Libraries>().SingleOrDefault(libraries => libraries.Id == id);
+
+          if (library != null)
+          {
+            return new LibraryInfo
+            {
+              Id = library.Id,
+              UserId = library.UserId,
+              Address = library.Address,
+              OpeningHours = library.OpeningHours,
+              AdditionalInfo = library.AdditionalInfo,
+              Name = library.Name
+            };
+          }
+        }
+      }
+
+      return new LibraryInfo();
+    }
   }
 }

@@ -33,6 +33,11 @@ namespace Zedd.Commands
       return result;
     }
 
+    public bool HandleTryLogin(string loginName, string password)
+    {
+      return _loginQueryDao.TryLogin(loginName, password);
+    }
+
     public void HandleProlongSession(Guid ticketId)
     {
       _sessionGenerator.ProlongSession(ticketId);

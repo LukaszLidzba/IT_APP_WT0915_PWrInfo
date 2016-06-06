@@ -43,5 +43,36 @@ namespace Zedd.Queries
 
       return result ?? new List<UserInfo>();
     }
+
+    public UserInfo GetById(int id)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (session.BeginTransaction())
+        {
+          var user = session.Query<Users>().SingleOrDefault(users => users.Id == id);
+
+          if (user != null)
+          {
+            return new UserInfo()
+            {
+              Id = user.Id,
+              Name = user.Name,
+              Unit = new UnitInfo
+              {
+                Id = user.Unit.Id,
+                Name = user.Unit.Name,
+                Description = user.Unit.Description
+              },
+              Login = user.Login,
+              Surname = user.Surname,
+              IsAdmin = user.IsAdmin
+            };
+          }
+        }
+      }
+
+      return new UserInfo();
+    }
   }
 }

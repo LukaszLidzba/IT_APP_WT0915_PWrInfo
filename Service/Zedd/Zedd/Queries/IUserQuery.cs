@@ -10,5 +10,7 @@ namespace Zedd.Queries
   public interface IUserQuery
   {
     IList<UserInfo> GetUsers();
+
+    UserInfo GetById(int id);
   }
 }

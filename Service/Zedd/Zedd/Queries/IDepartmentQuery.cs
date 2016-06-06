@@ -7,12 +7,8 @@ using Zedd.Dto;
 
 namespace Zedd.Queries
 {
-  public interface IMessageQuery
+  public interface IDepartmentQuery
   {
-    IList<MessageInfo> GetMessages(int departmentId);
-
-    IList<MessageInfo> GetAllMessages();
-
-    MessageInfo GetById(int id);
+    Department GetById(int id);
   }
 }

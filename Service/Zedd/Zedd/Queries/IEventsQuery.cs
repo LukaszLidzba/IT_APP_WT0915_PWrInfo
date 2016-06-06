@@ -8,5 +8,7 @@ namespace Zedd.Queries
     IList<EventInfo> GetEvents(int departmentId);
 
     IList<EventInfo> GetAllEvents();
+
+    EventInfo GetById(int id);
   }
 }

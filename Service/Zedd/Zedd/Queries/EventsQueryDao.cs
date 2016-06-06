@@ -54,5 +54,36 @@ namespace Zedd.Queries
     {
       return GetEventsInternal(0, true);
     }
+
+    public EventInfo GetById(int id)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (session.BeginTransaction())
+        {
+          var @event = session.Query<Events>().SingleOrDefault(events => events.Id == id);
+
+          if (@event != null)
+          {
+            return new EventInfo()
+            {
+              Id = @event.Id,
+              Department = new Department
+              {
+                Id = @event.Department.Id,
+                Name = @event.Department.Name
+              },
+              UserId = @event.UserId,
+              Date = @event.Date.ToString(CultureInfo.CurrentCulture),
+              Content = @event.Content,
+              NotificationDate = @event.NotificationDate.ToString(CultureInfo.CurrentCulture),
+              Title = @event.Title
+            };
+          }
+        }
+      }
+
+      return new EventInfo();
+    }
   }
 }

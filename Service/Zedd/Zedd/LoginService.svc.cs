@@ -13,16 +13,18 @@ namespace Zedd
   {
     private readonly ILoginHandler _loginHandler;
     private readonly ILoginQueryDao _loginQueryDao;
+    readonly ICommands _commands;
 
     public LoginService()
-      : this(null, null)
+      : this(null, null, null)
     {
     }
 
-    public LoginService(ILoginHandler loginHandler, ILoginQueryDao loginQueryDao)
+    public LoginService(ILoginHandler loginHandler, ILoginQueryDao loginQueryDao, ICommands commands)
     {
       _loginHandler = loginHandler ?? new LoginHandler();
       _loginQueryDao = loginQueryDao ?? new LoginQueryDao();
+      _commands = commands ?? new Commands.Commands();
     }
 
     public string Login(string loginName, string password)
@@ -43,6 +45,27 @@ namespace Zedd
       }
 
       return token.ToString();
+    }
+
+    public bool TryLogin(string loginName, string password)
+    {
+      return _loginHandler.HandleTryLogin(loginName, password);
+    }
+
+    public void ChangePassword(ChangePasswordRequest request)
+    {
+      try
+      {
+        _loginHandler.HandleProlongSession(request.TicketId);
+
+        var user = _loginQueryDao.GetUser(request.TicketId);
+
+        _commands.ChangePassword(user.Id, request.NewPassword, request.OldPassword);
+      }
+      catch (Exception e)
+      {
+        throw new FaultException(new FaultReason("Error during password changing") + e.Message + e.InnerException + e.StackTrace + e.Data);
+      }
     }
 
     public void ProlongSession(Guid ticketId)

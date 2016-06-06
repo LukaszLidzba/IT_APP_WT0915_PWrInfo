@@ -63,7 +63,10 @@ namespace Zedd
     void EditLibraries(LibraryInfo libraryInfo, Guid ticketId);
 
     [OperationContract]
-    void EditUsers(UserInfo userInfo, Guid ticketId);
+    void EditUsers(UserEdit userInfo, Guid ticketId);
+
+    [OperationContract]
+    void AdminEditUsers(UserInfo userInfo, Guid ticketId);
 
     [OperationContract]
     void EditDepartments(Department department, Guid ticketId);

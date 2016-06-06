@@ -196,6 +196,25 @@ namespace Zedd.Commands
       }
     }
 
+    public void Edit(UserEdit userInfo)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (var transaction = session.BeginTransaction())
+        {
+          var entity = session.QueryOver<Users>().Where(users => users.Id == userInfo.Id).SingleOrDefault();
+
+          entity.IsAdmin = userInfo.IsAdmin;
+          entity.Name = userInfo.Name;
+          entity.Surname = userInfo.Surname;
+          entity.Unit = new Unit { Id = userInfo.Unit.Id };
+
+          session.Update(entity);
+          transaction.Commit();
+        }
+      }
+    }
+
     public void Edit(UserInfo userInfo)
     {
       using (var session = NHibernateHelper.OpenSession())
@@ -205,14 +224,37 @@ namespace Zedd.Commands
           var entity = session.QueryOver<Users>().Where(users => users.Id == userInfo.Id).SingleOrDefault();
 
           entity.IsAdmin = userInfo.IsAdmin;
-          entity.Login = userInfo.Login;
           entity.Name = userInfo.Name;
-          entity.Password = userInfo.Password;
           entity.Surname = userInfo.Surname;
           entity.Unit = new Unit { Id = userInfo.Unit.Id };
+          entity.Password = userInfo.Password;
+          entity.Login = userInfo.Login;
 
           session.Update(entity);
           transaction.Commit();
+        }
+      }
+    }
+
+    public void ChangePassword(int id, string newPassword, string oldPassword)
+    {
+      using (var session = NHibernateHelper.OpenSession())
+      {
+        using (var transaction = session.BeginTransaction())
+        {
+          var entity = session.QueryOver<Users>().Where(users => users.Id == id).SingleOrDefault();
+
+          if (oldPassword == entity.Password)
+          {
+            entity.Password = newPassword;
+
+            session.Update(entity);
+            transaction.Commit();
+          }
+          else
+          {
+            throw new Exception("wrong password");
+          }
         }
       }
     }
